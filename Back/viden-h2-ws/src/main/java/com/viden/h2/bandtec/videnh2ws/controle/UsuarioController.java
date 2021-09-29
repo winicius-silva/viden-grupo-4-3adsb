@@ -27,13 +27,11 @@ public class UsuarioController {
 
     @GetMapping("/login/{email}/{senha}")
     public Boolean login(@PathVariable String email,@PathVariable String senha){
-        List<Usuario> usuarios = repository.findAll();
-        for (Usuario usuario : usuarios) {
-            if(usuario.getEmail().equals(email) && usuario.getSenha().equals(senha)){
-                return true;
-            }
+        Usuario usuarios = repository.findByEmailAndSenha(email,senha);
+        if(usuarios == null){
+            return false;
         }
-        return false;
+        return true;
     }
-    
+
 }

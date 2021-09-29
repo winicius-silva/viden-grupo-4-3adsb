@@ -1,26 +1,23 @@
-package br.com.viden.grupo4.viden;
+package com.viden.h2.bandtec.videnh2ws.dominio;
 
+import org.springframework.data.jpa.repository.Query;
+
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
 public class Usuario {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_usuario;
-    private Integer fk_empresa;
     private String nome_usuario;
     private String cpf;
-    private Integer data_nascimento;
+    private Integer dataNascimento;
     private String celular;
     private String email;
     private String senha;
-
-    public Usuario(Integer id_usuario, Integer fk_empresa, String nome_usuario, String cpf, Integer data_nascimento, String celular, String email, String senha) {
-        this.id_usuario = id_usuario;
-        this.fk_empresa = fk_empresa;
-        this.nome_usuario = nome_usuario;
-        this.cpf = cpf;
-        this.data_nascimento = data_nascimento;
-        this.celular = celular;
-        this.email = email;
-        this.senha = senha;
-    }
+    private Integer fk_empresa_usuario;
 
     public Integer getId_usuario() {
         return id_usuario;
@@ -28,14 +25,6 @@ public class Usuario {
 
     public void setId_usuario(Integer id_usuario) {
         this.id_usuario = id_usuario;
-    }
-
-    public Integer getFk_empresa() {
-        return fk_empresa;
-    }
-
-    public void setFk_empresa(Integer fk_empresa) {
-        this.fk_empresa = fk_empresa;
     }
 
     public String getNome_usuario() {
@@ -54,12 +43,12 @@ public class Usuario {
         this.cpf = cpf;
     }
 
-    public Integer getdata_nascimento() {
-        return data_nascimento;
+    public Integer getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setdata_nascimento(Integer data_nascimento) {
-        this.data_nascimento = data_nascimento;
+    public void setDataNascimento(Integer dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public String getCelular() {
@@ -84,5 +73,13 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public Integer getFk_empresa_usuario() {
+        return fk_empresa_usuario;
+    }
+
+    public void setFk_empresa_usuario(Integer fk_empresa_usuario) {
+        this.fk_empresa_usuario = fk_empresa_usuario;
     }
 }

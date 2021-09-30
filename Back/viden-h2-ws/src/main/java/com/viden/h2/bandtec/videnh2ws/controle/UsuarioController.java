@@ -19,6 +19,11 @@ public class UsuarioController {
         return repository.findAll();
     }
 
+    @GetMapping("/{id_usuario}")
+    public Usuario getUsuario(@PathVariable Integer id_usuario){
+        return repository.findByIdusuario(id_usuario);
+    }
+
     @PostMapping
     public String cadastrar(@RequestBody Usuario novoUsuario){
         repository.save(novoUsuario);

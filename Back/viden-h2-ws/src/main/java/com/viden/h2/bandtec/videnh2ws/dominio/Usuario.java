@@ -1,16 +1,13 @@
 package com.viden.h2.bandtec.videnh2ws.dominio;
 
-import org.springframework.data.jpa.repository.Query;
-
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_usuario;
+    private Integer idusuario;
     private String nome_usuario;
     private String cpf;
     private Integer dataNascimento;
@@ -20,11 +17,11 @@ public class Usuario {
     private Integer fk_empresa_usuario;
 
     public Integer getId_usuario() {
-        return id_usuario;
+        return idusuario;
     }
 
     public void setId_usuario(Integer id_usuario) {
-        this.id_usuario = id_usuario;
+        this.idusuario = id_usuario;
     }
 
     public String getNome_usuario() {
@@ -68,7 +65,7 @@ public class Usuario {
     }
 
     public String getSenha() {
-        return senha;
+        return null;
     }
 
     public void setSenha(String senha) {

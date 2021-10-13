@@ -1,4 +1,4 @@
-package com.viden.h2.bandtec.videnh2ws;
+package com.viden.bandtec.videnws;
 
 public class ListObj <T> {
 

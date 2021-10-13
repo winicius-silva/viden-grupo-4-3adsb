@@ -1,11 +1,9 @@
-package com.viden.h2.bandtec.videnh2ws.dominio;
+package com.viden.bandtec.videnws.dominio;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "tb_pontuacao")
 public class Pontuacao {
 
     @Id

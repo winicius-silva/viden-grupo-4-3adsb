@@ -1,7 +1,7 @@
-package com.viden.h2.bandtec.videnh2ws.controle;
+package com.viden.bandtec.videnws.controle;
 
-import com.viden.h2.bandtec.videnh2ws.dominio.Pontuacao;
-import com.viden.h2.bandtec.videnh2ws.repositorio.PontuacaoRepository;
+import com.viden.bandtec.videnws.dominio.Pontuacao;
+import com.viden.bandtec.videnws.repositorio.PontuacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

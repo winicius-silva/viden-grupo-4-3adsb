@@ -1,6 +1,6 @@
-package com.viden.h2.bandtec.videnh2ws.repositorio;
+package com.viden.bandtec.videnws.repositorio;
 
-import com.viden.h2.bandtec.videnh2ws.dominio.Pontuacao;
+import com.viden.bandtec.videnws.dominio.Pontuacao;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

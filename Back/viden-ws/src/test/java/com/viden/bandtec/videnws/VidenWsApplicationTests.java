@@ -1,10 +1,10 @@
-package com.viden.h2.bandtec.videnh2ws;
+package com.viden.bandtec.videnws;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class VidenH2WsApplicationTests {
+class VidenWsApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,7 +1,7 @@
-package com.viden.h2.bandtec.videnh2ws.controle;
+package com.viden.bandtec.videnws.controle;
 
-import com.viden.h2.bandtec.videnh2ws.dominio.Usuario;
-import com.viden.h2.bandtec.videnh2ws.repositorio.UsuarioRepository;
+import com.viden.bandtec.videnws.dominio.Usuario;
+import com.viden.bandtec.videnws.repositorio.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

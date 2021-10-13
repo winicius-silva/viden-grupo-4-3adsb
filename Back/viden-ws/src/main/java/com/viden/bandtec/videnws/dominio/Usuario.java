@@ -1,8 +1,9 @@
-package com.viden.h2.bandtec.videnh2ws.dominio;
+package com.viden.bandtec.videnws.dominio;
 
 import javax.persistence.*;
 
 @Entity
+@Table(name = "tb_usuario")
 public class Usuario {
 
     @Id

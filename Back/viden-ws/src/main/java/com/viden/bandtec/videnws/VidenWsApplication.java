@@ -1,13 +1,13 @@
-package com.viden.h2.bandtec.videnh2ws;
+package com.viden.bandtec.videnws;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class VidenH2WsApplication {
+public class VidenWsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(VidenH2WsApplication.class, args);
+		SpringApplication.run(VidenWsApplication.class, args);
 	}
 
 }

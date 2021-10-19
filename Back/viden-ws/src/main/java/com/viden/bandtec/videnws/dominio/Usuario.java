@@ -8,13 +8,28 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_usuario")
     private Integer idusuario;
+
+    @Column(name = "nome_usuario")
     private String nome_usuario;
+
+    @Column(name = "cpf")
     private String cpf;
+
+    @Column(name = "data_nascimento")
     private Integer dataNascimento;
+
+    @Column(name = "celular")
     private String celular;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "senha")
     private String senha;
+
+    @Column(name = "fk_empresa")
     private Integer fk_empresa_usuario;
 
     public Integer getId_usuario() {

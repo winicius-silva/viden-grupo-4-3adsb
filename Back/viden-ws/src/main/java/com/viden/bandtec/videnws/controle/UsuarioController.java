@@ -3,6 +3,7 @@ package com.viden.bandtec.videnws.controle;
 import com.viden.bandtec.videnws.dominio.Usuario;
 import com.viden.bandtec.videnws.repositorio.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,28 +16,32 @@ public class UsuarioController {
     private UsuarioRepository repository;
 
     @GetMapping
-    public List<Usuario> getUsuario(){
-        return repository.findAll();
+    public ResponseEntity getUsuario(){
+        List<Usuario> usuarios = repository.findAll();
+        if (usuarios.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        }
+        return ResponseEntity.status(200).body(usuarios);
     }
 
     @GetMapping("/{id_usuario}")
-    public Usuario getUsuario(@PathVariable Integer id_usuario){
-        return repository.findByIdusuario(id_usuario);
+    public ResponseEntity getUsuario(@PathVariable Integer id_usuario){
+        return ResponseEntity.of(repository.findById(id_usuario));
     }
 
     @PostMapping
-    public String cadastrar(@RequestBody Usuario novoUsuario){
+    public ResponseEntity cadastrar(@RequestBody Usuario novoUsuario){
         repository.save(novoUsuario);
-        return "Usuario cadastrado com sucesso!";
+        return ResponseEntity.status(201).build();
     }
 
     @GetMapping("/login/{email}/{senha}")
-    public Boolean login(@PathVariable String email,@PathVariable String senha){
+    public ResponseEntity login(@PathVariable String email,@PathVariable String senha){
         Usuario usuarios = repository.findByEmailAndSenha(email,senha);
         if(usuarios == null){
-            return false;
+            return ResponseEntity.status(404).build();
         }
-        return true;
+        return ResponseEntity.status(200).build();
     }
 
 }

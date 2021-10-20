@@ -7,21 +7,109 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="index.css">
     <title>Página Inicial</title>
 </head>
 <body>
     <div class="header">
         <h1 class="header_font" id="title"> &#60;&#47;Viden </h1>
         <div class="search">
-            <input type="text" placeholder="Ex: Python cursos..." class="form_font" id="input">
-            <img src="../img/loupe.svg" alt="" id="input_img">
+            <input type="text" placeholder="Ex: Python cursos..." class="form_font" id="input" />
+            <img src="./img/loupe.svg" alt="" id="input_img" />
         </div>
-        <h1 class="header_font" id="subtitle">Sobre nós</h1>
-        <h1 class="header_font" id="subtitle">Empresas Parceiras</h1>
-        <button class="btn">Entrar</button>
+        <div>
+            <a href="../login/login.html"><button class="btn">Entrar</button></a>
+        </div>
     </div>
-    <img src="../img/background_index.svg" alt="">
-    
+    <div id="banner-sobre-nos">
+        <h3 id="texto-banner">Uma plataforma de cursos inovadora, diferente de todas as outras já vistas, onde o conhecimento e o conforto é o nosso ponto chave. </h3>
+    </div>
+    <div id="container-left">
+        <div id="text-1">
+            <img src="img/eclipse.png" style="width: 120px; height: 120px;">
+            <br>
+            <h4 style="color: rgb(255, 255, 255); font-size: 3.2vh;">Estude 24h/dia, onde e quando quiser</h4>
+        </div>
+        <div id="text-2">
+            <img src="img/newspaper.png" style="width: 100px; height: 100px;">
+            <h4 style="color: rgb(255, 255, 255); font-size: 3.2vh;">Novos cursos todas as semanas</h4> 
+        </div>
+        <div id="text-3">
+            <img src="img/exclusivo.png" style="width: 100px; height: 100px;">
+            <h4 style="color: rgb(255, 255, 255); font-size: 3.2vh;">Plataforma de cursos p/ funcionários de empresas parceiras exclusiva.</h4> 
+        </div>
+
+    </div>
+
+    <div id="container-right">
+        <div id="coding">
+            <img id="img1" src="img/programming-code-signs.png" alt=""> <br>
+            <h2>Coding</h2>
+        </div>
+
+         <div id="front">
+            <img id="img2" src="img/frontend.png" alt="">
+            <h2>Frontend</h2>
+        </div>
+
+        <div id="backend">
+            <img id="img3" src="img/backend.png" alt="">
+            <h2>Backend</h12>
+        </div>
+
+        <div id="ux">
+            <img id="img4" src="img/ux-design.png" alt="">
+            <h2>UX-design</h2>
+        </div>
+    </div>
+
+    <div id="container-bottom">
+        <h1 style="font-family: 'Times New Roman', Times, serif; font-size: 8vh; color: rgb(235, 212, 10);">Conheça os idealizadores</h1>
+    </div>
+
+    <div id="fotos">
+        <div id="fotoup" class="fotodiv" style="width: 100%; height: 50%;">
+            <div class="user">
+                <img src="img/carlos.jpeg" alt="" height="130px" style="border-radius: 50px;">
+                <br>
+                Carlos Mascena
+            </div>
+            <div class="user">
+                <img src="img/kaue.jpeg" alt=""  height="130px" style="border-radius: 50px;">
+                <br>
+                Kaue Volpe
+            </div>
+            <div class="user">
+                <img src="img/duo.jpeg" alt="" width="110px" height="130px" style="border-radius: 50px;">
+                <br>
+                Pedro Duó
+            </div>
+        </div>
+
+        <div id="fotodown" class="fotodiv" style="width: 100%; height: 50%;"> 
+            <div class="user">
+                <img src="img/jorge.jpeg" alt="" height="130px" style="border-radius: 50px;">
+                <br>
+                Jorge Uliam
+            </div>
+            <div class="user">
+                <img src="img/perfil.jpg" alt="" height="130px" style="border-radius: 50px;">
+                <br>
+                Samuel Lopes
+            </div>
+            <div class="user">
+                <img src="img/wini.jpeg" alt="" height="135px" style="border-radius: 50px;">
+                <br>
+                Winicius Silva
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <h2 style="margin: 15px; padding-top: 10px;">&#60;&#47;Viden</h2><br>
+        <h3 style="margin: 10px;">Tel: (11) 91234-5678</h3>
+        <h3 style="margin-left: 30px;"> <a style="color: white;" href="https://www.google.com/maps/place/Bandtec+Digital+School/@-23.5577869,-46.6615711,16z/data=!4m12!1m6!3m5!1s0x0:0xc567c0d16d0bc582!2sBandtec+Digital+School!8m2!3d-23.5581213!4d-46.661614!3m4!1s0x0:0xc567c0d16d0bc582!8m2!3d-23.5581213!4d-46.661614" target="_blank">Rua Haddock Lobo, 595 - Cerqueira César, São Paulo - SP, 01414-001</a></h3>
+        <h3> Direitos reservados por &#60;&#47;Viden &copy; </h3>
+    </div>
 </body>
 </html>

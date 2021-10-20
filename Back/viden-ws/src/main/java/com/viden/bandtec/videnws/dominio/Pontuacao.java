@@ -8,10 +8,19 @@ public class Pontuacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_pontos_usuario")
     private Integer id_pontos_usuario;
+
+    @Column(name = "data")
     private Integer data;
+
+    @Column(name = "pontos")
     private Double pontos;
+
+    @Column(name = "fk_usuario")
     private Integer fkusuario;
+
+    @Column(name = "fk_curso")
     private Integer fkcurso;
 
     public Integer getId_pontos_usuario() {

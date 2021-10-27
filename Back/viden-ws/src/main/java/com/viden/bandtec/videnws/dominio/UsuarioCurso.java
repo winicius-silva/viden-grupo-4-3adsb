@@ -15,7 +15,7 @@ public class UsuarioCurso {
 
     @Column(name = "finalizado")
     private Integer finalizado;
-// aqui temos 1 para true e 0 para false, estamos usando assim pq o banco não aceita true e false
+ // aqui temos 1 para true e 0 para false, estamos usando assim pq o banco não aceita true e false
 
     @Column(name = "date")
     private Integer date;

@@ -1,16 +1,31 @@
 package com.viden.bandtec.videnws.dominio;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "tb_empresa")
 public class Empresa {
 
-    // Atributos
-   private Integer idEmpresa;
-   private String nome;
-   private String cnpj;
-   private String endereco;
-   private String email;
-   private String senha;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_empresa")
+    private Integer idEmpresa;
 
-   // Construtor
+    @Column(name = "nome_empresa")
+    private String nome;
+
+    @Column(name = "cnpj")
+    private String cnpj;
+
+    @Column(name = "endereco")
+    private String endereco;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "senha")
+    private String senha;
+
     public Empresa(Integer idEmpresa, String nome, String cnpj, String endereco, String email, String senha) {
         this.idEmpresa = idEmpresa;
         this.nome = nome;

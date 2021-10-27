@@ -1,4 +1,4 @@
-package com.viden.bandtec.videnws;
+package com.viden.bandtec.videnws.arquivos;
 
 public class ListaObj<T> {
 

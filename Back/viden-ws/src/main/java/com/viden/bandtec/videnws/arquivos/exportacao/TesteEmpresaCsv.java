@@ -1,5 +1,6 @@
-package com.viden.bandtec.videnws;
+package com.viden.bandtec.videnws.arquivos.exportacao;
 
+import com.viden.bandtec.videnws.arquivos.ListaObj;
 import com.viden.bandtec.videnws.dominio.Empresa;
 
 import java.io.FileNotFoundException;

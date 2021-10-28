@@ -85,7 +85,7 @@ public class Empresa {
 
     @Override
     public String toString() {
-        return String.format("%8 %-25s %14d %-40s %-50s %-15s", idEmpresa, nome, cnpj, endereco, email, senha);
+        return String.format("%8d %-25s %-40s %-50s %-15s", idEmpresa, nome, cnpj, endereco, email, senha);
 
     }
 }

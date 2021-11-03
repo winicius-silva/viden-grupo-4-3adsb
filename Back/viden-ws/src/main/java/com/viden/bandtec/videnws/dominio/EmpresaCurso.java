@@ -1,41 +1,49 @@
 package com.viden.bandtec.videnws.dominio;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "tb_empresa_curso")
 public class EmpresaCurso {
 
-    @Column(name = "fk_empresa")
-    private Integer fkEmpresa;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idEmpresaCurso;
+    @ManyToOne
+    private Empresa fkEmpresa;
+    @ManyToOne
+    private Curso fkCurso;
+    private LocalDate data;
 
-    @Column(name = "fk_curso")
-    private Integer fkCurso;
+    public Integer getIdEmpresaCurso() {
+        return idEmpresaCurso;
+    }
 
-    @Column(name = "data")
-    private Integer data;
+    public void setIdEmpresaCurso(Integer idEmpresaCurso) {
+        this.idEmpresaCurso = idEmpresaCurso;
+    }
 
-    public Integer getFkEmpresa() {
+    public Empresa getFkEmpresa() {
         return fkEmpresa;
     }
 
-    public void setFkEmpresa(Integer fkEmpresa) {
+    public void setFkEmpresa(Empresa fkEmpresa) {
         this.fkEmpresa = fkEmpresa;
     }
 
-    public Integer getFkCurso() {
+    public Curso getFkCurso() {
         return fkCurso;
     }
 
-    public void setFkCurso(Integer fkCurso) {
+    public void setFkCurso(Curso fkCurso) {
         this.fkCurso = fkCurso;
     }
 
-    public Integer getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(Integer data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 }

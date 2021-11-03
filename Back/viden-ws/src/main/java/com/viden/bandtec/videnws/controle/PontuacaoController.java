@@ -47,11 +47,7 @@ public class PontuacaoController {
             total += ponto.getPontos();
         }
        Pontuacao novaPontuacao = new Pontuacao();
-       novaPontuacao.setId_pontos_usuario(0);
-       novaPontuacao.setData(null);
        novaPontuacao.setPontos(total);
-       novaPontuacao.setFk_usuario(fk_usuario);
-       novaPontuacao.setFk_curso(null);
        return ResponseEntity.status(200).body(novaPontuacao);
     }
 }

@@ -3,34 +3,19 @@ package com.viden.bandtec.videnws.dominio;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tb_usuario")
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario")
     private Integer idusuario;
-
-    @Column(name = "nome_usuario")
-    private String nome_usuario;
-
-    @Column(name = "cpf")
+    private String nomeUsuario;
     private String cpf;
-
-    @Column(name = "data_nascimento")
     private Integer dataNascimento;
-
-    @Column(name = "celular")
     private String celular;
-
-    @Column(name = "email")
     private String email;
-
-    @Column(name = "senha")
     private String senha;
-
-    @Column(name = "fk_empresa")
-    private Integer fk_empresa_usuario;
+    @ManyToOne
+    private Empresa fk_empresa;
 
     public Integer getId_usuario() {
         return idusuario;
@@ -41,11 +26,11 @@ public class Usuario {
     }
 
     public String getNome_usuario() {
-        return nome_usuario;
+        return nomeUsuario;
     }
 
     public void setNome_usuario(String nome_usuario) {
-        this.nome_usuario = nome_usuario;
+        this.nomeUsuario = nome_usuario;
     }
 
     public String getCpf() {
@@ -88,11 +73,19 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Integer getFk_empresa_usuario() {
-        return fk_empresa_usuario;
+    public Integer getIdusuario() {
+        return idusuario;
     }
 
-    public void setFk_empresa_usuario(Integer fk_empresa_usuario) {
-        this.fk_empresa_usuario = fk_empresa_usuario;
+    public void setIdusuario(Integer idusuario) {
+        this.idusuario = idusuario;
+    }
+
+    public Empresa getFk_empresa() {
+        return fk_empresa;
+    }
+
+    public void setFk_empresa(Empresa fk_empresa) {
+        this.fk_empresa = fk_empresa;
     }
 }

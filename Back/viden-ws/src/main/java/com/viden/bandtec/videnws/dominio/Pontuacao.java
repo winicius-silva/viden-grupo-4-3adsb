@@ -1,41 +1,35 @@
 package com.viden.bandtec.videnws.dominio;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
-@Table(name = "tb_pontuacao")
 public class Pontuacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_pontos_usuario")
-    private Integer id_pontos_usuario;
-
-    @Column(name = "data")
-    private Integer data;
-
-    @Column(name = "pontos")
+    private Integer idPontosUsuario;
+    private LocalDate data;
     private Double pontos;
+    @ManyToOne
+    private Usuario fkUsuario;
+    @ManyToOne
+    private Curso fkCurso;
 
-    @Column(name = "fk_usuario")
-    private Integer fkusuario;
-
-    @Column(name = "fk_curso")
-    private Integer fkcurso;
-
-    public Integer getId_pontos_usuario() {
-        return id_pontos_usuario;
+    public Integer getIdPontosUsuario() {
+        return idPontosUsuario;
     }
 
-    public void setId_pontos_usuario(Integer id_pontos_usuario) {
-        this.id_pontos_usuario = id_pontos_usuario;
+    public void setId_pontos_usuario(Integer idPontosUsuario) {
+        this.idPontosUsuario = idPontosUsuario;
     }
 
-    public Integer getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(Integer data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 
@@ -47,19 +41,19 @@ public class Pontuacao {
         this.pontos = pontos;
     }
 
-    public Integer getFk_usuario() {
-        return fkusuario;
+    public Usuario getFkusuario() {
+        return fkUsuario;
     }
 
-    public void setFk_usuario(Integer fk_usuario) {
-        this.fkusuario = fk_usuario;
+    public void setFkusuario(Usuario fkusuario) {
+        this.fkUsuario = fkusuario;
     }
 
-    public Integer getFk_curso() {
-        return fkcurso;
+    public Curso getFkcurso() {
+        return fkCurso;
     }
 
-    public void setFk_curso(Integer fk_curso) {
-        this.fkcurso = fk_curso;
+    public void setFkcurso(Curso fkcurso) {
+        this.fkCurso = fkcurso;
     }
 }

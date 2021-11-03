@@ -1,41 +1,43 @@
 package com.viden.bandtec.videnws.dominio;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "tb_curso")
 public class UsuarioCurso {
 
-    @Column(name = "fk_usuario")
-    private Integer fkUsuario;
-
-    @Column(name = "fk_curso")
-    private Integer fkCurso;
-
-
-    @Column(name = "finalizado")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idUsuarioCurso;
+    @ManyToOne
+    private Usuario fkUsuario;
+    @ManyToOne
+    private Curso fkCurso;
     private Integer finalizado;
- // aqui temos 1 para true e 0 para false, estamos usando assim pq o banco não aceita true e false
-
-    @Column(name = "date")
-    private Integer date;
-
-    @Column(name = "progresso")
+    private LocalDate date;
     private Double progresso;
 
-    public Integer getFkUsuario() {
+    public Integer getIdUsuarioCurso() {
+        return idUsuarioCurso;
+    }
+
+    public void setIdUsuarioCurso(Integer idUsuarioCurso) {
+        this.idUsuarioCurso = idUsuarioCurso;
+    }
+
+    public Usuario getFkUsuario() {
         return fkUsuario;
     }
 
-    public void setFkUsuario(Integer fkUsuario) {
+    public void setFkUsuario(Usuario fkUsuario) {
         this.fkUsuario = fkUsuario;
     }
 
-    public Integer getFkCurso() {
+    public Curso getFkCurso() {
         return fkCurso;
     }
 
-    public void setFkCurso(Integer fkCurso) {
+    public void setFkCurso(Curso fkCurso) {
         this.fkCurso = fkCurso;
     }
 
@@ -47,11 +49,11 @@ public class UsuarioCurso {
         this.finalizado = finalizado;
     }
 
-    public Integer getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Integer date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

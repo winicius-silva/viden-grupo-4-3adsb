@@ -1,29 +1,19 @@
 package com.viden.bandtec.videnws.dominio;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "tb_curso")
 public class Curso {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_curso")
     private Integer idCurso;
-
-    @Column(name = "nome_curso")
     private String nomeCurso;
-
-    @Column(name = "categoria")
     private String categoria;
-
-    @Column(name = "preco")
+    private String subCategoria;
     private Double preco;
-
-    @Column(name = "descricao")
     private String descricao;
-
-    @Column(name = "qtd_pontos")
     private Integer qtdPontos;
 
     public Integer getIdCurso() {
@@ -54,6 +44,14 @@ public class Curso {
         return preco;
     }
 
+    public String getSubCategoria() {
+        return subCategoria;
+    }
+
+    public void setSubCategoria(String subCategoria) {
+        this.subCategoria = subCategoria;
+    }
+
     public void setPreco(Double preco) {
         this.preco = preco;
     }
@@ -73,4 +71,5 @@ public class Curso {
     public void setQtdPontos(Integer qtdPontos) {
         this.qtdPontos = qtdPontos;
     }
+
 }

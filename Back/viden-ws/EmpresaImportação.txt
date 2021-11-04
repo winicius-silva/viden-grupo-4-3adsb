@@ -1,0 +1,6 @@
+00EMPRESA04-11-2021 18:16:5601
+0200000001Accenture                11.222.1111/0001-0Rua: Alexandre Dumas, 123               accenture@accenture.com                           04/11/2021 até 04/11/2022    30000,00
+0200000002Vale Mobi                12.233.1551/0006-0Av: Paulista, 34                        valemobi@valemobi.com                             04/11/2021 até 04/11/2025    50000,00
+0200000003Safra                    41.242.9181/0051-0Av: Paulista, 93                        safra@safra.com                                   04/11/2021 até 04/11/2023    40000,00
+0200000004C6BANK                   81.662.7889/0661-0Av: Consolação, 1003                    c6bank@c6bank.com                                 04/11/2021 até 04/11/2024    20000,00
+0100000000000000000004

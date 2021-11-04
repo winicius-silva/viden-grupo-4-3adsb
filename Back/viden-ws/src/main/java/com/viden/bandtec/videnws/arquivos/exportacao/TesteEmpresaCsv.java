@@ -115,7 +115,8 @@ public class TesteEmpresaCsv {
     public static void main(String[] args) {
 
         Integer idEmpresa = 0;
-        String nome, cnpj, endereco, email, senha ;
+        String nome, cnpj, endereco, email, senha, duracaoDoContrato ;
+        Double valorDoContrat0 = 0.0;
         Boolean fim = false;
         Integer digitado = 0;
 
@@ -151,7 +152,12 @@ public class TesteEmpresaCsv {
                                     email = scanner2.nextLine();
                                     System.out.println("Dígite a senha da Empresa");
                                     senha = scanner2.nextLine();
-                                    Empresa empresa1 = new Empresa(idEmpresa, nome, cnpj, endereco, email, senha);
+                                    System.out.println("Dígite a duração do Contrato");
+                                    duracaoDoContrato = scanner2.nextLine();
+                                    System.out.println("Dígite o valor do Contrato");
+                                    valorDoContrat0 = scanner.nextDouble();
+
+                                    Empresa empresa1 =  new Empresa(idEmpresa, nome, cnpj, endereco, email, senha, duracaoDoContrato, valorDoContrat0);
                                     empresa.adicionaElemento(empresa1);
                                     break;
 

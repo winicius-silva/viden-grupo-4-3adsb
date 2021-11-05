@@ -1,0 +1,160 @@
+/* GLOBAL */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#root{
+    display: flex;
+}
+
+a {
+    text-decoration:none;
+}
+
+.fonte {
+    font-family: 'Roboto Slab', serif;
+    font-weight: normal;
+    color: white;
+}
+
+/* COMPONENTES */
+
+#sign {
+    font-style: normal;
+    font-weight: bold;
+    line-height: 140%;
+    color: #EEA243;
+    transition: transform 250ms;
+    cursor: pointer;
+    padding-top: 1vh;
+}
+
+#sign:hover {
+    transform: translateY(-10px);
+}
+
+.label_input {
+    display: flex;
+    width: 25vw;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#input {
+    box-shadow: none;
+    padding-left: 1vw;
+    font-size: 2.5vh;
+    height: 6vh;
+    width: 20vw;
+    border-color: #052957;
+    border-style: none none solid none;
+    box-sizing: border-box;
+    color: black;
+}
+
+#input:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+#img {
+    height: 7vh;
+}
+
+.botao_sign {
+    font-size: 4vh;
+    width: 15vw;
+    height: 6vh;
+    color: white;
+    background: #EEA243;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 100px;
+    transition: transform 250ms;
+    cursor: pointer;
+}
+
+.botao_sign:hover {
+    transform: translateY(-10px);
+    background-color: #052957;
+}
+
+/* LOGIN */
+
+.header_login {
+    font-size: 2.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 40vw;
+    height: 100vh;
+    background-color: #052957;
+    border-radius: 0px 75px 16px 0px;
+}
+
+#titulo {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15vh;
+    line-height: 140%;
+}
+
+.opcoes {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+    height: 30vh;
+}
+
+.formulario { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    height: 100vh;
+}
+
+#subtitulo{
+    color: #747C81;
+    height: 18vh;
+    text-align: center;
+    font-size: 8vh;
+    line-height: 140%;
+}
+
+.form_inputs_login {
+    display: flex;
+    height: 45vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* CADASTRO */
+
+.header_cadastro{
+    font-size: 2.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 40vw;
+    height: 100vh;
+    background-color: #052957;
+    border-radius: 75px 0px 0px 16px;
+}
+
+.form_inputs_cadastro {
+    display: flex;
+    height: 70vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+

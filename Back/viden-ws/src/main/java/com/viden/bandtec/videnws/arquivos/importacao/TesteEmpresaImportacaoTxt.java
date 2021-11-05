@@ -1,4 +1,5 @@
-package com.viden.bandtec.videnws.arquivos.exportacao;
+package com.viden.bandtec.videnws.arquivos.importacao;
+
 import com.viden.bandtec.videnws.dominio.Empresa;
 
 import java.io.*;
@@ -7,9 +8,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class TesteEmpresaTxt {
+public class TesteEmpresaImportacaoTxt {
 
-//GRAVA REGISTRO
+    //GRAVA REGISTRO
     public static void gravaRegistro(String registro, String nomeArq){
         BufferedWriter saida = null;
 
@@ -33,18 +34,18 @@ public class TesteEmpresaTxt {
     public static void gravarArquivoTxt(List<Empresa> lista, String nomeArq){
         int contaRegDados = 0;
 
-       //Monta o registro de header
+        //Monta o registro de header
         String header = "00EMPRESA";
         Date dataDeHoje = new Date();
         SimpleDateFormat formataData = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         header += formataData.format(dataDeHoje);
-       header += "01";
+        header += "01";
 
         //Grava o header
         gravaRegistro(header, nomeArq);
 
         //Monta e grava o corpo do arquivo
-      for (Empresa empresa : lista) {
+        for (Empresa empresa : lista) {
 
             //Registros de Corpo
             String corpo = "02";
@@ -55,10 +56,14 @@ public class TesteEmpresaTxt {
             corpo += String.format("%-25.25s",empresa.getNome());
             //CNPJ da Empresa
             corpo += String.format("%-18.18s", empresa.getCnpj());
-           //Endereço da Empresa
-           corpo += String.format("%-40.40s",empresa.getEndereco());
+            //Endereço da Empresa
+            corpo += String.format("%-40.40s",empresa.getEndereco());
             //Email da Empresa
-           corpo += String.format("%-50.50s",empresa.getEmail());
+            corpo += String.format("%-50.50s",empresa.getEmail());
+            //Duração do Contrato da Empresa
+            corpo += String.format("%-25.25s", empresa.getDuracaoDoContrato());
+            //Valor do Contrato
+            corpo += String.format("%12.2f", empresa.getValorDoContrato());
 
             //Total de Registros
             contaRegDados ++;
@@ -66,9 +71,9 @@ public class TesteEmpresaTxt {
         }
 
         //Monta e grava o registro de Trailer
-       String trailer = "01";
-       trailer += String.format("%020d", contaRegDados);
-       gravaRegistro(trailer, nomeArq);
+        String trailer = "01";
+        trailer += String.format("%020d", contaRegDados);
+        gravaRegistro(trailer, nomeArq);
     }
 
 //--------------------------------- ---------------------------- ---------------------------- --------------------------
@@ -82,6 +87,8 @@ public class TesteEmpresaTxt {
         String Cnpj;
         String Endereco;
         String Email;
+        String duracaoDoContrato;
+        Double valorDoContrato = 0.0;
         int contaRegDados = 0;
         int qtdRegistrosGravados = 0;
         List<Empresa> listaLida = new ArrayList<>();
@@ -106,13 +113,13 @@ public class TesteEmpresaTxt {
                     System.out.println("Data/hora gravação: "+registro.substring(10,28));
                     System.out.println("Versão do documento: "+registro.substring(28,30));
                 }
-               else if(tipoRegistro.equals("01")){
+                else if(tipoRegistro.equals("01")){
                     System.out.println("É um registro de trailer");
                     qtdRegistrosGravados = Integer.valueOf(registro.substring(2,22));
                     if (qtdRegistrosGravados == listaLida.size()){
                         System.out.println("Quantidade de registros gravados compatível com quantidade lida");
                     }else {
-                       System.out.println("Quantidade de registros gravados não confere com quandtidade lida");
+                        System.out.println("Quantidade de registros gravados não confere com quandtidade lida");
                     }
                 }
                 else if(tipoRegistro.equals("02")){
@@ -122,8 +129,11 @@ public class TesteEmpresaTxt {
                     Cnpj = registro.substring(35,53).trim();
                     Endereco = registro.substring(53,93).trim();
                     Email = registro.substring(93,143).trim();
+                    duracaoDoContrato = registro.substring(144,168).trim();
+                  valorDoContrato = Double.valueOf(registro.substring(169,180).replace(',', '.'));
 
-                  Empresa empresa = new Empresa(IdEmpresa, Nome,Cnpj,Endereco,Email,null,null,null);
+
+                    Empresa empresa = new Empresa(IdEmpresa, Nome,Cnpj,Endereco,Email,null, duracaoDoContrato,valorDoContrato);
 
                     listaLida.add(empresa);
                     contaRegDados++;
@@ -137,13 +147,13 @@ public class TesteEmpresaTxt {
             entrada.close();
         }
         catch (IOException erro){
-       System.out.println("Erro ao ler o arquivo" + erro.getMessage());
+            System.out.println("Erro ao ler o arquivo" + erro.getMessage());
         }
 
         System.out.println("\nConteúdo lido do arquivo:");
         for (Empresa empresa : listaLida){
             System.out.println(empresa);
-     }
+        }
     }
 
 //////----------------------------- --------------------------------- --------------------------- --------------------------
@@ -159,12 +169,12 @@ public class TesteEmpresaTxt {
                 "c6bank@c6bank.com","12345678","04/11/2021 até 04/11/2024",20000.0);
 
         List<Empresa> lista = new ArrayList<>();
-                      lista.add(empresa1);
-                      lista.add(empresa2);
-                      lista.add(empresa3);
-                      lista.add(empresa4);
+        lista.add(empresa1);
+        lista.add(empresa2);
+        lista.add(empresa3);
+        lista.add(empresa4);
 
-     gravarArquivoTxt(lista,"EmpresaExportação.txt");
-     leArquivoTxt("EmpresaExportação.txt");
+        gravarArquivoTxt(lista,"EmpresaImportação.txt");
+        leArquivoTxt("EmpresaImportação.txt");
     }
 }

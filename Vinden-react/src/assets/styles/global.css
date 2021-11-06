@@ -1,0 +1,22 @@
+/* GLOBAL */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#root{
+    display: flex;
+}
+
+a {
+    text-decoration:none;
+}
+
+.fonte {
+    font-family: 'Roboto Slab', serif;
+    font-weight: normal;
+    color: white;
+}
+
+

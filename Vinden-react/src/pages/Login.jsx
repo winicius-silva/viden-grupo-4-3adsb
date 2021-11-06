@@ -4,7 +4,8 @@ import Header from "../components/login_cadastro/HeaderSign";
 import Botao from "../components/login_cadastro/BotaoSign";
 import Email from "../assets/img/email.png"
 import Senha from "../assets/img/senha.png"
-import '../assets/styles/style.css';
+import '../assets/styles/global.css';
+import '../assets/styles/sign.css';
 
 function Login() {
     return (
@@ -17,7 +18,6 @@ function Login() {
                     <Input img={Senha} type="password" placeholder="Senha"/>
                     <Botao texto="Entrar"/>
                 </form>
-
             </div>
 
         </>

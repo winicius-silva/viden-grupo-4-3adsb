@@ -7,7 +7,8 @@ import Senha from "../assets/img/senha.png"
 import Nome from "../assets/img/nome.png"
 import Cpf from "../assets/img/cpf.png"
 import Telefone from "../assets/img/telefone.png"
-import '../assets/styles/style.css';
+import '../assets/styles/global.css';
+import '../assets/styles/sign.css';
 
 function Cadastro() {
     return (

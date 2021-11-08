@@ -1,0 +1,46 @@
+.root_home {
+    display: flex;
+    flex-direction: column;
+}
+
+.header_index {
+    font-size: 2.5vh;
+    width: 100%;
+    height: 15vh;
+    background-color: #052957;
+    clear: both;
+}
+
+.font_header_index {
+    font-family: 'Roboto Slab', serif;
+    color: white;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 8vh;
+    line-height: 140%;
+}
+
+#search_index{
+    justify-content: space-around;
+    align-items: center;
+    width: 23vw;
+    font-size: 2.5vh;
+    height: 6vh;
+    width: 20vw;
+    border: 1px solid #052957;
+    box-sizing: border-box;
+    border-radius: 7px;
+    color: black;
+}
+
+.btn_index {
+    font-size: 3vh;
+    width: 8vw;
+    height: 6vh;
+    color: #052957;
+    background: #EEA243;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 100px;
+    cursor: pointer;
+}

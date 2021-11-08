@@ -9,7 +9,6 @@ function Inputs(props) {
                     <input type={props.type} placeholder={props.placeholder} class="fonte" id="input" />
                     <label htmlFor="" className="fonte" id="placeholder_label" >{props.placeholder}</label>
                 </div>
-
             </div>
         </>
     );

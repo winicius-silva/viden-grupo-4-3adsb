@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function BotaoCadastrar(props){
+function Botao(props){
     return(
         <>
         <Link to={props.destino}>
@@ -11,4 +11,4 @@ function BotaoCadastrar(props){
     );
 }
 
-export default BotaoCadastrar;
+export default Botao;

@@ -1,5 +1,9 @@
 /* GLOBAL */
 
+.root_sign {
+    display: flex;
+}
+
 .opcoes {
     display: flex;
     flex-direction: column;

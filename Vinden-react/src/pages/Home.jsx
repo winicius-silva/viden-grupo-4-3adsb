@@ -17,6 +17,8 @@ import carlos from "../assets/img/carlos.jpeg";
 import wini from "../assets/img/wini.jpeg";
 import background from "../assets/img/background_index.svg";
 
+import '';
+
 
 function Home() {
     return (

@@ -15,34 +15,46 @@ import kaue from "../assets/img/kaue.jpeg";
 import duo from "../assets/img/duo.jpeg";
 import carlos from "../assets/img/carlos.jpeg";
 import wini from "../assets/img/wini.jpeg";
-import background from "../assets/img/background_index.svg";
-
-import '';
-
 
 function Home() {
     return (
         <>
             <div className="root_home">
                 <div className="header_index">
-                    <h1 className="font_header_index"><a href="./" styles="text-decoration: none;">&#60;&#47;Viden</a></h1>
+                    <h1 className="font_header_index">&#60;&#47;Viden</h1>
                     <div id="search_index">
                         <input id="search_input_index" type="text" placeholder=" Ex: Java cursos..." />
+                    </div>
+
+
+                    <div id="sobre-text">
+                        <h3> Sobre nós </h3>
+                    </div>
+
+
+                    <div id="pipe">
+
+                    </div>
+
+
+                    <div id="empresas-text">
+                        <h3>Empresas Parceiras</h3>
                     </div>
                     <div>
                         <BotaoLogar texto="Login" />
                     </div>
                 </div>
 
-                <img src={background} alt="" />
-
-
                 <div id="banner-about_index">
-                    <h3>Uma plataforma de cursos inovadora, diferente de todas as outras já vistas, onde o conhecimento e o conforto é o nosso ponto chave.</h3>
+                    <h3 id="text-banner_about">Uma plataforma de cursos inovadora, diferente de todas as outras já vistas, onde o conhecimento e o conforto é o nosso ponto chave.</h3>
                 </div>
 
             </div>
 
+            <div id="banner2-about_index">
+                <h3 id="title-banner_about2">Mergulhe em Tecnologia!</h3>
+                <h2 id="text-banner_about2">Você vai estudar, praticar, discutir e se aprofundar em uma plataforma que respira tecnologia.</h2>
+            </div>
         </>
     );
 }

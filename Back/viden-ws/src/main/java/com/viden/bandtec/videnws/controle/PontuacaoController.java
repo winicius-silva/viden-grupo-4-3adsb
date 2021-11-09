@@ -30,19 +30,19 @@ public class PontuacaoController {
         return ResponseEntity.status(201).build();
     }
 
-    @GetMapping("/{fk_usuario}")
-    public ResponseEntity getPontosPorUsuario(@PathVariable Integer fk_usuario){
-        List<Pontuacao> pontuacoes = repository.findAllByFkusuario(fk_usuario);
+    @GetMapping("/{fkUsuario}")
+    public ResponseEntity getPontosPorUsuario(@PathVariable Integer fkUsuario){
+        List<Pontuacao> pontuacoes = repository.findAllByFkUsuario(fkUsuario);
         if(pontuacoes.isEmpty()){
             return ResponseEntity.status(204).build();
         }
         return ResponseEntity.status(200).body(pontuacoes);
     }
 
-    @GetMapping("/total/{fk_usuario}")
-    public ResponseEntity getPontosTotalPorUsuario(@PathVariable Integer fk_usuario){
+    @GetMapping("/total/{fkUsuario}")
+    public ResponseEntity getPontosTotalPorUsuario(@PathVariable Integer fkUsuario){
         Double total = 0.0;
-        List<Pontuacao> pontos = repository.findAllByFkusuario(fk_usuario);
+        List<Pontuacao> pontos = repository.findAllByFkUsuario(fkUsuario);
         for (Pontuacao ponto : pontos) {
             total += ponto.getPontos();
         }

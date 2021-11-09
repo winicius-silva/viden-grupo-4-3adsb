@@ -1,6 +1,12 @@
 package com.viden.bandtec.videnws.dominio;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Entity
@@ -9,11 +15,29 @@ public class Curso {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCurso;
+
+    @NotNull
+    @NotBlank
     private String nomeCurso;
+
+    @NotNull
+    @NotBlank
     private String categoria;
+
+    @NotNull
+    @NotBlank
     private String subCategoria;
+
+    @NotNull
     private Double preco;
+
+    @NotNull
+    @NotBlank
     private String descricao;
+
+    @NotNull
+    @Min(1)
+    @Max(5)
     private Integer qtdPontos;
 
     public Integer getIdCurso() {

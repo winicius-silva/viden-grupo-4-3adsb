@@ -39,7 +39,7 @@ public class CursoController {
 
     @GetMapping("/search/{nomeCurso}")
     public ResponseEntity getCursosSearch(@PathVariable String nomeCurso){
-        List<Curso> cursos = repository.findByNomeCurso(nomeCurso);
+        List<Curso> cursos = repository.findByNomeCursoLike(nomeCurso);
         if(cursos.isEmpty()){
             return ResponseEntity.status(204).build();
         } else {

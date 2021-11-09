@@ -1,6 +1,10 @@
 package com.viden.bandtec.videnws.dominio;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
 
 @Entity
@@ -9,10 +13,16 @@ public class EmpresaCurso {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEmpresaCurso;
+
     @ManyToOne
+    @NotNull
     private Empresa fkEmpresa;
+
     @ManyToOne
+    @javax.validation.constraints.NotNull
     private Curso fkCurso;
+
+    @PastOrPresent
     private LocalDate data;
 
     public Integer getIdEmpresaCurso() {

@@ -21,9 +21,9 @@ public class EmpresaCursoController {
         return ResponseEntity.status(201).build();
     }
 
-    @GetMapping("/{idEmpresa}")
-    private ResponseEntity getEmpresaByCurso(@PathVariable Integer idEmpresa){
-        List<EmpresaCurso> cursosEmpresas = repository.findByIdEmpresa(idEmpresa);
+    @GetMapping("/{FkEmpresa}")
+    private ResponseEntity getEmpresaByCurso(@PathVariable Integer FkEmpresa){
+        List<EmpresaCurso> cursosEmpresas = repository.findByFkEmpresa(FkEmpresa);
         if(cursosEmpresas.isEmpty()){
             return ResponseEntity.status(204).build();
         } else {

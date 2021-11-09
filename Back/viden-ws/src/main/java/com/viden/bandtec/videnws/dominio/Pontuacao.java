@@ -1,8 +1,11 @@
 package com.viden.bandtec.videnws.dominio;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 public class Pontuacao {
@@ -10,11 +13,21 @@ public class Pontuacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idPontosUsuario;
+
+    @PastOrPresent
     private LocalDate data;
+
+    @NotNull
+    @Min(1)
+    @Max(5)
     private Double pontos;
+
     @ManyToOne
+    @NotNull
     private Usuario fkUsuario;
+
     @ManyToOne
+    @NotNull
     private Curso fkCurso;
 
     public Integer getIdPontosUsuario() {

@@ -1,6 +1,14 @@
 package com.viden.bandtec.videnws.dominio;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.istack.NotNull;
+import org.hibernate.validator.constraints.br.CPF;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Past;
 
 @Entity
 public class Usuario {
@@ -8,12 +16,27 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idusuario;
+
+    @NotNull
+    @NotBlank
     private String nomeUsuario;
+
+    @CPF
     private String cpf;
+
+    @Past
     private Integer dataNascimento;
+
+    @NotNull
     private String celular;
+
+    @Email
     private String email;
+
+    @Min(8)
+    @JsonIgnore
     private String senha;
+
     @ManyToOne
     private Empresa fk_empresa;
 
@@ -66,7 +89,7 @@ public class Usuario {
     }
 
     public String getSenha() {
-        return null;
+        return senha;
     }
 
     public void setSenha(String senha) {

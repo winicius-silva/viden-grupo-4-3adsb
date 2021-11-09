@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface PontuacaoRepository extends JpaRepository<Pontuacao, Integer> {
 
-    List<Pontuacao> findAllByFkusuario(Integer fk_usuario);
+    List<Pontuacao> findAllByFkUsuario(Integer fkUsuario);
 }

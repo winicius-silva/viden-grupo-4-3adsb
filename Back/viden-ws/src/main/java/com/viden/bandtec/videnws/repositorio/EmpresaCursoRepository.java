@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface EmpresaCursoRepository extends JpaRepository<EmpresaCurso, Integer> {
 
-    List<EmpresaCurso> findByIdEmpresa(Integer idEmpresa);
+    List<EmpresaCurso> findByFkEmpresa(Integer FkEmpresa);
 }

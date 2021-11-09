@@ -1,6 +1,14 @@
 package com.viden.bandtec.videnws.dominio;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.istack.NotNull;
+import org.hibernate.validator.constraints.br.CNPJ;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Empresa {
@@ -8,12 +16,30 @@ public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEmpresa;
+
+    @NotNull
+    @NotBlank
     private String nome;
+
+    @CNPJ
     private String cnpj;
+
+    @NotNull
+    @NotBlank
+    @Min(8)
     private String endereco;
+
+    @Email
     private String email;
+
+    @Min(8)
+    @JsonIgnore
     private String senha;
+
+    @NotNull
     private String duracaoDoContrato;
+
+    @NotNull
     private Double valorDoContrato;
 
     public Empresa(Integer idEmpresa, String nome, String cnpj, String endereco, String email, String senha,

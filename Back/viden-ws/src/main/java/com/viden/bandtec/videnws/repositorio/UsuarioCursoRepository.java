@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface UsuarioCursoRepository extends JpaRepository<UsuarioCurso, Integer> {
 
-    List<UsuarioCurso> findByIdUsuarioAndDateGreaterThan(Integer idUsuario, LocalDate date);
+    List<UsuarioCurso> findByFkUsuarioAndDateGreaterThan(Integer idUsuario, LocalDate date);
 }

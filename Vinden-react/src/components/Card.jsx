@@ -4,8 +4,11 @@ import React from "react";
 export default function Card(props){
     return(
         <>
-            <div className="card">
-                <h2></h2>
+            <div className={props.color}>
+                <img src={props.img} alt="" />
+                <h3>{props.title}</h3>
+                <br />
+                <h4>{props.desc}</h4>
             </div>
         </>   
     );

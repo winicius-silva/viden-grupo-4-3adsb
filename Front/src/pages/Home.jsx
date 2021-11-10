@@ -4,14 +4,10 @@ import BotaoLogar from "../components/Botao";
 import '../assets/styles/global.css';
 import '../assets/styles/home.css';
 import Card from "../components/Card";
-import eclipse from "../assets/img/eclipse.png"
-import news from "../assets/img/newspaper.png";
-import exclusive from "../assets/img/exclusivo.png";
-import back from "../assets/img/backend.png";
-import coding from "../assets/img/coding.png";
-import cloud from "../assets/img/ux-design.png";
-import ux from "../assets/img/ux-design.png";
-import front from "../assets/img/frontend.png";
+import code from "../assets/img/code.png";
+import cloud from "../assets/img/cloud.png";
+import ux from "../assets/img/front.png";
+import front from "../assets/img/ux.png";
 import samuel from "../assets/img/perfil.jpg";
 import jorge from "../assets/img/jorge.jpeg";
 import kaue from "../assets/img/kaue.jpeg";
@@ -61,7 +57,7 @@ function Home() {
 
             <div className="cards">
                 <div>
-                    <Card color="backend" img={coding} title="BACKEND" desc="Lógica, Python, PHP, Java, .NET, Node JS, C, Computação, Jogos, IoT e mais..."/>
+                    <Card color="backend" img={code} title="BACKEND" desc="Lógica, Python, PHP, Java, .NET, Node JS, C, Computação, Jogos, IoT e mais..."/>
                 </div>
 
                 <div>
@@ -96,8 +92,27 @@ function Home() {
                 </div>  
             </div> 
 
+            <div className="collaborators">
+                <h2 id="title-coll">Conheça os idealizadores!</h2>
+                <div className="container-coll-imgs">
+                    <div className="coll-img-top">
+                        <img src={kaue} alt="" />
+                        <img src={samuel} alt="" />
+                        <img id="duo-img" src={duo} alt="" />
+                    </div>
 
-            <Footer />
+                    <div className="coll-img-bottom">
+                        <img src={wini} alt="" />
+                        <img src={carlos} alt="" />
+                        <img id="jorge-img" src={jorge} alt="" />
+                    </div>
+
+                </div>
+                
+            </div>
+
+
+            <Footer/>
         </>
     );
 }

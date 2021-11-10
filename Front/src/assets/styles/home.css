@@ -127,7 +127,7 @@
     width: 59%;
     height: 30vh;
     color: black;
-    background-color: rgba(0, 128, 0, 0.39);
+    background-color: rgba(0, 128, 0, 0.212);
     border-radius: 30px;
     border: green solid 3px;
     font-family: 2.5vh;
@@ -144,7 +144,7 @@
     width: 65%;
     height: 30vh;
     color: black;
-    background-color: rgba(255, 0, 0, 0.39);
+    background-color: rgba(255, 0, 0, 0.212);
     border-radius: 30px;
     border: red solid 3px;
     font-family: 2.5vh;
@@ -161,7 +161,7 @@
     width: 65%;
     height: 30vh;
     color: black;
-    background-color: rgba(128, 0, 128, 0.39);
+    background-color: rgba(128, 0, 128, 0.226);
     border-radius: 30px;
     border: purple solid 3px;
     font-family: 2.5vh;
@@ -178,7 +178,7 @@
     width: 65%;
     height: 30vh;
     color: black;
-    background-color: rgba(255, 255, 0, 0.39);
+    background-color: rgba(255, 255, 0, 0.26);
     border-radius: 30px;
     border: yellow solid 3px;
     font-family: 2.5vh;
@@ -219,29 +219,105 @@
     font-size: 4vh;
 }
 
+.collaborators{
+    width: 100%;
+    height: 135vh;
+}
+
+#title-coll{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 100%;
+    height: 12vh;
+    color: #EEA243;
+    text-align: center;
+    font-weight: 400;
+    margin-top: 60px;
+    font-size: 35pt;
+}
+
+.container-coll-imgs{
+    margin-top: 30px;
+    margin-left: 160px;
+}
+
+.coll-img-top{
+    width: 100%;
+    height: 45vh;
+    clear: both;
+}
+
+.coll-img-bottom{
+    margin-top: 80px;
+    width: 100%;
+    height: 45vh;
+    clear: both;
+}
+
+.coll-img-top img{
+    margin: 50px;
+    width: 20%;
+    height: 80%;
+    border-radius: 60px;
+}
+
+.coll-img-bottom img{
+    margin: 50px;
+    width: 20%;
+    height: 80%;
+    border-radius: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .top_footer{
     width: 100%;
+    background-color: #EEA243;
+    height: 4vh;
 }
 
 .container_footer{
+    width: 100%;
+    height: 42vh;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    background-color: black;
 }
 
-.div-footer_right{
 
+.div_footer_left{
+    width: 72.28%;
+    height: 40vh;
+    float: left;
 }
+
 
 .icons_social{
 
 }
 
-.div_footer_left{
-
+.div_footer_right{
+    padding: 50px;
+    width: 20%;
+    height: 24.3vh;
+    float: left;
+    clear: both;
 }
 
 .text_middle_footer{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: black;
     width: 100%;
-    height: 3   vh;
-    margin: 0 auto;
+    height: 6vh;
     text-align: center;
+    font-size: 15pt;
+    clear: both;
 }

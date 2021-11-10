@@ -14,9 +14,9 @@ export default function Footer(){
                         <img src="" alt="" />
                         <img src="" alt="" />
                     </div>
-                    <h3 className="text_middle_footer">Viden - 2021</h3>
                 </div>
                 <div className="div_footer_left"></div>
+                <div className="text_middle_footer">Viden - 2021</div>
             </div>
 
         </>

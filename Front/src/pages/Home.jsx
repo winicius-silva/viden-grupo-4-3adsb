@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../components/Footer";
 import BotaoLogar from "../components/Botao";
 import '../assets/styles/global.css';
 import '../assets/styles/home.css';
@@ -92,13 +93,11 @@ function Home() {
                         Mergulhe com profundidade e navegue em outras áreas de 
                         Tecnologia. Profissional em TI.
                     </h4>
-                </div>
+                </div>  
+            </div> 
 
-                    
-            </div>
-            
 
-            
+            <Footer />
         </>
     );
 }

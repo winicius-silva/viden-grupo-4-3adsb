@@ -5,7 +5,7 @@ function Botao(props){
     return(
         <>
         <Link to={props.destino}>
-            <button className="btn_index">{props.texto}</button> 
+            <button className="btn_index">{props.texto}</button>
         </Link>
         </>
     );

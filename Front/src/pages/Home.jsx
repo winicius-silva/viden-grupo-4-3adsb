@@ -25,12 +25,13 @@ function Home() {
                         <input id="search_input_index" type="text" placeholder=" Ex: Java cursos..." />
                     </div>
 
-                    <div id="sobre-text">
+                    <div id="sobre-text" href="#banner-about_index">
                         <h4> Sobre nós </h4>
                     </div>
 
-                    <div id="empresas-text">
-                        <h4>Empresas Parceiras</h4>
+                    <div id="idealizadores-text">
+                        <a href="#collaborators"></a>
+                        <h4> Idealizadores </h4>
                     </div>
                     <div>
                         <BotaoLogar texto="Login" destino="/login" />

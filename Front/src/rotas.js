@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
 import Dashboard from "./pages/Dashboard";
+import VideoPlayer from "./pages/VideoPlayer"
 
 function Rotas(){
     return(
@@ -13,6 +14,7 @@ function Rotas(){
             <Route exact path="/login" component={Login}/>
             <Route exact path="/cadastro" component={Cadastro}/>
             <Route exact path="/dashboard" component={Dashboard}/>
+            <Route exact path="/videoplayer" component={VideoPlayer}/>
         </Switch>
       </BrowserRouter>
     );

@@ -1,16 +1,15 @@
 package com.viden.bandtec.videnws.controle;
 
+import com.viden.bandtec.videnws.arquivos.FilaObj;
 import com.viden.bandtec.videnws.dominio.Curso;
 import com.viden.bandtec.videnws.repositorio.CursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/cursos")
 public class CursoController {
@@ -40,10 +39,14 @@ public class CursoController {
     @GetMapping("/search/{nomeCurso}")
     public ResponseEntity getCursosSearch(@PathVariable String nomeCurso){
         List<Curso> cursos = repository.findByNomeCursoLike(nomeCurso);
+        FilaObj<Curso> filaCurso = new FilaObj<>(cursos.size());
+        for (Curso curso : cursos) {
+            filaCurso.insert(curso);
+        }
         if(cursos.isEmpty()){
             return ResponseEntity.status(204).build();
         } else {
-            return ResponseEntity.status(200).body(cursos);
+            return ResponseEntity.status(200).body(filaCurso);
         }
     }
 

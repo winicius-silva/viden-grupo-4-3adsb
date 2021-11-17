@@ -1,0 +1,20 @@
+.dadosPerfil{
+    display: block;
+    background-color: rgb(109, 109, 139);
+    height: 300px;
+    width: 800px;
+    display: inline-flex;
+}
+.infoPerfil{
+
+display: inline-block;
+
+}
+
+.imgPerfil{
+    height: 50px;
+    width: 50px;
+    margin-left: 20px;
+   margin-top: 50px;
+}
+

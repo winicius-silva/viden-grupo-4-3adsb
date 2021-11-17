@@ -25,22 +25,15 @@ function Home() {
                         <input id="search_input_index" type="text" placeholder=" Ex: Java cursos..." />
                     </div>
 
-
                     <div id="sobre-text">
-                        <h3> Sobre nós </h3>
+                        <h4> Sobre nós </h4>
                     </div>
-
-
-                    <div id="pipe">
-
-                    </div>
-
 
                     <div id="empresas-text">
-                        <h3>Empresas Parceiras</h3>
+                        <h4>Empresas Parceiras</h4>
                     </div>
                     <div>
-                        <BotaoLogar texto="Login" />
+                        <BotaoLogar texto="Login" destino="/login" />
                     </div>
                 </div>
 
@@ -57,40 +50,38 @@ function Home() {
 
             <div className="cards">
                 <div>
-                    <Card color="backend" img={code} title="BACKEND" desc="Lógica, Python, PHP, Java, .NET, Node JS, C, Computação, Jogos, IoT e mais..."/>
+                    <Card color="backend" img={code} title="BACKEND" desc="Lógica, Python, PHP, Java, .NET, Node JS, C, Computação, Jogos, IoT e mais..." />
                 </div>
 
                 <div>
-                    <Card color="front" img={front} title="Front-End" desc="HTML, CSS, React, Angular, JavaScript, jQuery e mais..."/>
+                    <Card color="front" img={front} title="Front-End" desc="HTML, CSS, React, Angular, JavaScript, jQuery e mais..." />
                 </div>
 
                 <div>
-                    <Card color="cloud" img={cloud} title="Cloud" desc="AWS, Azure, Docker, Segurança, IaC, Linux e mais..."/>
+                    <Card color="cloud" img={cloud} title="Cloud" desc="AWS, Azure, Docker, Segurança, IaC, Linux e mais..." />
                 </div>
 
                 <div>
-                    <Card color="ux" img={ux} title="Cloud" desc="Photoshop e Illustrator, Usabilidade e UX, Vídeo e Motion, 3D e mais..."/>
+                    <Card color="ux" img={ux} title="Cloud" desc="Photoshop e Illustrator, Usabilidade e UX, Vídeo e Motion, 3D e mais..." />
                 </div>
             </div>
 
             <div className="container">
                 <div className="banner3">
-                    <embed src="https://www.youtube.com/watch?v=kZcc4bA647M&ab_channel=ProgramadorBR" type="" />
+                    <iframe src="https://www.youtube.com/embed/ae6w0-kZ3-M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
 
                 <div className="title-banner3">
                     <h3>A maior plataforma
-                        brasileira de cursos de 
+                        brasileira de cursos de
                         tecnologia.
                     </h3>
-                <br />
-                <br />
-                    <h4 id="subtitle-banner3">
-                        Mergulhe com profundidade e navegue em outras áreas de 
+                    <h4>
+                        Mergulhe com profundidade e navegue em outras áreas de
                         Tecnologia. Profissional em TI.
                     </h4>
-                </div>  
-            </div> 
+                </div>
+            </div>
 
             <div className="collaborators">
                 <h2 id="title-coll">Conheça os idealizadores!</h2>
@@ -108,11 +99,11 @@ function Home() {
                     </div>
 
                 </div>
-                
+
             </div>
 
 
-            <Footer/>
+            <Footer />
         </>
     );
 }

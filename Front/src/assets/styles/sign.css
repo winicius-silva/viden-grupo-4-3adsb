@@ -2,6 +2,12 @@
 
 .root_sign {
     display: flex;
+    /* background-image: url(
+        https://images.unsplash.com/photo-1607706009771-de8808640bcf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80); */
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center top;
+    background-attachment: fixed;
 }
 
 .opcoes {
@@ -31,14 +37,29 @@
     font-weight: normal;
     font-size: 15vh;
     line-height: 140%;
+    transition: transform 250ms;
+    cursor: pointer;
+}
+
+#titulo:hover {
+    
+    transform: translateY(-10px);
+    color: #EEA243;
 }
 
 #subtitulo {
-    color: #747C81;
-    height: 18vh;
+    color: #0c0c0c;
+    height: 15vh;
     text-align: center;
     font-size: 8vh;
     line-height: 140%;
+}
+
+.header_form {
+    width: 60vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .formulario {
@@ -46,8 +67,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 60vw;
-    height: 100vh;
+    padding: 4vh;
+    /* height: 85vh;
+    width: 40vw; */
+    background-color: rgba(255, 255, 255, 0.753);
+    border-radius: 40px;
+    
 }
 
 .input_conf {
@@ -61,12 +86,15 @@
 .label_input {
     display: flex;
     width: 25vw;
-    align-items: center;
     justify-content: space-between;
 }
 
+.label_input img{
+    padding-top: 0.15vh;
+}
+
 #placeholder_label {
-    color: #747C81;
+    color: #0c0c0c;
     font-size: 2.5vh;
     display: block;
     opacity: 1;
@@ -75,37 +103,43 @@
     transition: all .3s;
 }
 
-#input {
+#placeholder_label:hover {
+    cursor: pointer;
+}
+
+.input {
     box-shadow: none;
+    padding-top: 0vh;
     padding-left: 0.5em;
     font-size: 2.5vh;
     height: 6vh;
     width: 20vw;
     border-radius: 0px;
-    border-color: #747C81;
+    border-color:#0c0c0c;
     border-style: none none solid none;
     box-sizing: border-box;
-    color: black;
+    color: #0c0c0c;
+    background: rgba(255, 255, 255, 0);
     transition: all .5s;
 }
 
-#input::placeholder{
+.input::placeholder{
     color: transparent;
 }
 
-#input:focus {
+.input:focus {
     box-shadow: none;
     outline: none;
 }
 
-#input:focus {
+.input:focus {
     box-shadow: none;
     outline: none;
-    border-color: #052957;
+    border-color: #EEA243;
 }
 
-#input:focus + #placeholder_label,
-#input:not(:placeholder-shown) + #placeholder_label
+.input:focus + #placeholder_label,
+.input:not(:placeholder-shown) + #placeholder_label
 {
     transform: translateY(-3.3em) scale(.8);
 }
@@ -119,7 +153,7 @@
     font-size: 4vh;
     width: 15vw;
     height: 6vh;
-    color: white;
+    color: #0c0c0c;
     background: #EEA243;
     border: none;
     box-sizing: border-box;
@@ -131,6 +165,7 @@
 .botao_sign:hover {
     transform: translateY(-10px);
     background-color: #052957;
+    color: white;
 }
 
 /* LOGIN */

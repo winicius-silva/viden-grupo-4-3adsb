@@ -10,7 +10,7 @@ public class UsuarioCursoSimplesResponse {
     private String nomeCurso;
 
     public UsuarioCursoSimplesResponse(Usuario usuario, Curso curso) {
-        this.nomeUsuario = usuario.getNome_usuario();
+        this.nomeUsuario = usuario.getNomeUsuario();
         this.idCurso = curso.getIdCurso();
         this.nomeCurso = curso.getNomeCurso();
     }

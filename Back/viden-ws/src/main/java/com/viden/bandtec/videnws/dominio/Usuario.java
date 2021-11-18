@@ -26,9 +26,6 @@ public class Usuario {
     @CPF
     private String cpf;
 
-    @Past
-    private LocalDate dataNascimento;
-
     @NotNull
     private String celular;
 
@@ -64,14 +61,6 @@ public class Usuario {
         this.cpf = cpf;
     }
 
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
     public String getCelular() {
         return celular;
     }
@@ -94,14 +83,6 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public Integer getIdusuario() {
-        return idusuario;
-    }
-
-    public void setIdusuario(Integer idusuario) {
-        this.idusuario = idusuario;
     }
 
     public Empresa getFk_empresa() {

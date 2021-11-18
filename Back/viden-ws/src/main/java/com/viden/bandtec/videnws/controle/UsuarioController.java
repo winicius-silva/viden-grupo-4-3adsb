@@ -41,7 +41,7 @@ public class UsuarioController {
     @GetMapping("/login/{email}/{senha}")
     public ResponseEntity login(@PathVariable String email,@PathVariable String senha){
         Usuario usuario = repository.findByEmailAndSenha(email,senha);
-        repository.updateHoraLogin(LocalDateTime.now(), usuario.getIdUsuario());
+        //repository.updateHoraLogin(LocalDateTime.now(), usuario.getIdUsuario());
         if(usuario == null){
             return ResponseEntity.status(404).build();
         }

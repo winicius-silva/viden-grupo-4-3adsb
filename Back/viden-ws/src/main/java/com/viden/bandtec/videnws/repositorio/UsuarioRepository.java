@@ -14,8 +14,8 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
     Usuario findByIdusuario(Integer id_usuario);
 
-    @Modifying
-    @Transactional
-    @Query("UPDATE Usuario u SET u.horaLogin = ?1 WHERE u.id_usuario = ?2")
-    void updateHoraLogin(LocalDateTime novoHorario, Integer idUsuario);
+//    @Modifying
+//    @Transactional
+//    @Query("UPDATE Usuario u SET u.horaLogin = ?1 WHERE u.id_usuario = ?2")
+//    void updateHoraLogin(LocalDateTime novoHorario, Integer idUsuario);
 }

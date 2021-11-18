@@ -9,6 +9,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 public class Usuario {
@@ -25,7 +27,7 @@ public class Usuario {
     private String cpf;
 
     @Past
-    private Integer dataNascimento;
+    private LocalDate dataNascimento;
 
     @NotNull
     private String celular;
@@ -40,20 +42,18 @@ public class Usuario {
     @ManyToOne
     private Empresa fk_empresa;
 
-    public Integer getId_usuario() {
+    @Past
+    private LocalDateTime horaCadastro;
+
+    @Past
+    private LocalDateTime horaLogin;
+
+    public Integer getIdUsuario() {
         return idusuario;
     }
 
-    public void setId_usuario(Integer id_usuario) {
+    public void setIdUsuario(Integer id_usuario) {
         this.idusuario = id_usuario;
-    }
-
-    public String getNome_usuario() {
-        return nomeUsuario;
-    }
-
-    public void setNome_usuario(String nome_usuario) {
-        this.nomeUsuario = nome_usuario;
     }
 
     public String getCpf() {
@@ -64,11 +64,11 @@ public class Usuario {
         this.cpf = cpf;
     }
 
-    public Integer getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Integer dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -110,5 +110,29 @@ public class Usuario {
 
     public void setFk_empresa(Empresa fk_empresa) {
         this.fk_empresa = fk_empresa;
+    }
+
+    public String getNomeUsuario() {
+        return nomeUsuario;
+    }
+
+    public void setNomeUsuario(String nomeUsuario) {
+        this.nomeUsuario = nomeUsuario;
+    }
+
+    public LocalDateTime getHoraCadastro() {
+        return horaCadastro;
+    }
+
+    public void setHoraCadastro(LocalDateTime horaCadastro) {
+        this.horaCadastro = horaCadastro;
+    }
+
+    public LocalDateTime getHoraLogin() {
+        return horaLogin;
+    }
+
+    public void setHoraLogin(LocalDateTime horaLogin) {
+        this.horaLogin = horaLogin;
     }
 }

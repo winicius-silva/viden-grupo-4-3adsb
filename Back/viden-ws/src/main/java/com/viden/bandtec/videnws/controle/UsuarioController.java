@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @CrossOrigin
@@ -32,14 +33,16 @@ public class UsuarioController {
 
     @PostMapping
     public ResponseEntity cadastrar(@RequestBody Usuario novoUsuario){
+        novoUsuario.setHoraCadastro(LocalDateTime.now());
         repository.save(novoUsuario);
         return ResponseEntity.status(201).build();
     }
 
     @GetMapping("/login/{email}/{senha}")
     public ResponseEntity login(@PathVariable String email,@PathVariable String senha){
-        Usuario usuarios = repository.findByEmailAndSenha(email,senha);
-        if(usuarios == null){
+        Usuario usuario = repository.findByEmailAndSenha(email,senha);
+        repository.updateHoraLogin(LocalDateTime.now(), usuario.getIdUsuario());
+        if(usuario == null){
             return ResponseEntity.status(404).build();
         }
         return ResponseEntity.status(200).build();

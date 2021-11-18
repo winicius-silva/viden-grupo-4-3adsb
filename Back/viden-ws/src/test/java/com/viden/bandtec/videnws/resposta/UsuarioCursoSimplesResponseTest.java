@@ -15,12 +15,12 @@ public class UsuarioCursoSimplesResponseTest {
         curso.setIdCurso(1);
 
         Usuario usuario = new Usuario();
-        usuario.setNome_usuario("Winicius Silva");
+        usuario.setNomeUsuario("Winicius Silva");
 
         UsuarioCursoSimplesResponse response =
                 new UsuarioCursoSimplesResponse(usuario,curso);
 
-        assertEquals("Winicius Silva", usuario.getNome_usuario());
+        assertEquals("Winicius Silva", usuario.getNomeUsuario());
         assertEquals("Ensinando Java", curso.getNomeCurso());
         assertEquals(1, curso.getIdCurso());
 

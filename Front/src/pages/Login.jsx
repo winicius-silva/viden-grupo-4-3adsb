@@ -18,7 +18,7 @@ function Login() {
                         <form action="" className="form_inputs_login">
                             <Input img={Email} type="email" placeholder="E-mail" />
                             <Input img={Senha} type="password" placeholder="Senha" />
-                            <Botao texto="Entrar" />
+                            <Botao texto="Entrar" func="" />
                         </form>
                     </div>
                 </div>

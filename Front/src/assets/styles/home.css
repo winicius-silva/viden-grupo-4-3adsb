@@ -51,14 +51,16 @@
     font-style: normal;
     font-weight: normal;
     color: white;
+    cursor: pointer;
 }
 
-#empresas-text{
+#idealizadores-text{
     font-family: 'Roboto Slab', serif;
     color: white;
     font-style: normal;
     font-weight: normal;
     color: white;
+    cursor: pointer;
 }
 
 .btn_index {

@@ -40,7 +40,7 @@
 <!--			<scope>runtime</scope>-->
 <!--		</dependency>-->
 
-		<!-- DEPENDENCIA H2 -->
+<!--		 DEPENDENCIA H2 -->
 				<dependency>
 					<groupId>com.h2database</groupId>
 					<artifactId>h2</artifactId>

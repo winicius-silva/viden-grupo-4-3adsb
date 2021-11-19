@@ -5,10 +5,7 @@ import com.sun.istack.NotNull;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -24,16 +21,18 @@ public class Usuario {
     private String nomeUsuario;
 
     @CPF
+    @NotNull
     private String cpf;
 
     @NotNull
     private String celular;
 
     @Email
+    @NotNull
     private String email;
 
-    @Min(8)
-    @JsonIgnore
+    @Size(min = 8)
+    @NotNull
     private String senha;
 
     @ManyToOne

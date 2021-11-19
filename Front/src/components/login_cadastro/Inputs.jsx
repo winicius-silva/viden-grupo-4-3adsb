@@ -1,13 +1,13 @@
 import React from "react";
 
-function Inputs(props) {
+function Inputs({ type, placeholder, img, ...opts }) {
     return (
         <>
             <div className="label_input">
-                <img src={props.img} id="img" />
+                <img src={img} id="img" />
                 <div className="input_conf">
-                    <input type={props.type} placeholder={props.placeholder} class="input" id={props.placeholder} />
-                    <label htmlFor={props.placeholder} className="fonte" id="placeholder_label" >{props.placeholder}</label>
+                    <input type={type} placeholder={placeholder} class="input" id={placeholder} {...opts} />
+                    <label htmlFor={placeholder} className="fonte" id="placeholder_label" >{placeholder}</label>
                 </div>
             </div>
         </>

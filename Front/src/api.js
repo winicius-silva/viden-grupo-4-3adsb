@@ -1,7 +1,7 @@
-// import axios from 'axios'
+import axios from 'axios'
 
-// const api = axios.create({
-//     baseURL : "sua url do mock api aqui"
-// });
+const api = axios.create({
+    baseURL : "sua url do mock api aqui"
+});
 
-// export default api;
+export default api;

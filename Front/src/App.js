@@ -3,11 +3,13 @@
 // import Cadastro from "./pages/Cadastro";
 import Rotas from './rotas';
 
+import { CursosProvider } from './contexts/cursos'
+
 function App() {
   return (
-    <>
+    <CursosProvider>
       <Rotas/>
-    </>
+    </CursosProvider>
   );
 }
 

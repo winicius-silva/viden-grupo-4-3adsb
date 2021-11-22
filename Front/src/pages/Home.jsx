@@ -1,9 +1,9 @@
 import React from "react";
 import Footer from "../components/Footer";
-import BotaoLogar from "../components/Botao";
+import BotaoLogar from "../components/home/Botao";
 import '../assets/styles/global.css';
 import '../assets/styles/home.css';
-import Card from "../components/Card";
+import Card from "../components/home/Card";
 import code from "../assets/img/code.png";
 import cloud from "../assets/img/cloud.png";
 import ux from "../assets/img/front.png";

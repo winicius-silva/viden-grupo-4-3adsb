@@ -1,7 +1,15 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL : "sua url do mock api aqui"
+    baseURL : "http://localhost:8080/"
 });
 
-export default api;
+// class ApiViden {
+//     getCursoPorCategoria(categoria) {
+//         return axios.get(`/cursos/filter/${categoria}`)
+//     }
+// }
+
+// export default new ApiViden();
+
+export default api

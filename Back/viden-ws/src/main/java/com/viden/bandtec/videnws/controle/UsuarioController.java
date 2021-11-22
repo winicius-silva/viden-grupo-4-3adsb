@@ -45,7 +45,7 @@ public class UsuarioController {
         if(usuario == null){
             return ResponseEntity.status(404).build();
         }
-        return ResponseEntity.status(200).build();
+        return ResponseEntity.status(200).body(usuario.getIdUsuario());
     }
 
 }

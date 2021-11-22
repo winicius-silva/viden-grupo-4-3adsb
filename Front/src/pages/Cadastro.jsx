@@ -33,6 +33,7 @@ function Cadastro() {
             "senha": senha,
         }).then(response => {
             console.log('cadastrou');
+            window.location.href= "../Login";
         }).catch(function (error) {
             console.log('não cadastrou')
         })
@@ -48,11 +49,11 @@ function Cadastro() {
                     <div className="formulario">
                         <h1 className="fonte" id="subtitulo">Faça seu cadastro:</h1>
                         <form onSubmit={cadastrar} className="form_inputs_cadastro">
-                            <Input img={Nome} type="text" onChange={e => setNome(e.target.value)} placeholder="Nome completo" />
-                            <Input img={Cpf} type="text" onChange={e => setCpf(e.target.value)} placeholder="CPF" />
-                            <Input img={Telefone} type="text" onChange={e => setTelefone(e.target.value)} placeholder="Telefone" />
-                            <Input img={Email} type="email" onChange={e => setEmail(e.target.value)} placeholder="E-mail" />
-                            <Input img={Senha} type="password" onChange={e => setSenha(e.target.value)} placeholder="Senha" />
+                            <Input img={Nome} type="text" onChange={e => setNome(e.target.value)} placeholder="Nome completo" autocomplete="off" />
+                            <Input img={Cpf} type="text" onChange={e => setCpf(e.target.value)} placeholder="CPF" autocomplete="off"/>
+                            <Input img={Telefone} type="text" onChange={e => setTelefone(e.target.value)} placeholder="Telefone" autocomplete="off"/>
+                            <Input img={Email} type="email" onChange={e => setEmail(e.target.value)} placeholder="E-mail" autocomplete="off"/>
+                            <Input img={Senha} type="password" onChange={e => setSenha(e.target.value)} placeholder="Senha" autocomplete="off"/>
                             <Botao texto="Cadastrar" />
                         </form>
 

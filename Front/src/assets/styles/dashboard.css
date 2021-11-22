@@ -1,9 +1,9 @@
-.root-dashboard{
+.root_dashboard {
     display: flex;
     flex-direction: column;
 }
 
-.header-dashboard{
+.header_dashboard {
     font-family: 'Roboto Slab', serif;
     font-size: 2.5vh;
     display: flex;
@@ -15,67 +15,76 @@
     clear: both;
 }
 
-.search-dash{
+.search-dash {
     display: flex;
     align-items: center;
     width: 23vw;
 }
 
-#dash-text{
+.options_dash {
+    width: 22vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+#dash_text {
     color: white;
     cursor: pointer;
 }
 
-#img-perfil-dash{
+#img_perfil_dash {
     width: 50px;
     cursor: pointer;
 }
 
-#btn-sair {
+#btn_sair {
     font-size: 2.5vh;
     font-family: 'Roboto Slab', serif;
     color: white;
     cursor: pointer;
 }
 
-.nav-bar-dash{
-    font-family: 'Roboto Mono', serif;
+.nav_bar_dash {
+    font-family: 'Roboto Slab', serif;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     width: 100%;
-    height: 8vh;
+    height: 10vh;
     font-size: 4vh;
-    padding-top: 20px;
-    background-color: #1C1C1C;
+    background-color: rgb(28, 28, 28, 89%);
     color: white;
 }
 
-.button {
-    transition-duration: 0.4s;
+.button_nav_bar {
+    background: none;
+    border: none;
+    font-family: 'Roboto Slab', serif;
+    color: white;
+    font-size: 2.5vh;
+    font-weight: bold;
 }
 
-.nav-btn-dash h4:hover {
+.button_nav_bar:hover {
     color: #EEA243;
 }
 
-.nav-btn-dash{
-    cursor: pointer;
-}
-
-.content-container{
-    background-image: url('../img/background_index.svg');
+.content_container {
+    background-image: url(https://www.pixel4k.com/wp-content/uploads/2020/10/white-cube-pattern-4k_1602439015-2048x1153.jpg);
     background-size: cover;
     width: 100%;
-    height: 400px;
+    height: 55vh;
 }
 
-#title{
+#title {
     text-align: center;
     padding-right: 100px;
     font-size: 2.5vh;
 }
 
-.title-content{
+.title_content {
     color: #EEA243;
     width: 100%;
     align-items: center;
@@ -88,68 +97,106 @@
     padding-top: 30px;
 }
 
-.text-content{
+.text_content {
     align-items: center;
-    font-size: 3.5vh;
-    font-family: 'Roboto Mono', serif;
+    font-size: 3vh;
+    font-family: 'Roboto Slab', serif;
     width: 70%;
     margin: 0 auto;
     align-content: center;
     text-align: center;
 }
 
-.container-cursos{
+.container_cursos {
     width: 100%;
-    height: 50vh;
+    margin-top: 4vh;
+
 }
 
-.cursos h2{
-    display: inline;
-    font-family: 'Roboto Slab', serif;
-    font-size: 5vh;
-    font-weight: 300;
-    padding-left: 20px;
-    padding-top: 10px;
+.container_cursos h2 {
+    margin-left: 1.5vw;
 }
 
-
-
-.cursos-latest{
-    border-radius: 10px;
-    padding-top: 50px;
-    width: 100%;
-    height: 40vh;
-}
-
-.cardCurso{
-    width: 30%;
-    height: 90px;
-    margin: 20px;
-    padding: 10px;
-    border: solid 1px;
-    box-shadow: 5px 5px 5px rgb(148, 147, 147);
-    border-radius: 8px;
-    border-color: grey;
-}
-
-.imgProg{
+.list_cursos {
     display: flex;
+    padding: 1.5vh;
 }
 
-.imgProg img {
-    width: 30px;
-    height: 30px;
+.container_cursos h2 {
+    font-size: 1.5vw;
+    font-family: 'Roboto Slab', serif;
 }
 
-.imgProg h4{
-    padding-left: 10px;
+.cardCurso {
+    background-color: rgba(211, 211, 211, 0.89);
+    border-radius: 20px;
+    padding: 1vw;
+    margin: 1vw;
+    display: flex;
+    align-items: center;
+    width: 21vw;
+    justify-content: space-between;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.tempo-curso{
-    width: 100%;
-    margin-top: 40px;
+.img_curso {
+    width: 5vw;
 }
 
-.timing{
-    width: 15px;
+.desc_curso {
+    width: 15vw;
+    font-size: 1vw;
+    font-family: 'Roboto Slab', serif;
+    color: #052957;
+
+}
+
+.container_recentes{
+    display: flex;
+    width: 93%;
+    padding-left: 7%;
+}
+
+.recentes_title{
+    width: 97%;
+    height: 10vh;
+    padding-left: 3%;
+    padding-top: 2%;
+    font-size: 2.5vw;
+    font-family: 'Roboto Slab', serif;
+    color: rgba(64, 64, 64, 1);
+}
+
+.cardCursoRecente {
+    border-radius: 20px;
+    padding : 1.5vw;
+    width: 10vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.589);
+    margin-right: 3vw;
+
+}
+
+.img_cursoRecent {
+    width: 10vw;
+}
+
+.desc_cursoRecent{
+    font-size: 1.5vw;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    color: rgba(64, 64, 64, 1);
+}
+
+.data_cursoRecent{
+    padding-top: 1vh;
+    font-size: 1.4vw;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    color: rgba(64, 64, 64, 1);
 }

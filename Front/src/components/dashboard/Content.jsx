@@ -4,13 +4,13 @@ export default function(props){
     return(
         <>
 
-            <div className="content-container">
-                <div className="title-content">
+            <div className="content_container">
+                <div className="title_content">
                     <h4 id="title">Cursos da Viden</h4>
                     <h2>{props.titleContent}</h2>
                 </div>
 
-                <div className="text-content">
+                <div className="text_content">
                     <h3>
                         {props.textContent}
                     </h3>

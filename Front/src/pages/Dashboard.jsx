@@ -1,10 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from 'react-router-dom'
+import { Line } from "react-chartjs-2";
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+} from 'chart.js';
 import Perfil from "../assets/img/perfil-white.png"
+import gold from "../assets/img/gold-medal.png";
+import bronze from "../assets/img/bronze-medal.png";
+import average from "../assets/img/average.png";
 import Content from "../components/dashboard/Content";
 import Curso from "../components/dashboard/cursoItem";
 import CursoRecent from "../components/dashboard/cursoRecentItem";
 import Botao from "../components/dashboard/nav_button"
+import StatsDash from "../components/dashboard/StatsDash";
+import Footer from "../components/Footer";
 import '../assets/styles/dashboard.css'
 import '../assets/styles/global.css';
 
@@ -13,12 +29,12 @@ import { useCursosContext } from '../contexts/cursos'
 
 function Dashboard() {
     const { getCategoriaCursoSelecionado, cursosData, cursosCategorias, getRecentCursos, cursosRecentes } = useCursosContext()
-    const history = useHistory() 
+    const history = useHistory()
 
     const [cursoSelecionadoInfo, setCursoSelecionadoInfo] = useState(getCategoriaCursoSelecionado())
 
     useEffect(() => {
-        if(localStorage.getItem('id_usuario') == null) {
+        if (localStorage.getItem('id_usuario') == null) {
             history.push('/login')
             alert("Faça o login para acessar a dashboard!")
         }
@@ -34,6 +50,42 @@ function Dashboard() {
         localStorage.clear()
     }
 
+    ChartJS.register(
+        CategoryScale,
+        LinearScale,
+        PointElement,
+        LineElement,
+        Title,
+        Tooltip,
+        Legend
+    );
+
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: '',
+            },
+            title: {
+                display: true,
+                text: '',
+            },
+        },
+    };
+
+    const labels = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
+
+    const data = {
+        labels,
+        datasets: [
+            {
+                label: 'Dataset 1',
+                data: [],
+                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            }
+        ],
+    };
     return (
         <>
             <div className="root_dashboard">
@@ -77,6 +129,7 @@ function Dashboard() {
             </div>
 
             <div>
+                <h2 className="recentes_title">Cursos disponíveis</h2>
                 {cursosCategorias && cursosCategorias.map(cursoCategoria => (
                     <div className="container_cursos">
                         <h2>{cursoCategoria}</h2>
@@ -93,15 +146,36 @@ function Dashboard() {
                 <h2 className="recentes_title">Cursos recentes</h2>
                 <div className="container_recentes">
                     {cursosRecentes && cursosRecentes.map(cursoRecente => (
-                        <CursoRecent desc={cursoRecente.nomeCurso} data={cursoRecente.date} />                        
+                        <CursoRecent desc={cursoRecente.nomeCurso} data={cursoRecente.date} />
                     ))}
 
                 </div>
             </div>
 
-            <div>
+            <div className="performance_dash">
+                <h2 className="recentes_title">Sua performance</h2>
+                <div className="grafico_dash">
+                    <Line options={options} data={data} />
+                </div>
+                <div className="info_dash">
+                    <h4 className="info_dash_title">Estatística (VidenCoins)</h4>
+                    <div className="icons_dash">
+                        <StatsDash img={gold} result="-/-" desc="Resultado mais alto do teste"/>
+                        <StatsDash img={average} result="-/-" desc="Média de resultado do teste"/>
+                        <StatsDash img={bronze} result="-/-" desc="Resultado mais baixo do teste"/>
+                    </div>
 
+                    <h4 className="info_dash_title">Estatística (Porcentagem)</h4>
+                    <div className="icons_dash">
+                        <StatsDash img={gold} result="-/-" desc="Resultado mais alto do teste"/>
+                        <StatsDash img={average} result="-/-" desc="Média de resultado do teste"/>
+                        <StatsDash img={bronze} result="-/-" desc="Resultado mais baixo do teste"/>
+                    </div>
+
+                </div>
             </div>
+
+            <Footer/>
         </>
     )
 }

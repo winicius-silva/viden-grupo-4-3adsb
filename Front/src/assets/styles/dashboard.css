@@ -151,25 +151,25 @@
 
 }
 
-.container_recentes{
+.container_recentes {
     display: flex;
     width: 93%;
     padding-left: 7%;
 }
 
-.recentes_title{
+.recentes_title {
     width: 97%;
     height: 10vh;
     padding-left: 3%;
     padding-top: 2%;
     font-size: 2.5vw;
     font-family: 'Roboto Slab', serif;
-    color: rgba(64, 64, 64, 1);
+    color: #052957;
 }
 
 .cardCursoRecente {
     border-radius: 20px;
-    padding : 1.5vw;
+    padding: 1.5vw;
     width: 10vw;
     height: 30vh;
     display: flex;
@@ -186,17 +186,74 @@
     width: 10vw;
 }
 
-.desc_cursoRecent{
+.desc_cursoRecent {
     font-size: 1.5vw;
     text-align: center;
     font-family: 'Roboto Slab', serif;
     color: rgba(64, 64, 64, 1);
 }
 
-.data_cursoRecent{
+.data_cursoRecent {
     padding-top: 1vh;
     font-size: 1.4vw;
     text-align: center;
     font-family: 'Roboto Slab', serif;
     color: rgba(64, 64, 64, 1);
+}
+
+.performance_dash{
+    width: 100%;
+    height: 90vh;
+}
+
+.grafico_dash {
+    float: left;
+    width: 50%;
+    padding: 2vw;
+}
+
+.info_dash {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.info_dash_title {
+    padding-top: 4vh;
+    width: 97%;
+    height: 10vh;
+    font-size: 2vw;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    color: #052957;
+}
+
+.icons_dash {
+    display: flex;
+    justify-content: space-around;
+}
+
+.stat_icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.StatsDash_img {
+    width: 4vw;
+}
+
+.StatsDash_result {
+    padding-top: 1vh;
+    font-family: 'Roboto Slab', serif;
+    color: black;
+    font-size: 1vw;
+}
+
+.StatsDash_desc{
+    padding-top: 1vh;
+    font-family: 'Roboto Slab', serif;
+    color: black;
+    font-size: 1vw;
 }

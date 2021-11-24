@@ -4,8 +4,6 @@ import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
-import java.time.LocalDate;
 
 @Entity
 public class UsuarioCurso {
@@ -26,8 +24,8 @@ public class UsuarioCurso {
     @Max(1)
     private Integer finalizado;
 
-    @PastOrPresent
-    private LocalDate date;
+    @NotNull
+    private Integer date;
 
     @NotNull
     private Double progresso;
@@ -64,11 +62,11 @@ public class UsuarioCurso {
         this.finalizado = finalizado;
     }
 
-    public LocalDate getDate() {
+    public Integer getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Integer date) {
         this.date = date;
     }
 

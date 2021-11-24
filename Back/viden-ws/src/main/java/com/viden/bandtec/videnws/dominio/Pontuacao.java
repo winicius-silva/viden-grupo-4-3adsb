@@ -23,10 +23,12 @@ public class Pontuacao {
     private Double pontos;
 
     @ManyToOne
+    @JoinColumn(name="idUsuario", referencedColumnName="idusuario")
     @NotNull
     private Usuario fkUsuario;
 
     @ManyToOne
+    @JoinColumn(name = "idCurso", referencedColumnName="idCurso")
     @NotNull
     private Curso fkCurso;
 

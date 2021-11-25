@@ -7,11 +7,20 @@ import relogio from "../assets/img/relogio.png";
 import curosativos from "../assets/img/curosativos.png";
 import perfil from "../assets/img/perfil-white.png"
 import '../assets/styles/perfil.css';
+import { Link, useHistory } from 'react-router-dom'
 
 function Perfil() {
+
+    const history = useHistory()
+
+    function sair() {
+        history.push('/')
+        localStorage.clear()
+    }
+    
     return (
         <>
-
+            
 
             <div className="background">
 
@@ -26,13 +35,13 @@ function Perfil() {
                         <div id="dash-text">
                             <h4> Meus cursos </h4>
                         </div>
+                        
+                        <Link to= "/dashboard"><div id="btn-sair">               
+                            <h4> Voltar </h4>
+                        </div></Link>
 
-                        <div id="icon-perfil-dash">
-                            <img id="img-perfil-dash" src={perfil} alt="" />
-                        </div>
-
-                        <div id="btn-sair">
-                            <h4> Sair </h4>
+                        <div id="btn-sair" onClick={sair}>
+                            <h4> Logoff </h4>
                         </div>
                     </div>
                 </div>
@@ -47,56 +56,33 @@ function Perfil() {
                             </div>
 
                             <div className="infoPerfil">
-                                <h2 className="nome">Kauê Volpe</h2>
-                                <h3>122HS89HS-S8WWOJS-SMKNXNS</h3>
+                                <h2 className="nome">Winicius Silva</h2>
                                 <br />
-                                <label>Nível:</label>
-                                <label className="usuario">Usuário</label>
+                                <label>CPF:</label>
+                                <label className="usuario">497.878.608-81</label>
                                 <br />
                                 <br />
                                 <label>Email:</label>
-                                <label className="email">Kauevolpe01@gmail.com</label>
+                                <label className="email">winicius.silva@bandtec.com.br</label>
                                 <br />
                                 <br />
                                 <label>Empresa:</label>
-                                <label className="empresa">Accenture</label>
+                                <label className="empresa">Valemobi</label>
                             </div>
-                        </div>
-
-                        <div className="dadosPerfil2">
 
                             <div className="um">
-                                <img id="img1" src={user} alt="" />
-                                <h3 id="cor">27/10/2021 </h3>
-                                <h3 id="cor"> 18:07:47</h3>
-                                <label>Dados de inscrição</label>
-                            </div>
-
-                            <div className="dois">
                                 <img id="img2" src={calendario} alt="" />
                                 <h3 id="cor">29/10/2021</h3>
                                 <h3 id="cor"> 09:41:22</h3>
                                 <label>Data de inscrição</label>
                             </div>
-                        </div>
 
-                        <div className="dadosPerfil3">
-
-                            <div className="tres">
-                                <img id="img3" src={relogio} alt="" />
-                                <h3 id="cor">7h:51m</h3>
-                                <label> Tempo real</label>
-                            </div>
-
-                            <div className="quatro">
+                            <div className="dois">
                                 <img id="img4" src={curosativos} alt="" />
                                 <h3 id="cor">2</h3>
                                 <label>Cursos Ativos</label>
                             </div>
-
                         </div>
-
-
 
                         <div className="progresso">
 

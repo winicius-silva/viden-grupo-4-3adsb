@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { Line } from "react-chartjs-2";
 import {
     Chart as ChartJS,
@@ -80,14 +80,14 @@ function Dashboard() {
         datasets: [
             {
                 label: 'Dataset 1',
-                data: [],
+                data: [0,15,30,5,10,33,55,0,10,43,21,10],
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
             }
         ],
     };
     return (
-        <>
+        <>  
             <div className="root_dashboard">
                 <div className="header_dashboard">
                     <h1 className="font_header_index">&#60;&#47;Viden</h1>
@@ -96,12 +96,9 @@ function Dashboard() {
                     </div>
 
                     <div className="options_dash">
-                        <div id="dash_text">
-                            <h4> Meus cursos </h4>
-                        </div>
 
                         <div id="icon-perfil_dash">
-                            <img id="img_perfil_dash" src={Perfil} alt="" />
+                            <Link to="/perfil"> <img id="img_perfil_dash" src={Perfil} alt="" /> </Link>
                         </div>
 
                         <div id="btn_sair" onClick={sair}>
@@ -128,7 +125,7 @@ function Dashboard() {
                 />
             </div>
 
-            <div>
+            <div className="cursos_div">
                 <h2 className="recentes_title">Cursos disponíveis</h2>
                 {cursosCategorias && cursosCategorias.map(cursoCategoria => (
                     <div className="container_cursos">

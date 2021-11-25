@@ -2,9 +2,19 @@ import React from "react";
 import "../assets/styles/VideoPlayer.css"
 import "../assets/styles/dashboard.css"
 import Perfil from "../assets/img/perfil-white.png";
+import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 
 
 function VideoPlayer() {
+
+    const history = useHistory()
+
+    function sair() {
+        history.push('/')
+        localStorage.clear()
+    }
+
     return (
         <>
             <div className="root-TelaVideo">
@@ -13,17 +23,22 @@ function VideoPlayer() {
                     <div id="search_dash">
                         <input id="search_input_index" type="text" placeholder=" Ex: Java cursos..." />
                     </div>
-
-                    <div id="dash-text">
-                        <h4> Meus cursos </h4>
-                    </div>
-
-                    <div id="icon-perfil">
-                        <img id="img-perfil" src={Perfil} alt="" />
-                    </div>
                     
-                    <div id="btn-sair">
-                        <h4> Sair </h4>
+                    <Link to="/perfil">
+                        <div id="icon-perfil">
+                            <img id="img-perfil" src={Perfil} alt="" />
+                        </div>
+                    </Link>
+                    
+                    <Link to="/dashboard">
+                        <div id="btn-sair">
+                            <h4> Voltar </h4>
+                        </div>
+                    </Link>
+                    
+
+                    <div id="btn-sair" onClick={sair}>
+                        <h4> Logoff </h4>
                     </div>
                 </div>
             </div>

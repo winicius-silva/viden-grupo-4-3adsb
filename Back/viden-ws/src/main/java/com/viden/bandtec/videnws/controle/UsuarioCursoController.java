@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,36 +18,26 @@ public class UsuarioCursoController {
     @Autowired
     private UsuarioCursoRepository repository;
 
-    @GetMapping("/recent-cursos/{fkUsuario}")
-    private ResponseEntity getRecentCurso(@PathVariable Integer fkUsuario){
-        List<UsuarioCurso> cursos = repository.findAll();
-        PilhaObj<UsuarioCurso> myCursos = new PilhaObj(cursos.size());
-        for (UsuarioCurso cursoDaVez : cursos) {
-            if(cursoDaVez.getFkUsuario().getIdUsuario().equals(fkUsuario)){
-                if(cursoDaVez.getDate() >= 20210101){
-                    myCursos.push(cursoDaVez);
-                }
-            }
-        }
-        if(myCursos.isEmpty()){
-            return ResponseEntity.status(204).build();
-        }
-        return ResponseEntity.status(200).body(myCursos);
-    }
-
-    @GetMapping("my-cursos/{fkUsuario}")
+    @GetMapping("recent-cursos/{fkUsuario}")
     private ResponseEntity getMyCurso(@PathVariable Integer fkUsuario){
         List<UsuarioCurso> cursos = repository.findAll();
-        PilhaObj<UsuarioCurso> myCursos = new PilhaObj(cursos.size());
+        PilhaObj<UsuarioCurso> meusCursos = new PilhaObj(cursos.size());
         for (UsuarioCurso cursoDaVez : cursos) {
             if(cursoDaVez.getFkUsuario().getIdUsuario().equals(fkUsuario)){
-                myCursos.push(cursoDaVez);
+                meusCursos.push(cursoDaVez);
             }
         }
-        if(myCursos.isEmpty()){
+        List<UsuarioCurso> retorno = new ArrayList<>();
+        for (int i = 0; i < cursos.size(); i++) {
+            retorno.add(meusCursos.pop());
+            if(meusCursos.isEmpty()){
+                break;
+            }
+        }
+        if(retorno.isEmpty()){
             return ResponseEntity.status(204).build();
         }
-        return ResponseEntity.status(200).body(myCursos);
+        return ResponseEntity.status(200).body(retorno);
     }
 
     @GetMapping("cursos-finalizados/{fkUsuario}")
@@ -62,9 +51,16 @@ public class UsuarioCursoController {
                 }
             }
         }
-        if(cursosFinalizados.isEmpty()){
+        List<UsuarioCurso> retorno = new ArrayList<>();
+        for (int i = 0; i < cursos.size(); i++) {
+            retorno.add(cursosFinalizados.pop());
+            if(cursosFinalizados.isEmpty()){
+                break;
+            }
+        }
+        if(retorno.isEmpty()){
             return ResponseEntity.status(204).build();
         }
-        return ResponseEntity.status(200).body(cursosFinalizados);
+        return ResponseEntity.status(200).body(retorno);
     }
 }

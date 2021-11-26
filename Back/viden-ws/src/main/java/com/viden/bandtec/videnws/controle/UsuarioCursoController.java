@@ -19,7 +19,7 @@ public class UsuarioCursoController {
     private UsuarioCursoRepository repository;
 
     @GetMapping("recent-cursos/{fkUsuario}")
-    private ResponseEntity getMyCurso(@PathVariable Integer fkUsuario){
+    public ResponseEntity getMyCurso(@PathVariable Integer fkUsuario){
         List<UsuarioCurso> cursos = repository.findAll();
         PilhaObj<UsuarioCurso> meusCursos = new PilhaObj(cursos.size());
         for (UsuarioCurso cursoDaVez : cursos) {
@@ -41,7 +41,7 @@ public class UsuarioCursoController {
     }
 
     @GetMapping("cursos-finalizados/{fkUsuario}")
-    private ResponseEntity getCursoFinalizados(@PathVariable Integer fkUsuario){
+    public ResponseEntity getCursoFinalizados(@PathVariable Integer fkUsuario){
         List<UsuarioCurso> cursos = repository.findAll();
         PilhaObj<UsuarioCurso> cursosFinalizados = new PilhaObj(cursos.size());
         for (UsuarioCurso cursoDaVez : cursos) {

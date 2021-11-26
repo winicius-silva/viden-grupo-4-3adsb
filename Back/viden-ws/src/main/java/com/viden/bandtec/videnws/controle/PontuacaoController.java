@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin
@@ -33,11 +34,17 @@ public class PontuacaoController {
 
     @GetMapping("/{fkUsuario}")
     public ResponseEntity getPontosPorUsuario(@PathVariable Integer fkUsuario){
-        List<Pontuacao> pontuacoes = repository.findAllByFkUsuario(fkUsuario);
-        if(pontuacoes.isEmpty()){
+        List<Pontuacao> pontuacoes = repository.findAll();
+        List<Pontuacao> retorno = new ArrayList<>();
+        for (Pontuacao pontos : pontuacoes) {
+            if(pontos.getFkusuario().getIdUsuario().equals(fkUsuario)){
+                retorno.add(pontos);
+            }
+        }
+        if(retorno.isEmpty()){
             return ResponseEntity.status(204).build();
         }
-        return ResponseEntity.status(200).body(pontuacoes);
+        return ResponseEntity.status(200).body(retorno);
     }
 
     @GetMapping("/total/{fkUsuario}")

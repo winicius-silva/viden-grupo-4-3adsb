@@ -25,6 +25,13 @@ public class EmpresaCurso {
     @PastOrPresent
     private LocalDate data;
 
+    public EmpresaCurso(Integer idEmpresaCurso, Empresa fkEmpresa, Curso fkCurso, LocalDate data) {
+        this.idEmpresaCurso = idEmpresaCurso;
+        this.fkEmpresa = fkEmpresa;
+        this.fkCurso = fkCurso;
+        this.data = data;
+    }
+
     public Integer getIdEmpresaCurso() {
         return idEmpresaCurso;
     }

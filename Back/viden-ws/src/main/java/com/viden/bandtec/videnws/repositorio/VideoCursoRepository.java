@@ -7,5 +7,4 @@ import java.util.List;
 
 public interface VideoCursoRepository extends JpaRepository<VideoCurso, Integer> {
 
-    List<VideoCurso> findByIdCurso(Integer id);
 }

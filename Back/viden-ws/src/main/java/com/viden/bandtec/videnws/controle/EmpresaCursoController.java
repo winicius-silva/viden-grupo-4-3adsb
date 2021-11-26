@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin
@@ -17,18 +18,24 @@ public class EmpresaCursoController {
     private EmpresaCursoRepository repository;
 
     @PostMapping
-    private ResponseEntity postEmpresaByCurso(@RequestBody EmpresaCurso empresaCurso){
+    public ResponseEntity postEmpresaByCurso(@RequestBody EmpresaCurso empresaCurso){
         repository.save(empresaCurso);
         return ResponseEntity.status(201).build();
     }
 
-    @GetMapping("/{FkEmpresa}")
-    private ResponseEntity getEmpresaByCurso(@PathVariable Integer FkEmpresa){
-        List<EmpresaCurso> cursosEmpresas = repository.findByFkEmpresa(FkEmpresa);
-        if(cursosEmpresas.isEmpty()){
+    @GetMapping("/{fkEmpresa}")
+    public ResponseEntity getEmpresaByCurso(@PathVariable Integer fkEmpresa){
+        List<EmpresaCurso> cursosEmpresas = repository.findAll();
+        List<EmpresaCurso> retorno = new ArrayList<>();
+        for (int i = 0; i < cursosEmpresas.size(); i++) {
+            if(cursosEmpresas.get(i).getFkEmpresa().getIdEmpresa().equals(fkEmpresa)){
+               retorno.add(cursosEmpresas.get(i));
+            }
+        }
+        if(retorno.isEmpty()){
             return ResponseEntity.status(204).build();
         } else {
-            return ResponseEntity.status(200).body(cursosEmpresas);
+            return ResponseEntity.status(200).body(retorno);
         }
     }
 }

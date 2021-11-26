@@ -6,8 +6,6 @@ import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-import java.time.LocalDate;
 
 @Entity
 public class Curso {
@@ -39,6 +37,11 @@ public class Curso {
     @Min(1)
     @Max(5)
     private Integer qtdPontos;
+
+    public Curso(Integer idCurso, String nomeCurso) {
+        this.idCurso = idCurso;
+        this.nomeCurso = nomeCurso;
+    }
 
     public Integer getIdCurso() {
         return idCurso;

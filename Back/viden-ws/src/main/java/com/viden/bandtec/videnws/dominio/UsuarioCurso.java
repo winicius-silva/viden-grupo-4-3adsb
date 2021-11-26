@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 
 @Entity
 public class UsuarioCurso {
@@ -25,10 +26,19 @@ public class UsuarioCurso {
     private Integer finalizado;
 
     @NotNull
-    private Integer date;
+    private LocalDate date;
 
     @NotNull
     private Double progresso;
+
+    public UsuarioCurso(Integer idUsuarioCurso, Usuario fkUsuario, Curso fkCurso, Integer finalizado, LocalDate date, Double progresso) {
+        this.idUsuarioCurso = idUsuarioCurso;
+        this.fkUsuario = fkUsuario;
+        this.fkCurso = fkCurso;
+        this.finalizado = finalizado;
+        this.date = date;
+        this.progresso = progresso;
+    }
 
     public Integer getIdUsuarioCurso() {
         return idUsuarioCurso;
@@ -62,11 +72,11 @@ public class UsuarioCurso {
         this.finalizado = finalizado;
     }
 
-    public Integer getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Integer date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

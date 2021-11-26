@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin
@@ -38,15 +39,24 @@ public class CursoController {
 
     @GetMapping("/search/{nomeCurso}")
     public ResponseEntity getCursosSearch(@PathVariable String nomeCurso){
-        List<Curso> cursos = repository.findByNomeCursoLike(nomeCurso);
+        List<Curso> cursos = repository.findAll();
         FilaObj<Curso> filaCurso = new FilaObj<>(cursos.size());
-        for (Curso curso : cursos) {
-            filaCurso.insert(curso);
+        for (Curso cursoDaVez : cursos) {
+            if(cursoDaVez.getNomeCurso().equals(nomeCurso)){
+                filaCurso.insert(cursoDaVez);
+            }
         }
-        if(cursos.isEmpty()){
+        List<Curso> retorno = new ArrayList<>();
+        for (int i = 0; i < cursos.size(); i++) {
+            retorno.add(filaCurso.poll());
+            if (filaCurso.isEmpty()) {
+                break;
+            }
+        }
+        if(retorno.isEmpty()){
             return ResponseEntity.status(204).build();
         } else {
-            return ResponseEntity.status(200).body(filaCurso);
+            return ResponseEntity.status(200).body(retorno);
         }
     }
 

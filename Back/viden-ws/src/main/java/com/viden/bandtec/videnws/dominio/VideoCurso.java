@@ -20,13 +20,6 @@ public class VideoCurso {
     @NotNull
     private String descricaoVideo;
 
-    public VideoCurso(Integer idVideoCurso, Curso idCurso, String link, String descricaoVideo) {
-        this.idVideoCurso = idVideoCurso;
-        this.idCurso = idCurso;
-        this.link = link;
-        this.descricaoVideo = descricaoVideo;
-    }
-
     public Integer getIdVideoCurso() {
         return idVideoCurso;
     }

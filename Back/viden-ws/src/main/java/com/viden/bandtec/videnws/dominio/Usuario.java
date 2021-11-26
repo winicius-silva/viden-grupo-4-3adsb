@@ -43,11 +43,6 @@ public class Usuario {
     @Past
     private LocalDateTime horaLogin;
 
-    public Usuario(Integer idusuario, String nomeUsuario) {
-        this.idusuario = idusuario;
-        this.nomeUsuario = nomeUsuario;
-    }
-
     public Integer getIdUsuario() {
         return idusuario;
     }

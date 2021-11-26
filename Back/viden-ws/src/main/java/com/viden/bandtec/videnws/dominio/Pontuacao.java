@@ -34,14 +34,6 @@ public class Pontuacao {
 
     public Pontuacao() {}
 
-    public Pontuacao(Integer idPontosUsuario, LocalDate data, Double pontos, Usuario fkUsuario, Curso fkCurso) {
-        this.idPontosUsuario = idPontosUsuario;
-        this.data = data;
-        this.pontos = pontos;
-        this.fkUsuario = fkUsuario;
-        this.fkCurso = fkCurso;
-    }
-
     public Integer getIdPontosUsuario() {
         return idPontosUsuario;
     }

@@ -24,9 +24,20 @@ class CursoControllerTest {
 
    @Test
    void getCursosPesquisados(){
-           List<Curso> cursosMock = List.of(
-                   new Curso(1, "Java"),
-                   new Curso(2, "PHP"));
+       Curso curso = new Curso();
+       curso.setIdCurso(1);
+       curso.setNomeCurso("Java X");
+
+       Curso curso2 = new Curso();
+       curso.setIdCurso(2);
+       curso.setNomeCurso("PHP 9");
+
+       Curso curso3 = new Curso();
+       curso.setIdCurso(3);
+       curso.setNomeCurso("Angular 7");
+
+
+           List<Curso> cursosMock = List.of(curso,curso2,curso3);
            when(repository.findAll()).thenReturn(cursosMock);
 
            ResponseEntity response = controller.getCursosSearch("Java");

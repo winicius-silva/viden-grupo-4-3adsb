@@ -27,15 +27,27 @@ class VideoCursoControllerTest {
 
     @Test
     void getVideoByCurso(){
-        Curso curso = new Curso(1, "Java X");
+        Curso curso = new Curso();
+        curso.setIdCurso(1);
+        curso.setNomeCurso("Java X");
+
+        VideoCurso videoCurso = new VideoCurso();
+        videoCurso.setIdVideoCurso(1);
+        videoCurso.setIdCurso(curso);
+        videoCurso.setLink("https://www.youtube.com/watch?v=dM7x1PNZDo0");
+
+        VideoCurso videoCurso2 = new VideoCurso();
+        videoCurso.setIdVideoCurso(2);
+        videoCurso.setIdCurso(curso);
+        videoCurso.setLink("https://www.youtube.com/watch?v=7CjBOajCSD4");
+
+        VideoCurso videoCurso3 = new VideoCurso();
+        videoCurso.setIdVideoCurso(3);
+        videoCurso.setIdCurso(curso);
+        videoCurso.setLink("https://www.youtube.com/watch?v=wXmPralkTqQ");
 
         List<VideoCurso> videoCursosMock = List.of(
-                new VideoCurso(1, curso,
-                    "https://www.youtube.com/watch?v=dM7x1PNZDo0", "teste"),
-                new VideoCurso(2, curso,
-                        "https://www.youtube.com/watch?v=7CjBOajCSD4", "teste"),
-                new VideoCurso(3, curso,
-                        "https://www.youtube.com/watch?v=wXmPralkTqQ", "teste")
+                videoCurso,videoCurso2,videoCurso3
         );
 
         when(repository.findAll()).thenReturn(videoCursosMock);

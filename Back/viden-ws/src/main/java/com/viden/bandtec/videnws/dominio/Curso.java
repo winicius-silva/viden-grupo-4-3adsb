@@ -38,11 +38,6 @@ public class Curso {
     @Max(5)
     private Integer qtdPontos;
 
-    public Curso(Integer idCurso, String nomeCurso) {
-        this.idCurso = idCurso;
-        this.nomeCurso = nomeCurso;
-    }
-
     public Integer getIdCurso() {
         return idCurso;
     }

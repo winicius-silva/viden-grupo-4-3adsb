@@ -28,17 +28,52 @@ class UsuarioCursoControllerTest {
 
     @Test
     void getCursoFinalizados(){
-        Usuario usuario = new Usuario(1, "Winicius");
-        Usuario usuario2 = new Usuario(2, "Jorge");
-        Curso curso = new Curso(1, "Java X");
-        Curso curso2 = new Curso(2, "PHP 9");
-        Curso curso3 = new Curso(3, "Angular 7");
+        Usuario usuario = new Usuario();
+        usuario.setIdUsuario(1);
+        usuario.setNomeUsuario("Winicius");
+
+        Usuario usuario2 = new Usuario();
+        usuario.setIdUsuario(2);
+        usuario.setNomeUsuario("Jorge");
+
+        Curso curso = new Curso();
+        curso.setIdCurso(1);
+        curso.setNomeCurso("Java X");
+
+        Curso curso2 = new Curso();
+        curso.setIdCurso(2);
+        curso.setNomeCurso("PHP 9");
+
+        Curso curso3 = new Curso();
+        curso.setIdCurso(3);
+        curso.setNomeCurso("Angular 7");
+
+        UsuarioCurso usuarioCurso = new UsuarioCurso();
+        usuarioCurso.setIdUsuarioCurso(1);
+        usuarioCurso.setFkUsuario(usuario);
+        usuarioCurso.setFkCurso(curso);
+        usuarioCurso.setFinalizado(1);
+
+        UsuarioCurso usuarioCurso2 = new UsuarioCurso();
+        usuarioCurso.setIdUsuarioCurso(2);
+        usuarioCurso.setFkUsuario(usuario);
+        usuarioCurso.setFkCurso(curso2);
+        usuarioCurso.setFinalizado(0);
+
+        UsuarioCurso usuarioCurso3 = new UsuarioCurso();
+        usuarioCurso.setIdUsuarioCurso(3);
+        usuarioCurso.setFkUsuario(usuario2);
+        usuarioCurso.setFkCurso(curso3);
+        usuarioCurso.setFinalizado(1);
+
+        UsuarioCurso usuarioCurso4 = new UsuarioCurso();
+        usuarioCurso.setIdUsuarioCurso(4);
+        usuarioCurso.setFkUsuario(usuario);
+        usuarioCurso.setFkCurso(curso3);
+        usuarioCurso.setFinalizado(1);
 
         List<UsuarioCurso> usuarioCursosMock = List.of(
-            new UsuarioCurso(1, usuario,curso, 1,LocalDate.now(), 100.0),
-            new UsuarioCurso(2, usuario,curso2, 0,LocalDate.now(), 80.0),
-            new UsuarioCurso(3, usuario2,curso3, 1,LocalDate.now(), 15.5),
-            new UsuarioCurso(4, usuario,curso3, 1,LocalDate.now(), 100.5)
+            usuarioCurso,usuarioCurso2,usuarioCurso3,usuarioCurso4
         );
 
         when(repository.findAll()).thenReturn(usuarioCursosMock);

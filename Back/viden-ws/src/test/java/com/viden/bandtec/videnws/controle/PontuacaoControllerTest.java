@@ -28,19 +28,11 @@ class PontuacaoControllerTest {
 
     @Test
     void postPontos(){
-        Usuario usuario = new Usuario();
-        usuario.setIdUsuario(1);
-        usuario.setNomeUsuario("Winicius");
-
-        Curso curso = new Curso();
-        curso.setIdCurso(1);
-        curso.setNomeCurso("Java X");
-
         Pontuacao pontuacao = new Pontuacao();
         pontuacao.setId_pontos_usuario(1);
-        pontuacao.setFkusuario(usuario);
+        pontuacao.setFkusuario(1);
         pontuacao.setPontos(4.5);
-        pontuacao.setFkcurso(curso);
+        pontuacao.setFkcurso(1);
 
         ResponseEntity response = controller.postPontos(pontuacao);
 
@@ -49,39 +41,23 @@ class PontuacaoControllerTest {
 
     @Test
     void getPontosPorUsuario(){
-        Usuario usuario = new Usuario();
-        usuario.setIdUsuario(1);
-        usuario.setNomeUsuario("Winicius");
-
-        Curso curso = new Curso();
-        curso.setIdCurso(1);
-        curso.setNomeCurso("Java X");
-
-        Curso curso2 = new Curso();
-        curso.setIdCurso(2);
-        curso.setNomeCurso("PHP 9");
-
-        Curso curso3 = new Curso();
-        curso.setIdCurso(3);
-        curso.setNomeCurso("Angular 7");
-
         Pontuacao pontuacao = new Pontuacao();
         pontuacao.setId_pontos_usuario(1);
-        pontuacao.setFkusuario(usuario);
+        pontuacao.setFkusuario(1);
         pontuacao.setPontos(4.5);
-        pontuacao.setFkcurso(curso);
+        pontuacao.setFkcurso(1);
 
         Pontuacao pontuacao2 = new Pontuacao();
-        pontuacao.setId_pontos_usuario(2);
-        pontuacao.setFkusuario(usuario);
-        pontuacao.setPontos(3.0);
-        pontuacao.setFkcurso(curso2);
+        pontuacao2.setId_pontos_usuario(2);
+        pontuacao2.setFkusuario(1);
+        pontuacao2.setPontos(3.0);
+        pontuacao2.setFkcurso(2);
 
         Pontuacao pontuacao3 = new Pontuacao();
-        pontuacao.setId_pontos_usuario(3);
-        pontuacao.setFkusuario(usuario);
-        pontuacao.setPontos(2.5);
-        pontuacao.setFkcurso(curso3);
+        pontuacao3.setId_pontos_usuario(3);
+        pontuacao3.setFkusuario(1);
+        pontuacao3.setPontos(2.5);
+        pontuacao3.setFkcurso(3);
 
         List<Pontuacao> pontuacaoMock = List.of(
                 pontuacao,pontuacao2,pontuacao3

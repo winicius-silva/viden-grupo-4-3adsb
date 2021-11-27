@@ -22,7 +22,7 @@ public class VideoCursoController {
         List<VideoCurso> videos = repository.findAll();
         List<VideoCurso> retorno = new ArrayList<>();
         for (VideoCurso video : videos) {
-            if(video.getIdCurso().getIdCurso().equals(idCurso)){
+            if(video.getIdCurso().equals(idCurso)){
                 retorno.add(video);
             }
         }

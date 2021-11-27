@@ -13,13 +13,11 @@ public class UsuarioCurso {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idUsuarioCurso;
 
-    @ManyToOne
     @NotNull
-    private Usuario fkUsuario;
+    private Integer fkUsuario;
 
-    @ManyToOne
     @NotNull
-    private Curso fkCurso;
+    private Integer fkCurso;
 
     @Min(0)
     @Max(1)
@@ -39,19 +37,19 @@ public class UsuarioCurso {
         this.idUsuarioCurso = idUsuarioCurso;
     }
 
-    public Usuario getFkUsuario() {
+    public Integer getFkUsuario() {
         return fkUsuario;
     }
 
-    public void setFkUsuario(Usuario fkUsuario) {
+    public void setFkUsuario(Integer fkUsuario) {
         this.fkUsuario = fkUsuario;
     }
 
-    public Curso getFkCurso() {
+    public Integer getFkCurso() {
         return fkCurso;
     }
 
-    public void setFkCurso(Curso fkCurso) {
+    public void setFkCurso(Integer fkCurso) {
         this.fkCurso = fkCurso;
     }
 

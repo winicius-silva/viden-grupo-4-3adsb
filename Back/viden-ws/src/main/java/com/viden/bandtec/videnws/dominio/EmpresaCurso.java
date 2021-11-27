@@ -1,9 +1,7 @@
 package com.viden.bandtec.videnws.dominio;
 
-import com.sun.istack.NotNull;
-
 import javax.persistence.*;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
 
@@ -14,13 +12,11 @@ public class EmpresaCurso {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEmpresaCurso;
 
-    @ManyToOne
     @NotNull
-    private Empresa fkEmpresa;
+    private Integer fkEmpresa;
 
-    @ManyToOne
-    @javax.validation.constraints.NotNull
-    private Curso fkCurso;
+    @NotNull
+    private Integer fkCurso;
 
     @PastOrPresent
     private LocalDate data;
@@ -33,19 +29,19 @@ public class EmpresaCurso {
         this.idEmpresaCurso = idEmpresaCurso;
     }
 
-    public Empresa getFkEmpresa() {
+    public Integer getFkEmpresa() {
         return fkEmpresa;
     }
 
-    public void setFkEmpresa(Empresa fkEmpresa) {
+    public void setFkEmpresa(Integer fkEmpresa) {
         this.fkEmpresa = fkEmpresa;
     }
 
-    public Curso getFkCurso() {
+    public Integer getFkCurso() {
         return fkCurso;
     }
 
-    public void setFkCurso(Curso fkCurso) {
+    public void setFkCurso(Integer fkCurso) {
         this.fkCurso = fkCurso;
     }
 

@@ -10,9 +10,8 @@ public class VideoCurso {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idVideoCurso;
 
-    @ManyToOne
     @NotNull
-    private Curso idCurso;
+    private Integer idCurso;
 
     @NotNull
     private String link;
@@ -28,11 +27,11 @@ public class VideoCurso {
         this.idVideoCurso = idVideoCurso;
     }
 
-    public Curso getIdCurso() {
+    public Integer getIdCurso() {
         return idCurso;
     }
 
-    public void setIdCurso(Curso idCurso) {
+    public void setIdCurso(Integer idCurso) {
         this.idCurso = idCurso;
     }
 

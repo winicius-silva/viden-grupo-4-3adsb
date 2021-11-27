@@ -29,12 +29,12 @@ class CursoControllerTest {
        curso.setNomeCurso("Java X");
 
        Curso curso2 = new Curso();
-       curso.setIdCurso(2);
-       curso.setNomeCurso("PHP 9");
+       curso2.setIdCurso(2);
+       curso2.setNomeCurso("PHP 9");
 
        Curso curso3 = new Curso();
-       curso.setIdCurso(3);
-       curso.setNomeCurso("Angular 7");
+       curso3.setIdCurso(3);
+       curso3.setNomeCurso("Angular 7");
 
 
            List<Curso> cursosMock = List.of(curso,curso2,curso3);

@@ -27,24 +27,20 @@ class VideoCursoControllerTest {
 
     @Test
     void getVideoByCurso(){
-        Curso curso = new Curso();
-        curso.setIdCurso(1);
-        curso.setNomeCurso("Java X");
-
         VideoCurso videoCurso = new VideoCurso();
         videoCurso.setIdVideoCurso(1);
-        videoCurso.setIdCurso(curso);
+        videoCurso.setIdCurso(1);
         videoCurso.setLink("https://www.youtube.com/watch?v=dM7x1PNZDo0");
 
         VideoCurso videoCurso2 = new VideoCurso();
-        videoCurso.setIdVideoCurso(2);
-        videoCurso.setIdCurso(curso);
-        videoCurso.setLink("https://www.youtube.com/watch?v=7CjBOajCSD4");
+        videoCurso2.setIdVideoCurso(2);
+        videoCurso2.setIdCurso(1);
+        videoCurso2.setLink("https://www.youtube.com/watch?v=7CjBOajCSD4");
 
         VideoCurso videoCurso3 = new VideoCurso();
-        videoCurso.setIdVideoCurso(3);
-        videoCurso.setIdCurso(curso);
-        videoCurso.setLink("https://www.youtube.com/watch?v=wXmPralkTqQ");
+        videoCurso3.setIdVideoCurso(3);
+        videoCurso3.setIdCurso(1);
+        videoCurso3.setLink("https://www.youtube.com/watch?v=wXmPralkTqQ");
 
         List<VideoCurso> videoCursosMock = List.of(
                 videoCurso,videoCurso2,videoCurso3

@@ -22,15 +22,11 @@ public class Pontuacao {
     @Max(5)
     private Double pontos;
 
-    @ManyToOne
-    @JoinColumn(name="idUsuario", referencedColumnName="idusuario")
     @NotNull
-    private Usuario fkUsuario;
+    private Integer fkUsuario;
 
-    @ManyToOne
-    @JoinColumn(name = "idCurso", referencedColumnName="idCurso")
     @NotNull
-    private Curso fkCurso;
+    private Integer fkCurso;
 
     public Pontuacao() {}
 
@@ -58,19 +54,19 @@ public class Pontuacao {
         this.pontos = pontos;
     }
 
-    public Usuario getFkusuario() {
+    public Integer getFkusuario() {
         return fkUsuario;
     }
 
-    public void setFkusuario(Usuario fkusuario) {
+    public void setFkusuario(Integer fkusuario) {
         this.fkUsuario = fkusuario;
     }
 
-    public Curso getFkcurso() {
+    public Integer getFkcurso() {
         return fkCurso;
     }
 
-    public void setFkcurso(Curso fkcurso) {
+    public void setFkcurso(Integer fkcurso) {
         this.fkCurso = fkcurso;
     }
 }

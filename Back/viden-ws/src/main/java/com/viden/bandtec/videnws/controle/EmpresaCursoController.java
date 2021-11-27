@@ -28,7 +28,7 @@ public class EmpresaCursoController {
         List<EmpresaCurso> cursosEmpresas = repository.findAll();
         List<EmpresaCurso> retorno = new ArrayList<>();
         for (int i = 0; i < cursosEmpresas.size(); i++) {
-            if(cursosEmpresas.get(i).getFkEmpresa().getIdEmpresa().equals(fkEmpresa)){
+            if(cursosEmpresas.get(i).getFkEmpresa().equals(fkEmpresa)){
                retorno.add(cursosEmpresas.get(i));
             }
         }

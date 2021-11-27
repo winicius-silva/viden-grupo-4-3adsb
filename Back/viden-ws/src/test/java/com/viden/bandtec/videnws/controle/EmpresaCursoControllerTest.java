@@ -27,40 +27,20 @@ class EmpresaCursoControllerTest {
 
     @Test
     void getCursosLigadosEmpresas(){
-        Curso curso = new Curso();
-        curso.setIdCurso(1);
-        curso.setNomeCurso("Java X");
-
-        Curso curso2 = new Curso();
-        curso.setIdCurso(2);
-        curso.setNomeCurso("PHP 9");
-
-        Curso curso3 = new Curso();
-        curso.setIdCurso(3);
-        curso.setNomeCurso("Angular 7");
-
-        Empresa empresa = new Empresa(1, "Viden", "85506733000155",
-                "Rua Teste 123", "viden@viden.com.br", "Viden123",
-                "2021/01/01 a 2022/01/01", 5000.0);
-
-        Empresa empresa2 = new Empresa(2, "Bandtec", "85506733000155",
-                "Rua Teste 123", "bandtec@bandtec.com.br", "Bandtec123",
-                "2021/01/01 a 2022/01/01", 5500.0);
-
         EmpresaCurso empresaCurso = new EmpresaCurso();
         empresaCurso.setIdEmpresaCurso(1);
-        empresaCurso.setFkCurso(curso);
-        empresaCurso.setFkEmpresa(empresa);
+        empresaCurso.setFkCurso(1);
+        empresaCurso.setFkEmpresa(1);
 
         EmpresaCurso empresaCurso2 = new EmpresaCurso();
-        empresaCurso.setIdEmpresaCurso(2);
-        empresaCurso.setFkCurso(curso2);
-        empresaCurso.setFkEmpresa(empresa);
+        empresaCurso2.setIdEmpresaCurso(2);
+        empresaCurso2.setFkCurso(2);
+        empresaCurso2.setFkEmpresa(2);
 
         EmpresaCurso empresaCurso3 = new EmpresaCurso();
-        empresaCurso.setIdEmpresaCurso(3);
-        empresaCurso.setFkCurso(curso3);
-        empresaCurso.setFkEmpresa(empresa);
+        empresaCurso3.setIdEmpresaCurso(3);
+        empresaCurso3.setFkCurso(3);
+        empresaCurso3.setFkEmpresa(3);
 
 
         List<EmpresaCurso> empresaCursosMock = List.of(

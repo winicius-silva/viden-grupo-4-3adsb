@@ -23,7 +23,7 @@ public class UsuarioCursoController {
         List<UsuarioCurso> cursos = repository.findAll();
         PilhaObj<UsuarioCurso> meusCursos = new PilhaObj(cursos.size());
         for (UsuarioCurso cursoDaVez : cursos) {
-            if(cursoDaVez.getFkUsuario().getIdUsuario().equals(fkUsuario)){
+            if(cursoDaVez.getFkUsuario().equals(fkUsuario)){
                 meusCursos.push(cursoDaVez);
             }
         }
@@ -45,7 +45,7 @@ public class UsuarioCursoController {
         List<UsuarioCurso> cursos = repository.findAll();
         PilhaObj<UsuarioCurso> cursosFinalizados = new PilhaObj(cursos.size());
         for (UsuarioCurso cursoDaVez : cursos) {
-            if(cursoDaVez.getFkUsuario().getIdUsuario().equals(fkUsuario)){
+            if(cursoDaVez.getFkUsuario().equals(fkUsuario)){
                 if(cursoDaVez.getFinalizado().equals(1)){
                     cursosFinalizados.push(cursoDaVez);
                 }

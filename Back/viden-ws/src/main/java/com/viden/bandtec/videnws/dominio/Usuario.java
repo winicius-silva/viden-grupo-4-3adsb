@@ -34,8 +34,7 @@ public class Usuario {
     @NotNull
     private String senha;
 
-    @ManyToOne
-    private Empresa fk_empresa;
+    private Integer fkEmpresa;
 
     @Past
     private LocalDateTime horaCadastro;
@@ -83,12 +82,12 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Empresa getFk_empresa() {
-        return fk_empresa;
+    public Integer getFkEmpresa() {
+        return fkEmpresa;
     }
 
-    public void setFk_empresa(Empresa fk_empresa) {
-        this.fk_empresa = fk_empresa;
+    public void setFk_empresa(Integer fkEmpresa) {
+        this.fkEmpresa = fkEmpresa;
     }
 
     public String getNomeUsuario() {

@@ -11,7 +11,7 @@ public class VideoCurso {
     private Integer idVideoCurso;
 
     @NotNull
-    private Integer idCurso;
+    private Integer fkCurso;
 
     @NotNull
     private String link;
@@ -27,12 +27,12 @@ public class VideoCurso {
         this.idVideoCurso = idVideoCurso;
     }
 
-    public Integer getIdCurso() {
-        return idCurso;
+    public Integer getFkCurso() {
+        return fkCurso;
     }
 
-    public void setIdCurso(Integer idCurso) {
-        this.idCurso = idCurso;
+    public void setFkCurso(Integer fkCurso) {
+        this.fkCurso = fkCurso;
     }
 
     public String getLink() {

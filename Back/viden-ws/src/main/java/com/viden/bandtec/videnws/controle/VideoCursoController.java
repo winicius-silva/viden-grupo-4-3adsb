@@ -17,12 +17,12 @@ public class VideoCursoController {
     @Autowired
     private VideoCursoRepository repository;
 
-    @GetMapping("/{idCurso}")
-    public ResponseEntity getVideoByCurso(@PathVariable Integer idCurso){
+    @GetMapping("/fkCurso}")
+    public ResponseEntity getVideoByCurso(@PathVariable Integer fkCurso){
         List<VideoCurso> videos = repository.findAll();
         List<VideoCurso> retorno = new ArrayList<>();
         for (VideoCurso video : videos) {
-            if(video.getIdCurso().equals(idCurso)){
+            if(video.getFkCurso().equals(fkCurso)){
                 retorno.add(video);
             }
         }

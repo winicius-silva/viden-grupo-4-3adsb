@@ -27,6 +27,8 @@ public class UsuarioCurso {
     private LocalDate date;
 
     @NotNull
+    @Min(0)
+    @Max(100)
     private Double progresso;
 
     public Integer getIdUsuarioCurso() {

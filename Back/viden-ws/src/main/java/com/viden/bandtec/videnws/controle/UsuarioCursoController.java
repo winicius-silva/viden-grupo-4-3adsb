@@ -73,12 +73,16 @@ public class UsuarioCursoController {
         return ResponseEntity.status(200).body(retorno);
     }
 
-    @PatchMapping("/cursos-finalizados/{finalizado}/{fkCurso}/{fkUsuario}")
-    public ResponseEntity patchCursosFinalizados(@PathVariable Integer finalizado,
+    @PatchMapping("/progresso/{progresso}/{fkCurso}/{fkUsuario}")
+    public ResponseEntity patchCursosFinalizados(@PathVariable Double progresso,
                                                  @PathVariable Integer fkCurso,
                                                  @PathVariable Integer fkUsuario){
-        if(repository.existsById(fkCurso)){
-            repository.atualizarFinalizado(finalizado,fkCurso,fkUsuario);
+
+        if(repository.existsByFkCursoAndFkUsuario(fkCurso, fkUsuario)){
+            repository.atualizarProgresso(progresso,fkCurso,fkUsuario);
+            if(progresso == 100.0){
+                repository.atualizarFinalizado(1,fkCurso,fkUsuario);
+            }
             return ResponseEntity.status(201).build();
         }
         return ResponseEntity.status(404).build();

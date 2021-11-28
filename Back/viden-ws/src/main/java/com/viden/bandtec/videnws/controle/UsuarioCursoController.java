@@ -18,7 +18,7 @@ public class UsuarioCursoController {
     @Autowired
     private UsuarioCursoRepository repository;
 
-    @GetMapping("recent-cursos/{fkUsuario}")
+    @GetMapping("/recent-cursos/{fkUsuario}")
     public ResponseEntity getMyCurso(@PathVariable Integer fkUsuario){
         List<UsuarioCurso> cursos = repository.findAll();
         PilhaObj<UsuarioCurso> meusCursos = new PilhaObj(cursos.size());
@@ -40,7 +40,16 @@ public class UsuarioCursoController {
         return ResponseEntity.status(200).body(retorno);
     }
 
-    @GetMapping("cursos-finalizados/{fkUsuario}")
+    @PostMapping("/recent-cursos")
+    public ResponseEntity postRecentCurso(@RequestBody UsuarioCurso newCurso){
+        if(!repository.existsById(newCurso.getFkCurso())){
+            repository.save(newCurso);
+            return ResponseEntity.status(201).build();
+        }
+        return ResponseEntity.status(404).build();
+    }
+
+    @GetMapping("/cursos-finalizados/{fkUsuario}")
     public ResponseEntity getCursoFinalizados(@PathVariable Integer fkUsuario){
         List<UsuarioCurso> cursos = repository.findAll();
         PilhaObj<UsuarioCurso> cursosFinalizados = new PilhaObj(cursos.size());
@@ -62,5 +71,16 @@ public class UsuarioCursoController {
             return ResponseEntity.status(204).build();
         }
         return ResponseEntity.status(200).body(retorno);
+    }
+
+    @PatchMapping("/cursos-finalizados/{finalizado}/{fkCurso}/{fkUsuario}")
+    public ResponseEntity patchCursosFinalizados(@PathVariable Integer finalizado,
+                                                 @PathVariable Integer fkCurso,
+                                                 @PathVariable Integer fkUsuario){
+        if(repository.existsById(fkCurso)){
+            repository.atualizarFinalizado(finalizado,fkCurso,fkUsuario);
+            return ResponseEntity.status(201).build();
+        }
+        return ResponseEntity.status(404).build();
     }
 }

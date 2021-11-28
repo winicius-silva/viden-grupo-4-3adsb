@@ -1,9 +1,9 @@
-.root-TelaVideo{
+.root_TelaVideo{
     display: flex;
     flex-direction: column;
 }
 
-.header-TelaVideo{
+.header_TelaVideo{
     font-family: 'Roboto Slab', serif;
     font-size: 2.5vh;
     display: flex;
@@ -15,31 +15,31 @@
     clear: both;
 }
 
-.search-TelaVideo{
+.search_TelaVideo{
     display: flex;
     align-items: center;
     width: 23vw;
 }
 
-#TelaVideo-text{
+#TelaVideo_text{
     color: white;
     cursor: pointer;
 }
 
-#img-perfil{
+#img_perfil{
     width: 50px;
     cursor: pointer;
 }
 
 
-#btn-sair {
+#btn_sair {
     font-size: 2.5vh;
     font-family: 'Roboto Slab', serif;
     color: white;
     cursor: pointer;
 }
 
-.container-video{
+.container_video{
     width: 100%;
     height: 541px;
     display: flex;
@@ -57,14 +57,15 @@
     height:100%;
 }
 
-.aulas-right{
+.aulas_right{
+    font-family: 'Roboto-slab', serif;
     margin-left: 10px;
     width: 25%;
     float: right;
     height: 500px;
 }
 
-.descricao-aulas h2 {
+.descricao_aulas h2 {
     font-size: 5.5vh;
     justify-content: center;
     text-align: center;
@@ -72,10 +73,31 @@
     font-family: "Roboto-slab", serif;
 }
 
-.descricao-aulas h4 {
-    font-size: 2.5vh;
+.descricao_aulas h4 {
+    font-size: 3vh;
     text-align: left;
     width: 40%;
     font-family: "Roboto-slab", serif;
-    margin-left: 70px;
+    margin-left: 80px;
+}
+
+
+#aula_1{
+    border: black 1px solid;
+    padding: 3px;
+}
+
+#aula_2{
+    border: black 1px solid;
+    padding: 3px;
+}
+
+#aula_3{
+    border: black 1px solid;
+    padding: 3px;
+}
+
+#aula_4{
+    border: black 1px solid;
+    padding: 3px;
 }

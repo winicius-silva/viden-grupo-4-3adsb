@@ -42,7 +42,7 @@ public class UsuarioCursoController {
 
     @PostMapping("/recent-cursos")
     public ResponseEntity postRecentCurso(@RequestBody UsuarioCurso newCurso){
-        if(!repository.existsById(newCurso.getFkCurso())){
+        if(!repository.existsByFkCursoAndFkUsuario(newCurso.getFkCurso(), newCurso.getFkUsuario())){
             repository.save(newCurso);
             return ResponseEntity.status(201).build();
         }

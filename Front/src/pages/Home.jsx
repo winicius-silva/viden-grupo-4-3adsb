@@ -39,7 +39,11 @@ function Home() {
                 </div>
 
                 <div id="banner-about_index">
-                    <h3 id="text-banner_about">Uma plataforma de cursos inovadora, diferente de todas as outras já vistas, onde o conhecimento e o conforto é o nosso ponto chave.</h3>
+                    <h3 id="text-banner_about">
+                        <h3 id="title_text_banner">Mergulhe no conhecimento</h3>
+                        <br />
+                        Uma plataforma de cursos inovadora, focada em aprendizado,
+                        onde o conhecimento e o conforto é o nosso ponto forte!</h3>
                 </div>
 
             </div>
@@ -51,7 +55,7 @@ function Home() {
 
             <div className="cards">
                 <div>
-                    <Card color="backend" img={code} title="BACKEND" desc="Lógica, Python, PHP, Java, .NET, Node JS, C, Computação, Jogos, IoT e mais..." />
+                    <Card color="backend" img={code} title="Back-End" desc="Lógica, Python, PHP, Java, .NET, Node JS, C, Computação, Jogos, IoT e mais..." />
                 </div>
 
                 <div>
@@ -63,7 +67,7 @@ function Home() {
                 </div>
 
                 <div>
-                    <Card color="ux" img={ux} title="Cloud" desc="Photoshop e Illustrator, Usabilidade e UX, Vídeo e Motion, 3D e mais..." />
+                    <Card color="ux" img={ux} title="UX / Design" desc="Photoshop e Illustrator, Usabilidade e UX, Vídeo e Motion, 3D e mais..." />
                 </div>
             </div>
 
@@ -86,23 +90,21 @@ function Home() {
 
             <div className="collaborators">
                 <h2 id="title-coll">Conheça os idealizadores!</h2>
+                
                 <div className="container-coll-imgs">
                     <div className="coll-img-top">
-                        <img src={kaue} alt="" />
-                        <img src={samuel} alt="" />
-                        <img id="duo-img" src={duo} alt="" />
+                        <img id="imagem_collaboratores" src={kaue} alt="Kaue Volpe"/>
+                        <img id="imagem_collaboratores" src={samuel} alt="Samuel Almeida" />
+                        <img id="imagem_collaboratores" src={duo} alt="Pedro Duo" />
                     </div>
 
                     <div className="coll-img-bottom">
-                        <img src={wini} alt="" />
-                        <img src={carlos} alt="" />
-                        <img id="jorge-img" src={jorge} alt="" />
+                        <img id="imagem_collaboratores" src={wini} alt="Winicius Silva" />
+                        <img id="imagem_collaboratores" src={carlos} alt="Carlos Mascena" />
+                        <img id="imagem_collaboratores" src={jorge} alt="Jorge Uliam" />
                     </div>
-
                 </div>
-
             </div>
-
 
             <Footer />
         </>

@@ -29,10 +29,10 @@ class PontuacaoControllerTest {
     @Test
     void postPontos(){
         Pontuacao pontuacao = new Pontuacao();
-        pontuacao.setId_pontos_usuario(1);
-        pontuacao.setFkusuario(1);
+        pontuacao.setIdPontosUsuario(1);
+        pontuacao.setFkUsuario(1);
         pontuacao.setPontos(4.5);
-        pontuacao.setFkcurso(1);
+        pontuacao.setFkCurso(1);
 
         ResponseEntity response = controller.postPontos(pontuacao);
 
@@ -42,22 +42,22 @@ class PontuacaoControllerTest {
     @Test
     void getPontosPorUsuario(){
         Pontuacao pontuacao = new Pontuacao();
-        pontuacao.setId_pontos_usuario(1);
-        pontuacao.setFkusuario(1);
+        pontuacao.setIdPontosUsuario(1);
+        pontuacao.setFkUsuario(1);
         pontuacao.setPontos(4.5);
-        pontuacao.setFkcurso(1);
+        pontuacao.setFkCurso(1);
 
         Pontuacao pontuacao2 = new Pontuacao();
-        pontuacao2.setId_pontos_usuario(2);
-        pontuacao2.setFkusuario(1);
+        pontuacao2.setIdPontosUsuario(2);
+        pontuacao2.setFkUsuario(1);
         pontuacao2.setPontos(3.0);
-        pontuacao2.setFkcurso(2);
+        pontuacao2.setFkCurso(2);
 
         Pontuacao pontuacao3 = new Pontuacao();
-        pontuacao3.setId_pontos_usuario(3);
-        pontuacao3.setFkusuario(1);
+        pontuacao3.setIdPontosUsuario(3);
+        pontuacao3.setFkUsuario(1);
         pontuacao3.setPontos(2.5);
-        pontuacao3.setFkcurso(3);
+        pontuacao3.setFkCurso(3);
 
         List<Pontuacao> pontuacaoMock = List.of(
                 pontuacao,pontuacao2,pontuacao3

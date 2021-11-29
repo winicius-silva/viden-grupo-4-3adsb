@@ -37,7 +37,7 @@ public class PontuacaoController {
         List<Pontuacao> pontuacoes = repository.findAll();
         List<Pontuacao> retorno = new ArrayList<>();
         for (Pontuacao pontos : pontuacoes) {
-            if(pontos.getFkusuario().equals(fkUsuario)){
+            if(pontos.getFkUsuario().equals(fkUsuario)){
                 retorno.add(pontos);
             }
         }

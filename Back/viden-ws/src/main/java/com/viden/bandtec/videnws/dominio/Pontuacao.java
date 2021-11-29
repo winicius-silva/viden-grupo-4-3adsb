@@ -28,13 +28,11 @@ public class Pontuacao {
     @NotNull
     private Integer fkCurso;
 
-    public Pontuacao() {}
-
     public Integer getIdPontosUsuario() {
         return idPontosUsuario;
     }
 
-    public void setId_pontos_usuario(Integer idPontosUsuario) {
+    public void setIdPontosUsuario(Integer idPontosUsuario) {
         this.idPontosUsuario = idPontosUsuario;
     }
 
@@ -54,19 +52,19 @@ public class Pontuacao {
         this.pontos = pontos;
     }
 
-    public Integer getFkusuario() {
+    public Integer getFkUsuario() {
         return fkUsuario;
     }
 
-    public void setFkusuario(Integer fkusuario) {
-        this.fkUsuario = fkusuario;
+    public void setFkUsuario(Integer fkUsuario) {
+        this.fkUsuario = fkUsuario;
     }
 
-    public Integer getFkcurso() {
+    public Integer getFkCurso() {
         return fkCurso;
     }
 
-    public void setFkcurso(Integer fkcurso) {
-        this.fkCurso = fkcurso;
+    public void setFkCurso(Integer fkCurso) {
+        this.fkCurso = fkCurso;
     }
 }

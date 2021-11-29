@@ -10,6 +10,7 @@ export function CursosProvider(props) {
     const [cursosData, setCursosData] = useState([])
     const [cursosCategorias, setCursosCategorias] = useState([])
     const [cursosRecentes, setCursosRecentes] = useState([])
+    const [cursosFinalizados, setCursosFinalizados] = useState([])
 
     const [cursos] = useState(cursosJSON)
 
@@ -29,7 +30,7 @@ export function CursosProvider(props) {
         const cursoSelecionado = cursos.find(curso => categoriaCursoSelecionado == curso.id)
 
         return !cursoSelecionado ? cursos[0] : cursoSelecionado
-    })
+    }, [categoriaCursoSelecionado])
 
     /**
      * Preenche e filtra cursosCategorias e cursosData por categorias
@@ -41,17 +42,56 @@ export function CursosProvider(props) {
             setCursosData(response.data)
             setCursosCategorias(response.data.length ? response.data.map(cursos => cursos.subCategoria).filter((subCategoria, index, subCategorias) => subCategorias.indexOf(subCategoria) == index) : [])
         })
-    }, [getCategoriaCursoSelecionado, categoriaCursoSelecionado, setCursosData])
+    }, [getCategoriaCursoSelecionado])
 
 
     const getRecentCursos = useCallback(() => {
-        api.get(`/usuarios_cursos/recent-cursos/${localStorage.getItem("id_usuario")}/2021-11-22`).then(response => {
-            if(response.status == 204) setCursosRecentes([])
+        api.get(`/usuarios_cursos/recent-cursos/${localStorage.getItem("id_usuario")}`).then(recentCursosResponse => {
+            if (recentCursosResponse.status == 204) {
+                setCursosRecentes([])
+                return
+            }
 
-            setCursosRecentes(response.data)
+            Promise.allSettled(
+                recentCursosResponse.data.map(recentCursosData => api.get(`/cursos/${recentCursosData.fkCurso}`))
+            ).then(recentCursosPromises => {
+                recentCursosPromises = recentCursosPromises
+                    .filter(recentCursosPromise => recentCursosPromise.status == 'fulfilled')
+                    .map(recentCursosPromise => recentCursosPromise.value.data)
+                    .map(recentCursosPromiseData => ({
+                        dadosCurso: recentCursosResponse.data.find(cursoRecente => recentCursosPromiseData.idCurso == cursoRecente.fkCurso),
+                        ...recentCursosPromiseData
+                    }))
+
+                setCursosRecentes(recentCursosPromises.filter(recentCursosData => !recentCursosData.dadosCurso.finalizado))
+                setCursosFinalizados(recentCursosPromises.filter(recentCursosData => !!recentCursosData.dadosCurso.finalizado))
+                console.log('recentCursosPromises GET END', recentCursosPromises)
+            })
+
+
+            console.log('recentCursosResponse GET', recentCursosResponse.data)
+
+
         })
-        
-    }, [setCursosRecentes])
+    }, [])
+
+    const createRecentCurso = useCallback((fkCurso) => {
+        api.post('/usuarios_cursos/recent-cursos/', {
+            fkUsuario: localStorage.getItem("id_usuario"),
+            fkCurso,
+            date: new Date().toJSON(),
+            finalizado: 0,
+            progresso: 0
+        }, {
+            headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true }
+        })
+        .then()
+        .catch(console.error)
+    }, [])
+
+    const getVideosCurso = useCallback(() => {
+        api.get(`/video-curso/`)
+    })
 
     /**
      * Todas as vezes que a categoria de cursos for alterada via interface, ele executará tudo o que está dentro desse useEffect
@@ -59,14 +99,25 @@ export function CursosProvider(props) {
     useEffect(() => {
         setCursosData([])
         getCursoPorCategoria()
-    }, [categoriaCursoSelecionado, setCursosData])
+    }, [categoriaCursoSelecionado])
 
-    
+
     /**
      * Retorno das funções
      */
     return (
-        <CursoContext.Provider value={{categoriaCursoSelecionado, cursosData, cursosCategorias, getCategoriaCursoSelecionado, changeCategoriaCursoSelecionado, getCursoPorCategoria, getRecentCursos, cursosRecentes}}>
+        <CursoContext.Provider value={{ 
+            categoriaCursoSelecionado, 
+            changeCategoriaCursoSelecionado,
+            createRecentCurso,
+            cursosCategorias,
+            cursosData,
+            cursosFinalizados,
+            cursosRecentes,
+            getCategoriaCursoSelecionado,
+            getCursoPorCategoria,
+            getRecentCursos,
+            }}>
             {props.children}
         </CursoContext.Provider>
     )

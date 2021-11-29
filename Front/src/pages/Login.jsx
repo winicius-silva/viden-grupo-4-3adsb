@@ -21,14 +21,14 @@ function Login() {
         axios.get(`http://localhost:8080/usuarios/login/${email}/${senha}`, {
             headers: {"Access-Control-Allow-Origin": "*", "crossorigin": true },
         }).then(response => {
-            localStorage.setItem('id_usuario', response.data);
+            localStorage.setItem('id_usuario', response.data.idUsuario);
             localStorage.setItem('login_usuario', email);
+            localStorage.setItem('data', JSON.stringify(response.data))
             console.log('usuário certo');
-            // console.log(email)
-            // console.log(response.data)
 
             window.location.href= "../Dashboard";
         }).catch(function (error) {
+            alert("Usuário ou senha incorreto!")
             console.log('usuário errado');
         })
 

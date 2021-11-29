@@ -16,7 +16,7 @@ function Rotas(){
             <Route exact path="/cadastro" component={Cadastro}/>
             <Route exact path="/perfil" component={Perfil}/>
             <Route exact path="/dashboard" component={Dashboard}/>
-            <Route exact path="/videoplayer" component={VideoPlayer}/>
+            <Route exact path="/videoplayer/:idCurso" component={VideoPlayer}/>
         </Switch>
       </BrowserRouter>
     );

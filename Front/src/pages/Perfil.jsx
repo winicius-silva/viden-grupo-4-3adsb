@@ -17,6 +17,9 @@ function Perfil() {
         history.push('/')
         localStorage.clear()
     }
+
+    const data = JSON.parse(localStorage.getItem('data'))
+    console.log(data)
     
     return (
         <>
@@ -56,25 +59,24 @@ function Perfil() {
                             </div>
 
                             <div className="infoPerfil">
-                                <h2 className="nome">Winicius Silva</h2>
+                                <h2 className="nome">{data.nomeUsuario}</h2>
                                 <br />
                                 <label>CPF:</label>
-                                <label className="usuario">497.878.608-81</label>
+                                <label className="usuario">{data.cpf}</label>
                                 <br />
                                 <br />
                                 <label>Email:</label>
-                                <label className="email">winicius.silva@bandtec.com.br</label>
+                                <label className="email">{data.email}</label>
                                 <br />
                                 <br />
                                 <label>Empresa:</label>
-                                <label className="empresa">Valemobi</label>
+                                <label className="empresa">{data.empresa}</label>
                             </div>
 
                             <div className="um">
                                 <img id="img2" src={calendario} alt="" />
-                                <h3 id="cor">29/10/2021</h3>
-                                <h3 id="cor"> 09:41:22</h3>
-                                <label>Data de inscrição</label>
+                                <h3 id="cor">Data de inscrição:</h3>
+                                <h3 id="cor">{data.horaCadastro}</h3>
                             </div>
 
                             <div className="dois">

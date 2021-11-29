@@ -5,7 +5,7 @@ function NotFound(props) {
     return (
         <>
             <div className="cardNotFound">
-                <img src={imgError} className="img_cardNotFound" />
+                <img src={imgError} alt={'card_not_found'} className="img_cardNotFound" />
                 <h4 className="descNotFound">{props.desc}</h4>
             </div>
 

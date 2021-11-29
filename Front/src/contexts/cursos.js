@@ -11,6 +11,8 @@ export function CursosProvider(props) {
     const [cursosCategorias, setCursosCategorias] = useState([])
     const [cursosRecentes, setCursosRecentes] = useState([])
     const [cursosFinalizados, setCursosFinalizados] = useState([])
+    const [cursosVideos, setCursosVideos] = useState([])
+    const [cursoVideoLinkAtual, setCursoVideoLinkAtual] = useState('')
 
     const [cursos] = useState(cursosJSON)
 
@@ -18,36 +20,40 @@ export function CursosProvider(props) {
      * Muda a categoria do Curso Selecionado via interface na dashboard
      */
     const changeCategoriaCursoSelecionado = useCallback((newCursoSelecionadoId) => {
-        if (!cursos.some(curso => newCursoSelecionadoId == curso.id) && newCursoSelecionadoId != categoriaCursoSelecionado) return
+        if (!cursos.some(curso => newCursoSelecionadoId === curso.id) && newCursoSelecionadoId !== categoriaCursoSelecionado) return
 
         setCategoriaCursoSelecionado(newCursoSelecionadoId)
-    }, [cursos, setCategoriaCursoSelecionado])
+    }, [cursos, categoriaCursoSelecionado, setCategoriaCursoSelecionado])
+
+    const changeCursoVideoLinkAtual = useCallback(cursoVideoIndice => {
+        setCursoVideoLinkAtual(cursoVideoIndice)
+    }, [setCursoVideoLinkAtual])
 
     /**
      * Requisita todas as informações da categoria de curso atual
      */
     const getCategoriaCursoSelecionado = useCallback(() => {
-        const cursoSelecionado = cursos.find(curso => categoriaCursoSelecionado == curso.id)
+        const cursoSelecionado = cursos.find(curso => categoriaCursoSelecionado === curso.id)
 
         return !cursoSelecionado ? cursos[0] : cursoSelecionado
-    }, [categoriaCursoSelecionado])
+    }, [cursos, categoriaCursoSelecionado])
 
     /**
      * Preenche e filtra cursosCategorias e cursosData por categorias
      */
     const getCursoPorCategoria = useCallback(() => {
         api.get(`/cursos/filter/${getCategoriaCursoSelecionado().categoria}`).then(response => {
-            if (response.status == 204) setCursosData([])
+            if (response.status === 204) setCursosData([])
 
             setCursosData(response.data)
-            setCursosCategorias(response.data.length ? response.data.map(cursos => cursos.subCategoria).filter((subCategoria, index, subCategorias) => subCategorias.indexOf(subCategoria) == index) : [])
+            setCursosCategorias(response.data.length ? response.data.map(cursos => cursos.subCategoria).filter((subCategoria, index, subCategorias) => subCategorias.indexOf(subCategoria) === index) : [])
         })
     }, [getCategoriaCursoSelecionado])
 
 
     const getRecentCursos = useCallback(() => {
         api.get(`/usuarios_cursos/recent-cursos/${localStorage.getItem("id_usuario")}`).then(recentCursosResponse => {
-            if (recentCursosResponse.status == 204) {
+            if (recentCursosResponse.status === 204) {
                 setCursosRecentes([])
                 return
             }
@@ -56,10 +62,10 @@ export function CursosProvider(props) {
                 recentCursosResponse.data.map(recentCursosData => api.get(`/cursos/${recentCursosData.fkCurso}`))
             ).then(recentCursosPromises => {
                 recentCursosPromises = recentCursosPromises
-                    .filter(recentCursosPromise => recentCursosPromise.status == 'fulfilled')
+                    .filter(recentCursosPromise => recentCursosPromise.status === 'fulfilled')
                     .map(recentCursosPromise => recentCursosPromise.value.data)
                     .map(recentCursosPromiseData => ({
-                        dadosCurso: recentCursosResponse.data.find(cursoRecente => recentCursosPromiseData.idCurso == cursoRecente.fkCurso),
+                        dadosCurso: recentCursosResponse.data.find(cursoRecente => recentCursosPromiseData.idCurso === cursoRecente.fkCurso),
                         ...recentCursosPromiseData
                     }))
 
@@ -86,12 +92,25 @@ export function CursosProvider(props) {
             headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true }
         })
         .then()
-        .catch(console.error)
+        .catch(() => {})
     }, [])
 
-    const getVideosCurso = useCallback(() => {
-        api.get(`/video-curso/`)
-    })
+    const getVideosCurso = useCallback((fkCurso) => {
+        return api.get(`/video-curso/${fkCurso}`).then(videoCursoResponse => {
+            setCursosVideos(videoCursoResponse.data.sort((a, b) => a.indice > b.indice ? 1 : -1 ))
+        })
+        .catch((err) => { console.log('ERROR getVideosCurso', err)})
+
+    }, [setCursosVideos])
+
+    const patchFinalizarCurso = useCallback((fkCurso) => {
+        return api.patch(`/usuarios_cursos/progresso/${100}/${fkCurso}/${localStorage.getItem('id_usuario')}`)
+            .then(finalizarCursoData => {
+                console.log(finalizarCursoData.status)
+            })
+            .catch((err) => { console.log('ERROR patchFinalizarCurso', err)})
+
+    }, [])
 
     /**
      * Todas as vezes que a categoria de cursos for alterada via interface, ele executará tudo o que está dentro desse useEffect
@@ -99,7 +118,7 @@ export function CursosProvider(props) {
     useEffect(() => {
         setCursosData([])
         getCursoPorCategoria()
-    }, [categoriaCursoSelecionado])
+    }, [categoriaCursoSelecionado, getCursoPorCategoria])
 
 
     /**
@@ -109,14 +128,19 @@ export function CursosProvider(props) {
         <CursoContext.Provider value={{ 
             categoriaCursoSelecionado, 
             changeCategoriaCursoSelecionado,
+            changeCursoVideoLinkAtual,
             createRecentCurso,
+            cursoVideoLinkAtual,
             cursosCategorias,
             cursosData,
             cursosFinalizados,
             cursosRecentes,
+            cursosVideos,
             getCategoriaCursoSelecionado,
             getCursoPorCategoria,
             getRecentCursos,
+            getVideosCurso,
+            patchFinalizarCurso,
             }}>
             {props.children}
         </CursoContext.Provider>

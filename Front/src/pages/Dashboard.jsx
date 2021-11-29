@@ -39,7 +39,7 @@ function Dashboard() {
             history.push('/login')
             alert("Faça o login para acessar a dashboard!")
         }
-    }, [])
+    }, [history])
 
     useEffect(() => {
         setCursoSelecionadoInfo(getCategoriaCursoSelecionado())
@@ -47,7 +47,7 @@ function Dashboard() {
 
     useEffect(() => {
         getRecentCursos()
-    }, [])
+    }, [getRecentCursos])
 
     function sair() {
         history.push('/')
@@ -137,7 +137,7 @@ function Dashboard() {
                             <h2>{cursoCategoria}</h2>
                             <div className="list_cursos">
                                 {cursosData && cursosData.map(cursoData => 
-                                    cursoData.subCategoria == cursoCategoria && <Curso fkCurso={cursoData.idCurso} desc={`${cursoData.nomeCurso}: ${cursoData.descricao}`} />
+                                    cursoData.subCategoria === cursoCategoria && <Curso fkCurso={cursoData.idCurso} desc={`${cursoData.nomeCurso}: ${cursoData.descricao}`} />
                                 )}
                             </div>
                         </div>

@@ -60,28 +60,62 @@
 }
 
 .aulas_right{
-    font-family: 'Roboto-slab', serif;
+    font-family: 'Roboto Slab', serif;
     margin-left: 10px;
     width: 40%;
     float: right;
     height: 100%;
 }
 
+.div_under_video {
+    display: flex;
+    width: 60%;
+}
+
+.descricao_aulas {
+    width: 90%;
+}
+
 .descricao_aulas h2 {
-    font-size: 5.5vh;
-    justify-content: center;
-    text-align: center;
-    width: 30%;
-    font-family: "Roboto-slab", serif;
+    font-size: 4.5vh;
+    padding-left: 1.5vw;
+    padding-top: 1vh;
+    font-family: 'Roboto Slab', serif;
 }
 
 .descricao_aulas h4 {
     font-size: 3vh;
-    text-align: left;
-    width: 40%;
-    font-family: "Roboto-slab", serif;
-    margin-left: 80px;
+    padding:3vh;
+    font-family: 'Roboto Slab', serif;
 }
+
+.div_button_finalizar{
+    padding: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button_finalizar{
+    font-size: 2vh;
+    width: 10vw;
+    height: 6vh;
+    color: white;
+    background: red;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 100px;
+    transition: transform 250ms;
+    cursor: pointer;
+    font-family: 'Roboto Slab', serif;
+}
+
+.button_finalizar:hover {
+    transform: translateY(-10px);
+    background-color: #052957;
+    color: white;
+}
+
 
 .card_video {
     display: flex;
@@ -95,11 +129,11 @@
 .card_titulo{
     padding: 1vw;
     font-size: 2.5vw;
-    font-family: "Roboto-slab", serif;
+    font-family: 'Roboto Slab', serif;
 }
 
 .card_desc{
     padding: 1vw;
     font-size: 1.2vw;
-    font-family: "Roboto-slab", serif;
+    font-family: 'Roboto Slab', serif;
 }

@@ -17,7 +17,7 @@ public class VideoCursoController {
     @Autowired
     private VideoCursoRepository repository;
 
-    @GetMapping("/fkCurso}")
+    @GetMapping("/{fkCurso}")
     public ResponseEntity getVideoByCurso(@PathVariable Integer fkCurso){
         List<VideoCurso> videos = repository.findAll();
         List<VideoCurso> retorno = new ArrayList<>();

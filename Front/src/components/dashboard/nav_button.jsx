@@ -1,5 +1,4 @@
 import React, {useCallback } from "react";
-import Content from "../dashboard/Content";
 import { useCursosContext } from '../../contexts/cursos'
 
 
@@ -8,7 +7,7 @@ function BotaoCategories({ texto, idCurso, ...opts }) {
 
     const mudarCursoAtual = useCallback(() => {
         changeCategoriaCursoSelecionado(idCurso)
-    }, [])
+    }, [changeCategoriaCursoSelecionado, idCurso])
 
     return (
         <>

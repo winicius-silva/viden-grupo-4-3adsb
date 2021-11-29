@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../assets/styles/VideoPlayer.css"
 import "../assets/styles/dashboard.css"
 import Perfil from "../assets/img/perfil-white.png";
@@ -11,17 +11,24 @@ import { useCursosContext } from '../contexts/cursos'
 
 
 function VideoPlayer() {
-    const { createRecentCurso } = useCursosContext()
+    const { createRecentCurso, getVideosCurso, cursosVideos, cursoVideoLinkAtual, patchFinalizarCurso } = useCursosContext()
 
     const history = useHistory()
     const params = useParams()
+
+    const [videoLinkAtual, setVideoLinkAtual] = useState(cursoVideoLinkAtual)
 
     useEffect(() => {
         if (localStorage.getItem('id_usuario') == null) {
             history.push('/login')
             alert("Faça o login para acessar a dashboard!")
         }
-    }, [])
+    }, [history])
+
+    useEffect(() => {
+        setVideoLinkAtual(cursoVideoLinkAtual)
+        console.log('RELOAD cursoVideoLinkAtual', cursoVideoLinkAtual)
+    }, [cursoVideoLinkAtual])
 
     function sair() {
         history.push('/')
@@ -30,7 +37,13 @@ function VideoPlayer() {
 
     useEffect(() => {
         createRecentCurso(params.idCurso)
-    }, [params])
+
+        getVideosCurso(params.idCurso)
+    }, [params, params.idCurso])
+
+    function botao_finalizar() {
+        patchFinalizarCurso(params.idCurso)
+    }
 
     return (
         <>
@@ -62,25 +75,26 @@ function VideoPlayer() {
 
             <div className="container_video">
 
-                <VideoMain link={'rzOvXvBNzMc'} />
+                <VideoMain link={videoLinkAtual} />
 
                 <div className="aulas_right">
-                    <CardVideo titulo="teste" desc="descricao teste"/>
-                    <CardVideo titulo="teste" desc="descricao teste"/>
-                    <CardVideo titulo="teste" desc="descricao teste"/>
-                    <CardVideo titulo="teste" desc="descricao teste"/>
-                    <CardVideo titulo="teste" desc="descricao teste"/>
-                    <CardVideo titulo="teste" desc="descricao teste"/>
-                    
+                    {cursosVideos && cursosVideos.length ? cursosVideos.map(cursosVideo => (
+                        <CardVideo titulo={cursosVideo.titulo} desc={cursosVideo.descricaoVideo} videoLink={cursosVideo.link} />
+                    )) : ([])}
+
                 </div>
 
             </div>
 
-            <div className="descricao_aulas">
-                <br />
-                <h2>Sobre esse curso:</h2>
-                <br />
-                <h4>Este curso como objetivo ensinar ao aluno os principais conceitos de programação, para que ele esteja preparado ao executar as principais atividades que o mercado exige.</h4>
+            <div className="div_under_video">
+                <div className="descricao_aulas">
+                    <h2>Sobre esse curso:</h2>
+                    <h4>Este curso como objetivo ensinar ao aluno os principais conceitos de programação, para que ele esteja preparado ao executar as principais atividades que o mercado exige.</h4>
+                </div>
+
+                <div className="div_button_finalizar">
+                    <button className="button_finalizar" onClick={botao_finalizar}>FINALIZAR CURSO</button>
+                </div>
             </div>
         </>
     );

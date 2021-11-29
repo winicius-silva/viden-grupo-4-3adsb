@@ -112,6 +112,20 @@ export function CursosProvider(props) {
 
     }, [])
 
+    const postPontuacaoUsuario = useCallback((fkCurso, pontosCurso) => {
+        console.log('Fui chamado %s %s', fkCurso, pontosCurso, localStorage.getItem("id_usuario"))
+        api.post(`/pontuacoes`, {
+            data: new Date().toJSON(),
+            pontos: pontosCurso,
+            fkUsuario: localStorage.getItem("id_usuario"),
+            fkCurso
+        }, {
+            headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true }
+        })
+        .then(res => console.log("Pontos cadastrados pro usuario RES: %O", res))
+        .catch(err => console.log("Pontos não cadastrados pro usuario RES: %O", err))
+    }, [])
+
     /**
      * Todas as vezes que a categoria de cursos for alterada via interface, ele executará tudo o que está dentro desse useEffect
      */
@@ -141,6 +155,7 @@ export function CursosProvider(props) {
             getRecentCursos,
             getVideosCurso,
             patchFinalizarCurso,
+            postPontuacaoUsuario,
             }}>
             {props.children}
         </CursoContext.Provider>

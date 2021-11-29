@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import imgCurso from "../../assets/img/curso_icon.png"
 
 function Cursos(props) {
+    localStorage.setItem("pontosCurso", props.pontos)
     return (
         <Link to={`/videoplayer/${props.fkCurso}`}>
             <div className="cardCurso">

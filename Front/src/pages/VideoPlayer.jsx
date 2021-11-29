@@ -11,7 +11,7 @@ import { useCursosContext } from '../contexts/cursos'
 
 
 function VideoPlayer() {
-    const { createRecentCurso, getVideosCurso, cursosVideos, cursoVideoLinkAtual, patchFinalizarCurso } = useCursosContext()
+    const { createRecentCurso, getVideosCurso, cursosVideos, cursoVideoLinkAtual, patchFinalizarCurso, postPontuacaoUsuario } = useCursosContext()
 
     const history = useHistory()
     const params = useParams()
@@ -43,6 +43,7 @@ function VideoPlayer() {
 
     function botao_finalizar() {
         patchFinalizarCurso(params.idCurso)
+        postPontuacaoUsuario(params.idCurso, localStorage.getItem("pontosCurso"))
     }
 
     return (

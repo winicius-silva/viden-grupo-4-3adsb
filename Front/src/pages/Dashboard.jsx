@@ -137,7 +137,7 @@ function Dashboard() {
                             <h2>{cursoCategoria}</h2>
                             <div className="list_cursos">
                                 {cursosData && cursosData.map(cursoData => 
-                                    cursoData.subCategoria === cursoCategoria && <Curso fkCurso={cursoData.idCurso} desc={`${cursoData.nomeCurso}: ${cursoData.descricao}`} />
+                                    cursoData.subCategoria === cursoCategoria && <Curso  fkCurso={cursoData.idCurso} desc={`${cursoData.nomeCurso}: ${cursoData.descricao}`} pontos={cursoData.qtdPontos} />
                                 )}
                             </div>
                         </div>

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +47,8 @@ public class UsuarioCursoController {
             repository.save(newCurso);
             return ResponseEntity.status(201).build();
         }
-        return ResponseEntity.status(404).build();
+        repository.atualizarDate(LocalDate.now(), newCurso.getFkCurso(), newCurso.getFkUsuario());
+        return ResponseEntity.status(200).build();
     }
 
     @GetMapping("/cursos-finalizados/{fkUsuario}")
@@ -77,8 +79,11 @@ public class UsuarioCursoController {
     public ResponseEntity patchCursosFinalizados(@PathVariable Double progresso,
                                                  @PathVariable Integer fkCurso,
                                                  @PathVariable Integer fkUsuario){
-
         if(repository.existsByFkCursoAndFkUsuario(fkCurso, fkUsuario)){
+            Integer finalizado = repository.findByFkCursoAndFkUsuario(fkCurso, fkUsuario).getFinalizado();
+            if(finalizado == 1){
+                return ResponseEntity.status(404).build();
+            }
             repository.atualizarProgresso(progresso,fkCurso,fkUsuario);
             if(progresso == 100.0){
                 repository.atualizarFinalizado(1,fkCurso,fkUsuario);

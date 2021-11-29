@@ -1,0 +1,11 @@
+
+.cursos_pesquisados{
+    height: 500px;
+}
+
+.titulo_cursos_pesquisados{
+    font-family: 'Roboto Slab', serif;
+    font-size: 40px;
+    padding-left: 50px;
+    padding-top: 25px;
+}

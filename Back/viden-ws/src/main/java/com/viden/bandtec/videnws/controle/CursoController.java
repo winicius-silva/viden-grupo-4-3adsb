@@ -42,7 +42,7 @@ public class CursoController {
         List<Curso> cursos = repository.findAll();
         FilaObj<Curso> filaCurso = new FilaObj<>(cursos.size());
         for (Curso cursoDaVez : cursos) {
-            if(cursoDaVez.getNomeCurso().equals(nomeCurso)){
+            if(cursoDaVez.getNomeCurso().contains(nomeCurso)){
                 filaCurso.insert(cursoDaVez);
             }
         }

@@ -6,6 +6,7 @@ import Cadastro from "./pages/Cadastro";
 import Perfil from "./pages/Perfil";
 import Dashboard from "./pages/Dashboard";
 import VideoPlayer from "./pages/VideoPlayer"
+import Pesquisa from "./pages/Pesquisa";
 
 function Rotas(){
     return(
@@ -17,6 +18,7 @@ function Rotas(){
             <Route exact path="/perfil" component={Perfil}/>
             <Route exact path="/dashboard" component={Dashboard}/>
             <Route exact path="/videoplayer/:idCurso" component={VideoPlayer}/>
+            <Route exact path="/pesquisa" component={Pesquisa}/>
         </Switch>
       </BrowserRouter>
     );

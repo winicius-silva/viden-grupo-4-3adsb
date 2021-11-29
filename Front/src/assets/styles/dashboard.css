@@ -50,6 +50,21 @@
     cursor: pointer;
 }
 
+#btn_sair:hover{
+    -webkit-transform: scale(1.4);
+    -ms-transform: scale(1.4);
+    transform: scale(1.4);
+    color: #EEA243;
+    transition-duration: 0.3s;
+}
+
+#icon-perfil_dash:hover{
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    transition-duration: 0.3s;
+}
+
 .nav_bar_dash {
     font-family: 'Roboto Slab', serif;
     display: flex;
@@ -69,10 +84,15 @@
     color: white;
     font-size: 2.5vh;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .button_nav_bar:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
     color: #EEA243;
+    transition-duration: 0.3s;
 }
 
 .content_container {
@@ -89,7 +109,7 @@
 }
 
 .title_content {
-    color: #EEA243;
+    color: #052957; 
     width: 100%;
     align-items: center;
     text-align: center;
@@ -113,7 +133,6 @@
 
 .container_cursos {
     margin-top: 4vh;
-
 }
 
 .container_cursos h2 {
@@ -123,6 +142,7 @@
 .list_cursos {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 2%;
 }
 
 .container_cursos h2 {
@@ -142,6 +162,15 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.cardCurso:hover
+{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    background:#afafaf;
+    transition-duration: 0.3s;
+}
+
 .img_curso {
     width: 5vw;
 }
@@ -159,16 +188,22 @@
     flex-wrap: wrap;
     width: 93%;
     padding-left: 7%;
+    margin-bottom: 2%;
+}
+
+.cursos_div{
+    padding-left: 2%;
+    border-bottom: 3px solid #EEA243;
 }
 
 .recentes_title {
     width: 97%;
     height: 10vh;
-    padding-left: 3%;
     padding-top: 2%;
     font-size: 2.5vw;
     font-family: 'Roboto Slab', serif;
     color: #052957;
+    padding-left: 3%;
 }
 
 .cardCursoRecente {
@@ -183,8 +218,20 @@
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.589);
     margin-right: 3vw;
+    cursor: pointer;
 
 }
+
+.cardCursoRecente:hover
+{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    background:#afafaf;
+    transition-duration: 0.3s;
+}
+
+
 
 .cardNotFound {
     display: flex;

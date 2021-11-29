@@ -34,6 +34,13 @@
     cursor: pointer;
 }
 
+#btn_sair:hover{
+    -webkit-transform: scale(1.4);
+    -ms-transform: scale(1.4);
+    transform: scale(1.4);
+    color: #EEA243;;
+}
+
 .container_video{
     width: 100%;
     height: 541px;

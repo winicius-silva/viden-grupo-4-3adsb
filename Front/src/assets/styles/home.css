@@ -101,14 +101,14 @@
 }
 
 #title_text_banner{
-    color: #EEA243;
+    color: #000000;
 }
 
 #banner2-about_index{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     width: 100%;
     height: 35vh;
-    color: #555151;
+    color: #052957;
     background-color: #EEA243;
 }
 
@@ -120,7 +120,7 @@
 
 #text-banner_about2{
     font-size: 4vh;
-    color: #5F5F5F;
+    color: #052957;
     padding-left: 80px;
     padding-top: 50px;
     width: 70%;
@@ -154,9 +154,10 @@
 
 .backend:hover
 {
-        -webkit-transform: scale(1.2);
-        -ms-transform: scale(1.2);
-        transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    transition-duration: 0.7s;
 }
 
 .backend img{
@@ -178,9 +179,10 @@
 
 .front:hover
 {
-        -webkit-transform: scale(1.2);
-        -ms-transform: scale(1.2);
-        transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    transition-duration: 0.7s;
 }
 
 .front img{
@@ -202,9 +204,10 @@
 
 .cloud:hover
 {
-        -webkit-transform: scale(1.2);
-        -ms-transform: scale(1.2);
-        transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    transition-duration: 0.7s;
 }
 
 .cloud img{
@@ -229,6 +232,7 @@
         -webkit-transform: scale(1.2);
         -ms-transform: scale(1.2);
         transform: scale(1.2);
+        transition-duration: 0.7s;
 }
 
 
@@ -348,7 +352,7 @@
     height: 50vh;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: white;
-    background-color: rgb(36, 36, 36);
+    background-color: rgb(22, 22, 22);
 }
 
 
@@ -373,6 +377,14 @@
     width: 3vw;
 }
 
+.icons_social img:hover
+{
+        -webkit-transform: scale(1.3);
+        -ms-transform: scale(1.3);
+        transform: scale(1.3);
+        transition-duration: 1s;
+}
+
 .div_footer_right{
     padding: 50px;
     width: 20%;
@@ -384,7 +396,7 @@
 
 .text_middle_footer{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: rgb(36, 36, 36);;
+    background-color: rgb(22, 22, 22);;
     width: 100%;
     height: 6vh;
     text-align: center;
@@ -395,9 +407,10 @@
 
 #imagem_collaboratores
 {
-        opacity:0.5;
+    opacity:0.5;
 }
 #imagem_collaboratores:hover
 {
-        opacity:1;
+    opacity:1;
+    transition-duration: 0.5s;
 }

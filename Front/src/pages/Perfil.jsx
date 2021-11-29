@@ -8,6 +8,7 @@ import curosativos from "../assets/img/curosativos.png";
 import perfil from "../assets/img/perfil-white.png"
 import '../assets/styles/perfil.css';
 import { Link, useHistory } from 'react-router-dom'
+import HeaderBlack from "../components/dashboard/HeaderBlack";
 
 function Perfil() {
 
@@ -22,33 +23,10 @@ function Perfil() {
     console.log(data)
     
     return (
-        <>
-            
-
+        <>  
             <div className="background">
 
-
-                <div className="root-dashboard">
-                    <div className="header-dashboard">
-                        <h1 className="font_header_index">&#60;&#47;Viden</h1>
-                        <div id="search_dash">
-                            <input id="search_input_index" type="text" placeholder=" Ex: Java cursos..." />
-                        </div>
-
-                        <div id="dash-text">
-                            <h4> Meus cursos </h4>
-                        </div>
-                        
-                        <Link to= "/dashboard"><div id="btn-sair">               
-                            <h4> Voltar </h4>
-                        </div></Link>
-
-                        <div id="btn-sair" onClick={sair}>
-                            <h4> Logoff </h4>
-                        </div>
-                    </div>
-                </div>
-
+            <HeaderBlack />
 
                 <div className="background2">
                     <div className="Perfil">

@@ -130,7 +130,7 @@ function Dashboard() {
             </div>
 
             <div className="cursos_div">
-                <h2 className="recentes_title">Cursos disponíveis</h2>
+                <h2 className="recentes_title">Cursos disponíveis:</h2>
                 {Array.isArray(cursosCategorias) && cursosCategorias.length
                     ? cursosCategorias.map(cursoCategoria => (
                         <div className="container_cursos">
@@ -146,8 +146,8 @@ function Dashboard() {
                     )}
             </div>
 
-            <div>
-                <h2 className="recentes_title">Cursos recentes</h2>
+            <div className="cursos_div">
+                <h2 className="recentes_title">Cursos recentes:</h2>
                 <div className="container_recentes">
                     {cursosRecentes && cursosRecentes.length ? cursosRecentes.map(cursoRecente => (
                         <CursoRecent desc={cursoRecente.nomeCurso} data={cursoRecente.dadosCurso.date} />
@@ -156,8 +156,8 @@ function Dashboard() {
                 </div>
             </div>
 
-            <div>
-                <h2 className="recentes_title">Cursos Finalizados</h2>
+            <div className="cursos_div">
+                <h2 className="recentes_title">Cursos finalizados:</h2>
                 <div className="container_recentes">
                     {cursosFinalizados && cursosFinalizados.length ? cursosFinalizados.map(cursosFinalizado => (
                         <CursoRecent desc={cursosFinalizado.nomeCurso} data={cursosFinalizado.dadosCurso.date} />

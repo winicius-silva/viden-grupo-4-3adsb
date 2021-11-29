@@ -14,6 +14,7 @@ import kaue from "../assets/img/kaue.jpeg";
 import duo from "../assets/img/duo.jpeg";
 import carlos from "../assets/img/carlos.jpeg";
 import wini from "../assets/img/wini.jpeg";
+import { Link, NavLink } from "react-router-dom";
 
 function Home() {
     return (
@@ -21,11 +22,9 @@ function Home() {
             <div className="root_home">
                 <div className="header_index">
                     <h1 className="font_header_index">&#60;&#47;Viden</h1>
-                    <div id="search_index">
-                        <input id="search_input_index" type="text" placeholder=" Ex: Java cursos..." />
-                    </div>
 
-                    <div id="sobre-text" href="#banner-about_index">
+                   
+                    <div id="sobre-text">
                         <h4> Sobre nós </h4>
                     </div>
 
@@ -33,6 +32,7 @@ function Home() {
                         <a href="#collaborators"></a>
                         <h4> Idealizadores </h4>
                     </div>
+
                     <div>
                         <BotaoLogar texto="Login" destino="/login" />
                     </div>
@@ -40,7 +40,7 @@ function Home() {
 
                 <div id="banner-about_index">
                     <h3 id="text-banner_about">
-                        <h3 id="title_text_banner">Mergulhe no conhecimento</h3>
+                        <h3 id="title_text_banner">Mergulhe no conhecimento!</h3>
                         <br />
                         Uma plataforma de cursos inovadora, focada em aprendizado,
                         onde o conhecimento e o conforto é o nosso ponto forte!</h3>

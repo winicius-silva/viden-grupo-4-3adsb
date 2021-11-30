@@ -19,10 +19,20 @@
     clear: both;
 }
 
-.search-dash {
+.search_dash {
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 26vw;
+}
+
+.input_search{
     width: 23vw;
+}
+
+.img_search{
+    padding-left: .5vw;
+    width: 3vw;
 }
 
 .options_dash {
@@ -195,8 +205,13 @@
     border-bottom: 3px solid #EEA243;
 }
 
+.titles {
+    display: flex;
+    align-items: center;
+}
+
 .recentes_title {
-    width: 97%;
+    width: 27%;
     height: 10vh;
     padding-top: 2%;
     font-size: 2.5vw;

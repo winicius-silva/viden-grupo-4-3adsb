@@ -42,9 +42,17 @@ function VideoPlayer() {
         getVideosCurso(params.idCurso)
     }, [params, params.idCurso])
 
+    var contador = 0;
+
     function botao_finalizar() {
-        patchFinalizarCurso(params.idCurso)
-        postPontuacaoUsuario(params.idCurso, localStorage.getItem("pontosCurso"))
+        if (contador === 0) {
+            alert('Você tem certeza que quer finalizar o curso? Se sim, clique novamente no botão finalizar!')
+            contador++
+        } else {
+            patchFinalizarCurso(params.idCurso)
+            postPontuacaoUsuario(params.idCurso, localStorage.getItem("pontosCurso"))
+        }
+
     }
 
     return (
@@ -75,33 +83,33 @@ function VideoPlayer() {
                 </div>
             </div>
 
-        <div className="background_video">
-            <div className="container_video">
+            <div className="background_video">
+                <div className="container_video">
 
-                <VideoMain link={videoLinkAtual} />
+                    <VideoMain link={videoLinkAtual} />
 
-                <div className="aulas_right">
-                    {cursosVideos && cursosVideos.length ? cursosVideos.map(cursosVideo => (
-                        <CardVideo titulo={cursosVideo.titulo} desc={cursosVideo.descricaoVideo} videoLink={cursosVideo.link} />
-                    )) : ([])}
+                    <div className="aulas_right">
+                        {cursosVideos && cursosVideos.length ? cursosVideos.map(cursosVideo => (
+                            <CardVideo titulo={cursosVideo.titulo} desc={cursosVideo.descricaoVideo} videoLink={cursosVideo.link} />
+                        )) : ([])}
+
+                    </div>
 
                 </div>
 
+                <div className="div_under_video">
+                    <div className="descricao_aulas">
+                        <h2>Sobre esse curso:</h2>
+                        <h4>Este curso como objetivo ensinar ao aluno os principais conceitos de programação, para que ele esteja preparado ao executar as principais atividades que o mercado exige.</h4>
+                    </div>
+
+                    <div className="div_button_finalizar">
+                        <button className="button_finalizar" onClick={botao_finalizar}>FINALIZAR CURSO</button>
+                    </div>
+                </div>
             </div>
 
-            <div className="div_under_video">
-                <div className="descricao_aulas">
-                    <h2>Sobre esse curso:</h2>
-                    <h4>Este curso como objetivo ensinar ao aluno os principais conceitos de programação, para que ele esteja preparado ao executar as principais atividades que o mercado exige.</h4>
-                </div>
-
-                <div className="div_button_finalizar">
-                    <button className="button_finalizar" onClick={botao_finalizar}>FINALIZAR CURSO</button>
-                </div>
-            </div>
-        </div>
-
-        <Footer></Footer>
+            <Footer></Footer>
 
         </>
     );

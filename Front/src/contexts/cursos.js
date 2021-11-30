@@ -13,6 +13,7 @@ export function CursosProvider(props) {
     const [cursosFinalizados, setCursosFinalizados] = useState([])
     const [cursosVideos, setCursosVideos] = useState([])
     const [cursoVideoLinkAtual, setCursoVideoLinkAtual] = useState('')
+    const [pontosUsuario, setPontosUsuario] = useState([])
 
     const [cursos] = useState(cursosJSON)
 
@@ -95,9 +96,20 @@ export function CursosProvider(props) {
         .catch(() => {})
     }, [])
 
+    const getPontosUsuario = useCallback(() => {
+        api.get(`/pontuacoes/${localStorage.getItem('id_usuario')}`).then(pontosUsuarioResponse => {
+            console.log('PontosUsuario GET', pontosUsuarioResponse.data)
+            setPontosUsuario(pontosUsuarioResponse.data || [])
+
+        })
+        .catch((err) => { console.log('ERROR getPontosUsuario', err)})
+    }, [setPontosUsuario])
+
     const getVideosCurso = useCallback((fkCurso) => {
         return api.get(`/video-curso/${fkCurso}`).then(videoCursoResponse => {
+            if(videoCursoResponse.status === 200)
             setCursosVideos(videoCursoResponse.data.sort((a, b) => a.indice > b.indice ? 1 : -1 ))
+            console.log(videoCursoResponse.data.sort((a, b) => a.indice > b.indice ? 1 : -1 ))
         })
         .catch((err) => { console.log('ERROR getVideosCurso', err)})
 
@@ -150,8 +162,10 @@ export function CursosProvider(props) {
             cursosFinalizados,
             cursosRecentes,
             cursosVideos,
+            pontosUsuario,
             getCategoriaCursoSelecionado,
             getCursoPorCategoria,
+            getPontosUsuario,
             getRecentCursos,
             getVideosCurso,
             patchFinalizarCurso,

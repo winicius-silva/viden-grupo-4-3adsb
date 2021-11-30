@@ -40,7 +40,7 @@ function Home() {
 
                 <div id="banner-about_index">
                     <h3 id="text-banner_about">
-                        <h3 id="title_text_banner">Mergulhe no conhecimento!</h3>
+                        <h3 id="title_text_banner">Bem-vindo!</h3>
                         <br />
                         Uma plataforma de cursos inovadora, focada em aprendizado,
                         onde o conhecimento e o conforto é o nosso ponto forte!</h3>
@@ -49,7 +49,7 @@ function Home() {
             </div>
 
             <div id="banner2-about_index">
-                <h3 id="title-banner_about2">Mergulhe em Tecnologia!</h3>
+                <h3 id="title-banner_about2">Mergulhe na tecnologia!</h3>
                 <h2 id="text-banner_about2">Você vai estudar, praticar, discutir e se aprofundar em uma plataforma que respira tecnologia.</h2>
             </div>
 

@@ -5,7 +5,8 @@ import Perfil from "../assets/img/perfil-white.png";
 import { useHistory, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import VideoMain from "../components/dashboard/VideoPlayerDiv";
-import CardVideo from "../components/dashboard/CardVideo.jsx"
+import CardVideo from "../components/dashboard/CardVideo.jsx";
+import Footer from "../components/Footer";
 
 import { useCursosContext } from '../contexts/cursos'
 
@@ -74,6 +75,7 @@ function VideoPlayer() {
                 </div>
             </div>
 
+        <div className="background_video">
             <div className="container_video">
 
                 <VideoMain link={videoLinkAtual} />
@@ -97,6 +99,10 @@ function VideoPlayer() {
                     <button className="button_finalizar" onClick={botao_finalizar}>FINALIZAR CURSO</button>
                 </div>
             </div>
+        </div>
+
+        <Footer></Footer>
+
         </>
     );
 }

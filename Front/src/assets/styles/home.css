@@ -83,7 +83,7 @@
 #banner-about_index{
     background-image: url(https://bhpinsurance.ie/wp-content/uploads/2020/03/business-person-on-laptop.jpg);
     background-repeat: no-repeat;
-    background-size: cover;   
+    background-size: contain;   
     width: 100%;
     height: 68vh;
     margin: 0 auto;
@@ -95,10 +95,16 @@
     font-size: 5vh;
     text-align: center;
     margin: 0 auto;
-    margin-right: 10px;
-    padding: 55px;
+    margin-right: 7vw;
+    padding: 25px;
     color: #052957;
+    font-family: 'Roboto Slab', serif;
 }
+
+#text-banner_about h3{
+    font-size: 10vh;
+}
+
 
 #title_text_banner{
     color: #000000;
@@ -108,8 +114,8 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     width: 100%;
     height: 35vh;
-    color: #052957;
-    background-color: #EEA243;
+    color: #EEA243;
+    background-color: #052957;
 }
 
 #title-banner_about2{
@@ -120,7 +126,7 @@
 
 #text-banner_about2{
     font-size: 4vh;
-    color: #052957;
+    color: #ffffff;
     padding-left: 80px;
     padding-top: 50px;
     width: 70%;

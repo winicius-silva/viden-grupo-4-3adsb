@@ -22,10 +22,8 @@ public class Pontuacao {
     @Max(5)
     private Double pontos;
 
-    @NotNull
     private Integer fkUsuario;
 
-    @NotNull
     private Integer fkCurso;
 
     public Integer getIdPontosUsuario() {

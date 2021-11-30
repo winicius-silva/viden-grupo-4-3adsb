@@ -156,7 +156,7 @@ function Dashboard() {
                         </div>
 
                         <div id="btn_sair" onClick={sair}>
-                            <h4> Sair </h4>
+                            <h4> Logoff </h4>
                         </div>
 
                     </div>

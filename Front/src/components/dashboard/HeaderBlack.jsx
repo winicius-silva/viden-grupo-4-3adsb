@@ -18,9 +18,6 @@ export default function HeaderBlack() {
         <div className="root_TelaVideo">
                 <div className="header_TelaVideo">
                     <h1 className="font_header_index">&#60;&#47;Viden</h1>
-                    <div id="search_dash">
-                        <input id="search_input_index" type="text" placeholder=" Ex: Java cursos..." />
-                    </div>
 
                     <Link to="/perfil">
                         <div id="icon_perfil">

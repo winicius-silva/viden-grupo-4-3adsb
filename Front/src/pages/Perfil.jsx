@@ -55,7 +55,7 @@ function Perfil() {
                                 <br />
                                 <br />
                                 <label className="label_perfil" >Empresa:</label>
-                                <label className="empresa">{console.log(empresa)}</label>
+                                <label className="empresa">{empresa.nome}</label>
                             </div>
 
                             <div className="um">

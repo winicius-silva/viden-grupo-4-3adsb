@@ -40,6 +40,8 @@ public class Empresa {
     @NotNull
     private Double valorDoContrato;
 
+    public Empresa() {}
+
     public Empresa(Integer idEmpresa, String nome, String cnpj, String endereco, String email, String senha,
                    String duracaoDoContrato, Double valorDoContrato) {
         this.idEmpresa = idEmpresa;

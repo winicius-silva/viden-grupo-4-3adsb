@@ -1,18 +1,22 @@
-import React, { useEffect, useState } from "react";
 import "../assets/styles/VideoPlayer.css"
 import "../assets/styles/dashboard.css"
-import Perfil from "../assets/img/perfil-white.png";
+
+import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import { Link } from "react-router-dom";
+
+import Perfil from "../assets/img/perfil-white.png";
+
 import VideoMain from "../components/dashboard/VideoPlayerDiv";
 import CardVideo from "../components/dashboard/CardVideo.jsx";
 import Footer from "../components/Footer";
 
+import { useToastsContext } from '../contexts/toasts'
 import { useCursosContext } from '../contexts/cursos'
-
 
 function VideoPlayer() {
     const { createRecentCurso, getVideosCurso, cursosVideos, cursoVideoLinkAtual, patchFinalizarCurso, postPontuacaoUsuario } = useCursosContext()
+    const { addToast } = useToastsContext()
 
     const history = useHistory()
     const params = useParams()
@@ -44,15 +48,26 @@ function VideoPlayer() {
 
     var contador = 0;
 
-    function botao_finalizar() {
-        if (contador === 0) {
-            alert('Você tem certeza que quer finalizar o curso? Se sim, clique novamente no botão finalizar!')
-            contador++
-        } else {
-            patchFinalizarCurso(params.idCurso)
-            postPontuacaoUsuario(params.idCurso, localStorage.getItem("pontosCurso"))
-        }
+    async function botao_finalizar() {
+        try {
+            const finalizarCursoValues = await patchFinalizarCurso(params.idCurso)
 
+            if (!finalizarCursoValues) throw new Error('finalizarCurso deu erro')
+
+            // await postPontuacaoUsuario(params.idCurso, localStorage.getItem("pontosCurso"))
+
+            addToast({
+                type: 'success',
+                title: 'Curso finalizado com sucesso!',
+            })
+
+            history.push('/dashboard')
+        } catch (error) {
+            addToast({
+                type: 'error',
+                title: 'Não foi possível finalizar curso',
+            })
+        }
     }
 
     return (

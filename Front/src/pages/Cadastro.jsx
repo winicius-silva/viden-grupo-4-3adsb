@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from 'axios';
 import * as yup from 'yup'
 import { ValidationError } from 'yup'
+import { useHistory } from 'react-router-dom'
+
 import Input from "../components/login_cadastro/Inputs";
 import Header from "../components/login_cadastro/HeaderSign";
 import Botao from "../components/login_cadastro/BotaoSign";
@@ -12,12 +14,15 @@ import Cpf from "../assets/img/cpf.png"
 import Telefone from "../assets/img/telefone.png"
 
 import { getValidationErrors } from '../utils/getValidationErrors'
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+
+import { useToastsContext } from '../contexts/toasts'
 
 import '../assets/styles/global.css';
 import '../assets/styles/sign.css';
 
 function Cadastro() {
+    const { addToast } = useToastsContext()
+    const history = useHistory()
 
     const [nome, setNome] = useState("");
     const [cpf, setCpf] = useState("");
@@ -53,8 +58,8 @@ function Cadastro() {
         const schema = yup.object().shape({
             nome: yup.string().min(5, 'Nome não pode ser menor que 5 caracteres').required('Nome é obrigatório'),
             cpf: yup.string().length(11, 'CPF inválido').required('CPF é obrigatório'),
-            email: yup.string().email('Digite um email válido').required('E-mail é obrigatório'),
-            telefone: yup.string().min(10, 'Número deve conter no mínimo 10 dígitos').max(11, 'Número deve conter no mínimo 11 dígitos').required('N. de telefone é obrigatório'),
+            email: yup.string().email('Digite um email válido'),
+            telefone: yup.string().min(10, 'Número deve conter no mínimo 10 dígitos').max(11, 'Número deve conter no mínimo 11 dígitos').required('Nº    de telefone é obrigatório'),
             senha: yup.string().min(5, 'Senha deve contar pelo menos 5 caracteres').required('Senha é obrigatória')
         })
 
@@ -73,13 +78,28 @@ function Cadastro() {
                 "email": email,
                 "senha": senha,
             }).then(response => {
-                console.log('cadastrou');
-                window.location.href= "../Login";
+                addToast({
+                    type: 'success',
+                    title: 'Cadastrado com sucesso',
+                })
+
+                history.push('/Login')
             }).catch(function (error) {
+                console.log('%o', error)
                 console.log('não cadastrou')
             })
         } catch (error) {
-            if (ValidationError.isError(error)) setFormErrors(getValidationErrors(error))
+            if (ValidationError.isError(error)) {
+                const yupErrors = getValidationErrors(error)
+                setFormErrors(yupErrors)
+
+                Object.values(yupErrors).forEach(yupError => {
+                    addToast({
+                        type: 'error',
+                        title: yupError,
+                    })
+                })
+            }
         }
     }
 

@@ -4,12 +4,15 @@
 import Rotas from './rotas';
 
 import { CursosProvider } from './contexts/cursos'
+import { ToastsProvider } from './contexts/toasts'
 
 function App() {
   return (
-    <CursosProvider>
-      <Rotas/>
-    </CursosProvider>
+    <ToastsProvider>
+      <CursosProvider>
+        <Rotas />
+      </CursosProvider>
+    </ToastsProvider>
   );
 }
 

@@ -4,7 +4,7 @@ export default function Content(props){
     return(
         <>
 
-            <div className="content_container">]
+            <div className="content_container">
                 <div className="title_content">
                     <h4 id="title">Cursos da Viden</h4>
                     <h2>{props.titleContent}</h2>

@@ -1,6 +1,7 @@
 import React from "react";
 import Perfil from "../../pages/Perfil";
 import { Link, useHistory } from 'react-router-dom'
+import Perfil2 from "../../assets/img/perfil-white.png"
 
 export default function HeaderBlack() {
 
@@ -21,7 +22,7 @@ export default function HeaderBlack() {
 
                     <Link to="/perfil">
                         <div id="icon_perfil">
-                            <img id="img_perfil" src={Perfil} alt="" />
+                            <img id="img_perfil" src={Perfil2} alt="" />
                         </div>
                     </Link>
 

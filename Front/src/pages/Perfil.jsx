@@ -1,17 +1,29 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import Footer from "../components/Footer";
 import imgPerfil from "../assets/img/imgPerfil.png";
 import calendario from "../assets/img/calendario.png";
 import '../assets/styles/perfil.css';
 import { useHistory } from 'react-router-dom'
 import HeaderBlack from "../components/dashboard/HeaderBlack";
-import perfilWhite from "../assets/img/perfil-white.png"
+import api from '../api'
 
 function Perfil() {
 
     const history = useHistory()
     const data = JSON.parse(localStorage.getItem('data'))
     console.log(data)
+    const [empresa, setEmpresa] = useState([])
+
+    const getEmpresa = useCallback(() => {
+        api.get(`/empresas/${data.fkEmpresa}`).then(empresaData => {
+            if (empresaData.status === 204) {
+                setEmpresa([])
+                return
+            }
+
+            setEmpresa(empresaData.data)
+        })
+    })
     
     return (
         <>  
@@ -39,13 +51,13 @@ function Perfil() {
                                 <br />
                                 <br />
                                 <label className="label_perfil" >Empresa:</label>
-                                <label className="empresa">{data.empresa}</label>
+                                <label className="empresa">{empresa.nome}</label>
                             </div>
 
                             <div className="um">
                                 <img id="img2" src={calendario} alt="" />
                                 <h3 id="inscricao_titulo">Data de inscrição:</h3>
-                                <h3 id="cor">{data.horaCadastro}</h3>
+                                <h3 id="cor">{data.horaCadastro.split("T")[0]}</h3>
                             </div>
                             
                         </div>

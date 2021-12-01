@@ -144,6 +144,9 @@
     transform: translateY(-3.3em) scale(.8);
 }
 
+.input_error {
+    border-color:red;
+}
 
 #img {
     height: 7vh;

@@ -33,7 +33,17 @@ public class UsuarioController {
 
     @PostMapping
     public ResponseEntity cadastrar(@RequestBody Usuario novoUsuario){
+        String email = novoUsuario.getEmail();
         novoUsuario.setHoraCadastro(LocalDateTime.now());
+        if(email.contains("@valemobi.com")){
+            novoUsuario.setFkEmpresa(1);
+        } else if(email.contains("@accenture.com")){
+            novoUsuario.setFkEmpresa(2);
+        } else if(email.contains("@linx.com")){
+            novoUsuario.setFkEmpresa(3);
+        } else {
+            novoUsuario.setFkEmpresa(0);
+        }
         repository.save(novoUsuario);
         return ResponseEntity.status(201).build();
     }

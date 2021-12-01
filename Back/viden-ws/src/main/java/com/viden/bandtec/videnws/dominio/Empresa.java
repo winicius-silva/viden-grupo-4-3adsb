@@ -26,13 +26,11 @@ public class Empresa {
 
     @NotNull
     @NotBlank
-    @Min(8)
     private String endereco;
 
     @Email
     private String email;
 
-    @Min(8)
     @JsonIgnore
     private String senha;
 

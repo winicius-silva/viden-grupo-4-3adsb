@@ -1,6 +1,5 @@
 package com.viden.bandtec.videnws.dominio;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -86,7 +85,7 @@ public class Usuario {
         return fkEmpresa;
     }
 
-    public void setFk_empresa(Integer fkEmpresa) {
+    public void setFkEmpresa(Integer fkEmpresa) {
         this.fkEmpresa = fkEmpresa;
     }
 

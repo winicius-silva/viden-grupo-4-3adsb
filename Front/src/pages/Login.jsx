@@ -31,6 +31,7 @@ function Login() {
 
             window.location.href= "../Dashboard";
         }).catch(function (error) {
+            console.log(error)
             addToast({
                 type: 'error',
                 title: 'E-mail ou senha inválido! Tente novamente',

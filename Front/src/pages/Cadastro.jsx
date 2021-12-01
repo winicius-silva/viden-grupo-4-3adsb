@@ -35,26 +35,6 @@ function Cadastro() {
     async function cadastrar(e) {
         e.preventDefault();
 
-        // if(nome.length < 5) {
-        //     alert("nome muito pequeno") 
-        // }
-
-        // if(cpf.length != 11) {
-        //     alert("cpf inválido")
-        // }
-
-        // if(telefone.length != 11 || telefone.length != 10 ) {
-        //     alert("telefone inválido")
-        // }
-
-        // if(senha.length < 5 ) {
-        //     alert("tamanho de senha inválida")
-        // }
-
-        // if(senha.includes(nome)) {
-        //     alert("senha não pode possuir o seu nome!")
-        // }
-
         const schema = yup.object().shape({
             nome: yup.string().min(5, 'Nome não pode ser menor que 5 caracteres').required('Nome é obrigatório'),
             cpf: yup.string().length(11, 'CPF inválido').required('CPF é obrigatório'),
@@ -85,6 +65,10 @@ function Cadastro() {
 
                 history.push('/Login')
             }).catch(function (error) {
+                addToast({
+                    type: 'error',
+                    title: 'Usúario já cadastrado. Faça o login',
+                })
                 console.log('%o', error)
                 console.log('não cadastrou')
             })

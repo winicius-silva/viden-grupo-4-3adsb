@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import imgPerfil from "../assets/img/imgPerfil.png";
 import calendario from "../assets/img/calendario.png";
@@ -20,23 +20,27 @@ function Perfil() {
                 setEmpresa([])
                 return
             }
-
+            console.log("empresa:", empresaData.data)
             setEmpresa(empresaData.data)
         })
-    })
-    
+    }, [setEmpresa])
+
+    useEffect(() => {
+        getEmpresa()
+    }, [getEmpresa])
+
     return (
-        <>  
+        <>
             <div className="background">
 
-            <HeaderBlack />
+                <HeaderBlack />
 
                 <div className="background2">
                     <div className="Perfil">
                         <div className="dadosPerfil">
 
                             <div className="imgPerfil">
-                                <img className="real_img_perfil" src={imgPerfil}/>
+                                <img className="real_img_perfil" src={imgPerfil} />
                             </div>
 
                             <div className="infoPerfil">
@@ -51,7 +55,7 @@ function Perfil() {
                                 <br />
                                 <br />
                                 <label className="label_perfil" >Empresa:</label>
-                                <label className="empresa">{empresa.nome}</label>
+                                <label className="empresa">{console.log(empresa)}</label>
                             </div>
 
                             <div className="um">
@@ -59,7 +63,7 @@ function Perfil() {
                                 <h3 id="inscricao_titulo">Data de inscrição:</h3>
                                 <h3 id="cor">{data.horaCadastro.split("T")[0]}</h3>
                             </div>
-                            
+
                         </div>
 
                         <div className="progresso">
@@ -71,7 +75,7 @@ function Perfil() {
             <Footer />
         </>
     );
-    
+
 }
 
 export default Perfil;

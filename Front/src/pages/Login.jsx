@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useToastsContext } from '../contexts/toasts'
 import Input from "../components/login_cadastro/Inputs";
 import Header from "../components/login_cadastro/HeaderSign";
 import Botao from "../components/login_cadastro/BotaoSign";
@@ -12,6 +13,8 @@ function Login() {
 
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
+
+    const { addToast } = useToastsContext()
 
     function entrar(e) {
         e.preventDefault();
@@ -28,8 +31,10 @@ function Login() {
 
             window.location.href= "../Dashboard";
         }).catch(function (error) {
-            alert("Usuário ou senha incorreto!")
-            console.log('usuário errado');
+            addToast({
+                type: 'error',
+                title: 'E-mail ou senha inválido! Tente novamente',
+            })
         })
 
     }

@@ -28,7 +28,11 @@ public class EmpresaController {
 
     @GetMapping("/{idEmpresa}")
     public ResponseEntity getEmpresaById(@PathVariable Integer idEmpresa){
-        return ResponseEntity.of(repository.findById(idEmpresa));
+        Empresa empresa = repository.findById(idEmpresa).get();
+        if(empresa != null){
+            return ResponseEntity.status(200).body(empresa);
+        }
+        return ResponseEntity.status(404).build();
     }
 
 }

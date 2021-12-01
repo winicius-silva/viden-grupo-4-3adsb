@@ -5,10 +5,7 @@ import com.viden.bandtec.videnws.dominio.Usuario;
 import com.viden.bandtec.videnws.repositorio.EmpresaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,4 +25,10 @@ public class EmpresaController {
         }
         return ResponseEntity.status(200).body(empresas);
     }
+
+    @GetMapping("/{idEmpresa}")
+    public ResponseEntity getEmpresaById(@PathVariable Integer idEmpresa){
+        return ResponseEntity.of(repository.findById(idEmpresa));
+    }
+
 }

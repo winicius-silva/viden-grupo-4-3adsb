@@ -54,7 +54,7 @@ function VideoPlayer() {
 
             if (!finalizarCursoValues) throw new Error('finalizarCurso deu erro')
 
-            // await postPontuacaoUsuario(params.idCurso, localStorage.getItem("pontosCurso"))
+            await postPontuacaoUsuario(params.idCurso, localStorage.getItem("pontosCurso"))
 
             addToast({
                 type: 'success',

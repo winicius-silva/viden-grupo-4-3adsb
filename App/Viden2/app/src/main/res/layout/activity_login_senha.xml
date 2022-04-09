@@ -14,8 +14,6 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,7 +28,7 @@
                 android:text="Quase lá!"
                 android:textColor="@color/viden_blue"
                 android:textSize="40dp"
-                android:textStyle="normal" />
+                android:textStyle="normal"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -38,11 +36,11 @@
                 android:text="Digite sua senha para fazer o login com email@email.com"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="18sp"/>
         </LinearLayout>
 
         <EditText
-            android:id="@+id/et_email"
+            android:id="@+id/et_senha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/viden_yellow"
@@ -63,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="@color/viden_blue"
-                android:onClick="entrar_senha"
+                android:onClick="login"
                 android:text="Entrar"
                 android:textAllCaps="false" />
 
@@ -82,7 +80,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingTop="210dp">
+            android:paddingTop="190dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -98,7 +96,7 @@
                 android:text="Clique aqui"
                 android:textAlignment="center"
                 android:textColor="@color/viden_yellow"
-                android:textSize="18sp" />
+                android:textSize="18sp"/>
         </LinearLayout>
 
     </LinearLayout>

@@ -21,14 +21,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="</"
-                android:textColor="@color/viden_blue"
-                android:textSize="58sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Viden"
+                android:text="Viden/>"
                 android:textColor="@color/black"
                 android:textSize="58sp" />
         </LinearLayout>
@@ -45,7 +38,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:src="@drawable/img_menu_1_foreground">
-
             </ImageView>
 
 
@@ -70,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:text="Faça seus cursos em qualquer lugar!"
                 android:textSize="22dp"
-                android:textColor="@color/black"></TextView>
+                android:textColor="@color/black"/>
 
             </LinearLayout>
 
@@ -89,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:backgroundTint="@color/viden_blue"
-                android:onClick="cadastrar"
+                android:onClick="cadastro"
                 android:text="Cadastrar"
                 android:textAllCaps="false"
                 android:textSize="20dp"/>

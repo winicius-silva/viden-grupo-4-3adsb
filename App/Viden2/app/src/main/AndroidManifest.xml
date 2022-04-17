@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.viden">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +12,39 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Viden">
+        <activity
+            android:name=".ConcluirCurso"
+            android:exported="true" />
+        <activity
+            android:name=".TrilhaCurso"
+            android:exported="true" />
+        <activity
+            android:name=".VideoCurso"
+            android:exported="true" />
+        <activity
+            android:name=".MeusCursosCurso"
+            android:exported="true" />
+        <activity
+            android:name=".MeusCursos"
+            android:exported="true" />
+        <activity
+            android:name=".PesquisaCurso"
+            android:exported="true" />
+        <activity
+            android:name=".Pesquisa"
+            android:exported="true" />
+        <activity
+            android:name=".RedesSociais"
+            android:exported="true" />
+        <activity
+            android:name=".SobreNos"
+            android:exported="true" />
+        <activity
+            android:name=".MeusDados"
+            android:exported="true" />
+        <activity
+            android:name=".MinhaConta"
+            android:exported="true" />
         <activity
             android:name=".MainActivity2"
             android:exported="true" />

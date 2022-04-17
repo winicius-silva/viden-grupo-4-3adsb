@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PesquisaCurso">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/viden_blue"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:src="@drawable/img_voltar"></ImageView>
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Pesquisa"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="☰"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/et_nome"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:hint="Pesquise sobre os cursos disponíveis:"
+                android:inputType="text"
+                android:backgroundTint="@color/viden_yellow"/>
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/yellow_loupe"></ImageView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="25dp">
+
+            <TextView
+                android:background="@color/viden_yellow"
+                android:layout_width="260dp"
+                android:layout_height="140dp"
+                android:text="IMAGEM INDISPONIVEL"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textColor="@color/black"
+                android:textStyle="bold">
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <LinearLayout
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="25dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Título curso"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="25sp">
+                </TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Descrição curso Descrição curso Descrição curso Descrição curso Descrição curso Descrição curso Descrição curso Descrição curso"
+                    android:textColor="@color/black"
+                    android:textStyle="normal"
+                    android:textSize="18dp">
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <Button
+                    android:layout_width="100dp"
+                    android:textSize="18dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="@color/viden_blue"
+                    android:text="Iniciar"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:layout_width="100dp"
+                    android:textSize="13dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="@color/viden_blue"
+                    android:text="Ver trilha completa"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="367dp"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Recompensa:"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:paddingLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="25"
+                android:textColor="@color/viden_yellow"
+                android:textSize="20sp"
+                android:textStyle="bold"></TextView>
+
+            <ImageView
+                android:paddingLeft="3dp"
+                android:layout_width="20sp"
+                android:layout_height="match_parent"
+                android:src="@drawable/viden_coins_icon"></ImageView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingTop="27.5dp"
+            android:paddingBottom="27.5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Viden©"
+                android:textSize="35sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                ></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/>"
+                android:textSize="35sp"
+                android:textColor="@color/viden_yellow"
+                android:textStyle="bold"
+                ></TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@color/viden_blue"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:src="@drawable/white_star">
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:src="@drawable/white_search">
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:src="@drawable/white_trophy">
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:src="@drawable/white_user">
+            </ImageView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,7 +33,7 @@ class LoginSenha : AppCompatActivity() {
             object: Callback<Usuario>{
                 override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
                     if(response.isSuccessful){
-                        startActivity(Intent(baseContext, MainActivity2::class.java))
+                        startActivity(Intent(baseContext, MinhaConta::class.java))
                     } else {
                         Toast.makeText(baseContext, "Algo deu errado, tente novamente mais tarde"
                             , Toast.LENGTH_LONG).show()

@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MeusDados">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+            android:background="@color/viden_blue"
+            >
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:src="@drawable/img_voltar"
+                >
+            </ImageView>
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Meus Dados"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textColor="@color/white"
+                android:textStyle="normal"/>
+
+            <TextView
+                android:layout_width="100dp"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:text="☰"
+                android:textSize="30sp"
+                android:textColor="@color/white"
+                android:textStyle="normal"/>
+
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/img_user"
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="30dp"></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome:"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="60dp"></TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:layout_width="200sp"
+                android:layout_height="wrap_content"
+                android:background="@color/viden_grey"
+                android:text="Winicius Silva"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textAlignment="center">
+            </TextView>
+
+            <ImageView
+                android:layout_width="25sp"
+                android:layout_height="25sp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/yellow_write">
+            </ImageView>
+        </LinearLayout>
+
+        <TextView
+            android:paddingTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Empresa:"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="60dp"></TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:layout_width="200sp"
+                android:layout_height="wrap_content"
+                android:background="@color/viden_grey"
+                android:text="Vale Mobi"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:layout_marginRight="35dp"
+                >
+            </TextView>
+        </LinearLayout>
+
+        <TextView
+            android:paddingTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CPF:"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="60dp"></TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:layout_width="200sp"
+                android:layout_height="wrap_content"
+                android:background="@color/viden_grey"
+                android:text="111.111.111-11"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:layout_marginRight="35dp"
+                >
+            </TextView>
+        </LinearLayout>
+
+        <TextView
+            android:paddingTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data de nascimento:"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="60dp"></TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:layout_width="200sp"
+                android:layout_height="wrap_content"
+                android:background="@color/viden_grey"
+                android:text="01/01/2001"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textAlignment="center">
+            </TextView>
+
+            <ImageView
+                android:layout_width="25sp"
+                android:layout_height="25sp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/yellow_write">
+            </ImageView>
+        </LinearLayout>
+
+        <TextView
+            android:paddingTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Telefone:"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="60dp"></TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:layout_width="200sp"
+                android:layout_height="wrap_content"
+                android:background="@color/viden_grey"
+                android:text="(11)91234-5678"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textAlignment="center">
+            </TextView>
+
+            <ImageView
+                android:layout_width="25sp"
+                android:layout_height="25sp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/yellow_write">
+            </ImageView>
+        </LinearLayout>
+
+        <TextView
+            android:paddingTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VidenCoins:"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="60dp"></TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:layout_width="200sp"
+                android:layout_height="wrap_content"
+                android:background="@color/viden_grey"
+                android:text="1337"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:layout_marginRight="35dp"
+                >
+            </TextView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:paddingTop="8dp"
+            android:paddingBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Viden©"
+                android:textSize="35sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                ></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/>"
+                android:textSize="35sp"
+                android:textColor="@color/viden_yellow"
+                android:textStyle="bold"
+                ></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@color/viden_blue"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:src="@drawable/white_star">
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:src="@drawable/white_search">
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:src="@drawable/white_trophy">
+            </ImageView>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:src="@drawable/white_user">
+            </ImageView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

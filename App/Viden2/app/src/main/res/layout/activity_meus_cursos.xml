@@ -70,7 +70,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:onClick="irMeusCursosCurso">
                 <TextView
                     android:background="@color/viden_yellow"
                     android:layout_width="180dp"
@@ -80,6 +81,7 @@
                     android:textSize="30sp"
                     android:textColor="@color/black"
                     android:textStyle="bold">
+
                 </TextView>
 
                 <LinearLayout
@@ -115,102 +117,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:background="@color/viden_yellow"
-                    android:layout_width="180dp"
-                    android:layout_height="match_parent"
-                    android:text="IMAGEM INDISPONIVEL"
-                    android:textAlignment="center"
-                    android:textSize="30sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold">
-                </TextView>
-
-                <LinearLayout
-                    android:layout_width="170dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/viden_grey"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:text="Título curso"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:textSize="18sp">
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="90dp"
-                        android:text="Descrição curso Descrição curso Descrição curso Descrição curso"
-                        android:textColor="@color/black"
-                        android:textStyle="normal"
-                        android:textSize="16sp">
-                    </TextView>
-
-                    <ProgressBar
-                        android:layout_width="140dp"
-                        android:layout_height="25dp"
-                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                        android:progress="25"></ProgressBar>
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:background="@color/viden_yellow"
-                    android:layout_width="180dp"
-                    android:layout_height="match_parent"
-                    android:text="IMAGEM INDISPONIVEL"
-                    android:textAlignment="center"
-                    android:textSize="30sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold">
-                </TextView>
-
-                <LinearLayout
-                    android:layout_width="170dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/viden_grey"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:text="Título curso"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:textSize="18sp">
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="90dp"
-                        android:text="Descrição curso Descrição curso Descrição curso Descrição curso"
-                        android:textColor="@color/black"
-                        android:textStyle="normal"
-                        android:textSize="16sp">
-                    </TextView>
-
-                    <ProgressBar
-                        android:layout_width="140dp"
-                        android:layout_height="25dp"
-                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                        android:progress="50"></ProgressBar>
-                </LinearLayout>
-            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -222,25 +128,29 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="45dp"
-                android:src="@drawable/white_star">
+                android:src="@drawable/white_star"
+                android:onClick="irMeusCursos">
             </ImageView>
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="45dp"
-                android:src="@drawable/white_search">
+                android:src="@drawable/white_search"
+                android:onClick="irPesquisa">
             </ImageView>
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="45dp"
-                android:src="@drawable/white_trophy">
+                android:src="@drawable/white_trophy"
+                android:onClick="irRanking">
             </ImageView>
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="45dp"
-                android:src="@drawable/white_user">
+                android:src="@drawable/white_user"
+                android:onClick="irMinhaConta">
             </ImageView>
         </LinearLayout>
 

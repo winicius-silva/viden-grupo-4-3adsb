@@ -23,7 +23,7 @@
             >
 
             <TextView
-                android:layout_marginLeft="70dp"
+                android:layout_marginLeft="10dp"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:text="Minha Conta"
@@ -31,18 +31,6 @@
                 android:textSize="30sp"
                 android:textColor="@color/white"
                 android:textStyle="normal"/>
-
-            <TextView
-                android:layout_width="80dp"
-                android:gravity="center"
-                android:layout_height="wrap_content"
-                android:text="☰"
-                android:textSize="30sp"
-                android:textColor="@color/white"
-                android:textStyle="normal"/>
-
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -62,7 +50,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:paddingTop="30dp">
+                android:layout_marginTop="30dp"
+                android:onClick="irMeusDados">
                 <TextView
                     android:layout_width="200sp"
                     android:layout_height="wrap_content"
@@ -85,7 +74,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:paddingTop="30dp">
+                android:layout_marginTop="30dp"
+                android:onClick="irSobreNos">
                 <TextView
                     android:layout_width="200sp"
                     android:layout_height="wrap_content"
@@ -108,7 +98,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:paddingTop="30dp">
+                android:layout_marginTop="30dp"
+                android:onClick="irRedesSociais">
                 <TextView
                     android:layout_width="200sp"
                     android:layout_height="wrap_content"
@@ -163,25 +154,29 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="45dp"
-                android:src="@drawable/white_star">
+                android:src="@drawable/white_star"
+                android:onClick="irMeusCursos">
             </ImageView>
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="45dp"
-                android:src="@drawable/white_search">
+                android:src="@drawable/white_search"
+                android:onClick="irPesquisa">
             </ImageView>
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="45dp"
-                android:src="@drawable/white_trophy">
+                android:src="@drawable/white_trophy"
+                android:onClick="irRanking">
             </ImageView>
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="45dp"
-                android:src="@drawable/white_user">
+                android:src="@drawable/white_user"
+                android:onClick="irMinhaConta">
             </ImageView>
         </LinearLayout>
 

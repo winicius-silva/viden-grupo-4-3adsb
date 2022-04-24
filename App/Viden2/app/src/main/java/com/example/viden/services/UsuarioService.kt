@@ -16,6 +16,6 @@ interface UsuarioService {
     fun login(@Path("email") email: String,
               @Path("senha") senha: String): Call<Usuario>
 
-    @POST("/usuarios/cadastrar")
-    fun cadastrar(@Body novoUsuario: Usuario): Call<Boolean>
+    @POST("/usuarios")
+    fun cadastrar(@Body novoUsuario: Usuario): Call<Void>
 }

@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 import com.example.viden.models.Usuario
 import com.example.viden.rest.Rest
 import com.example.viden.services.UsuarioService
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.time.LocalDateTime
 
 class Cadastro : AppCompatActivity() {
@@ -44,7 +48,23 @@ class Cadastro : AppCompatActivity() {
             horaCadastro = "",
             horaLogin = ""
         )
-        usuarioRequest.cadastrar(novoUsuario).execute()
+        usuarioRequest.cadastrar(novoUsuario).enqueue(object: Callback<Void>{
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                if(response.isSuccessful){
+                    Toast.makeText(baseContext,
+                        "Usuario cadastrado com sucesso!", Toast.LENGTH_LONG).show()
+                    startActivity(Intent(baseContext, Login::class.java))
+                } else {
+                    Toast.makeText(baseContext,
+                        "Algo deu errado, tente novamente mais tarde!", Toast.LENGTH_LONG).show()
+                }
+            }
+
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+        })
     }
 
     fun voltar(view: View){

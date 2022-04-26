@@ -133,7 +133,7 @@
                 android:layout_width="200sp"
                 android:layout_height="wrap_content"
                 android:background="@color/viden_grey"
-                android:text="111.111.111-11"
+                android:text="497.878.608-81"
                 android:textSize="20sp"
                 android:textColor="@color/black"
                 android:textAlignment="center"
@@ -161,7 +161,7 @@
                 android:layout_width="200sp"
                 android:layout_height="wrap_content"
                 android:background="@color/viden_grey"
-                android:text="01/01/2001"
+                android:text="23/11/2001"
                 android:textSize="20sp"
                 android:textColor="@color/black"
                 android:textAlignment="center">
@@ -194,7 +194,7 @@
                 android:layout_width="200sp"
                 android:layout_height="wrap_content"
                 android:background="@color/viden_grey"
-                android:text="(11)91234-5678"
+                android:text="(11)94185-1716"
                 android:textSize="20sp"
                 android:textColor="@color/black"
                 android:textAlignment="center">

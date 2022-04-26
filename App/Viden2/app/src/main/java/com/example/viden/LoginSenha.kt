@@ -35,7 +35,7 @@ class LoginSenha : AppCompatActivity() {
                     if(response.isSuccessful){
                         startActivity(Intent(baseContext, MeusCursos::class.java))
                     } else {
-                        Toast.makeText(baseContext, "Algo deu errado, tente novamente mais tarde"
+                        Toast.makeText(baseContext, "Usuario ou senha invalidos!"
                             , Toast.LENGTH_LONG).show()
                     }
                 }

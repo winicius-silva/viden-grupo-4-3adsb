@@ -37,34 +37,35 @@ class Cadastro : AppCompatActivity() {
 
     fun cadastrar(view: View){
         val usuarioRequest = retrofit.create(UsuarioService::class.java)
-        val novoUsuario = Usuario(
-            idUsuario = null,
-            nomeUsuario = etNome.text.toString(),
-            cpf = etCPF.text.toString(),
-            celular = etCelular.text.toString(),
-            email = etEmail.text.toString(),
-            senha = etPassword.text.toString(),
-            fkEmpresa = null,
-            horaCadastro = "",
-            horaLogin = ""
-        )
-        usuarioRequest.cadastrar(novoUsuario).enqueue(object: Callback<Void>{
-            override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                if(response.isSuccessful){
-                    Toast.makeText(baseContext,
-                        "Usuario cadastrado com sucesso!", Toast.LENGTH_LONG).show()
-                    startActivity(Intent(baseContext, Login::class.java))
-                } else {
-                    Toast.makeText(baseContext,
-                        "Algo deu errado, tente novamente mais tarde!", Toast.LENGTH_LONG).show()
+        if(validarCampos()){
+            val novoUsuario = Usuario(
+                idUsuario = null,
+                nomeUsuario = etNome.text.toString(),
+                cpf = etCPF.text.toString(),
+                celular = etCelular.text.toString(),
+                email = etEmail.text.toString(),
+                senha = etPassword.text.toString(),
+                fkEmpresa = null,
+                horaCadastro = "",
+                horaLogin = ""
+            )
+            usuarioRequest.cadastrar(novoUsuario).enqueue(object: Callback<Void>{
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    if(response.isSuccessful){
+                        Toast.makeText(baseContext,
+                            "Usuario cadastrado com sucesso!", Toast.LENGTH_LONG).show()
+                        startActivity(Intent(baseContext, Login::class.java))
+                    } else {
+                        Toast.makeText(baseContext,
+                            "Algo deu errado, tente novamente mais tarde!", Toast.LENGTH_LONG).show()
+                    }
                 }
-            }
 
-            override fun onFailure(call: Call<Void>, t: Throwable) {
-                TODO("Not yet implemented")
-            }
-
-        })
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                    Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
+                }
+            })
+        }
     }
 
     fun irTermos(view: View){
@@ -73,5 +74,37 @@ class Cadastro : AppCompatActivity() {
 
     fun voltar(view: View){
         startActivity(Intent(baseContext, MainActivity::class.java))
+    }
+
+    private fun validarCampos(): Boolean {
+        if(etNome.text.isNullOrEmpty()){
+            etNome.error = "Preencha esse campo!"
+            return false
+        } else if(etCPF.text.isNullOrEmpty()){
+            etCPF.error = "Preencha esse campo!"
+            return false
+        } else if(etCelular.text.isNullOrEmpty()){
+            etCelular.error = "Preencha esse campo!"
+            return false
+        } else if(etPassword.text.isNullOrEmpty()){
+            etPassword.error = "Preencha esse campo!"
+            return false
+        } else if(etPassword.text.length < 8){
+            etPassword.error = "A senha precisa conter 8 digitos"
+            return false
+        } else if(etConfirmePassword.text.isNullOrEmpty()){
+            etConfirmePassword.error = "Preencha esse campo!"
+            return false
+        } else if(!etPassword.equals(etConfirmePassword)){
+            etConfirmePassword.error = "Senha não estão corretar"
+            return false
+        } else if(etEmail.text.isNullOrEmpty()){
+            etEmail.error = "Preencha esse campo!"
+            return false
+        } else if(!etEmail.text.toString().contains("@")){
+            etEmail.error = "Campo precisa de '@'"
+            return false
+        }
+        return true
     }
 }

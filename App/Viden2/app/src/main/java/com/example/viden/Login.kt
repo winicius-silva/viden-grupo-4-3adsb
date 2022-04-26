@@ -17,9 +17,11 @@ class Login : AppCompatActivity() {
     }
 
     fun passarTelaSenha(view: View){
-        val telaLoginSenha = Intent(baseContext, LoginSenha::class.java)
-        telaLoginSenha.putExtra("email", etEmail.text.toString())
-        startActivity(telaLoginSenha)
+        if(validarEmail()){
+            val telaLoginSenha = Intent(baseContext, LoginSenha::class.java)
+            telaLoginSenha.putExtra("email", etEmail.text.toString())
+            startActivity(telaLoginSenha)
+        }
     }
 
     fun voltar(view: View){
@@ -28,5 +30,16 @@ class Login : AppCompatActivity() {
 
     fun passarTelaCadastro(view: View){
         startActivity(Intent(baseContext, Cadastro::class.java))
+    }
+
+    private fun validarEmail(): Boolean{
+        if(etEmail.text.isNullOrEmpty()){
+            etEmail.error = "Preencha seu email!"
+            return false
+        } else if(!etEmail.text.toString().contains("@")){
+            etEmail.error = "Campo precisa de '@'"
+            return false
+        }
+        return true
     }
 }

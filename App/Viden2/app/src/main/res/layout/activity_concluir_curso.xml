@@ -53,16 +53,16 @@
             android:padding="25dp"
             android:gravity="center">
 
-            <TextView
-                android:background="@color/viden_yellow"
+
+
+            <ImageView
+                android:src="@drawable/python_curso_img"
                 android:layout_width="300dp"
                 android:layout_height="170dp"
-                android:text="IMAGEM INDISPONIVEL"
-                android:textAlignment="center"
-                android:textSize="30sp"
-                android:textColor="@color/black"
-                android:textStyle="bold">
-            </TextView>
+                >
+
+            </ImageView>
+
 
         </LinearLayout>
 
@@ -79,7 +79,7 @@
                         android:gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Título Curso"
+                        android:text="Python para iniciantes"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="30sp">

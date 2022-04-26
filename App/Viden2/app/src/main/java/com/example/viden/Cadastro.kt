@@ -67,6 +67,10 @@ class Cadastro : AppCompatActivity() {
         })
     }
 
+    fun irTermos(view: View){
+        startActivity(Intent(baseContext, TermosDeUso::class.java))
+    }
+
     fun voltar(view: View){
         startActivity(Intent(baseContext, MainActivity::class.java))
     }

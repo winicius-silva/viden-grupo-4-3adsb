@@ -52,16 +52,14 @@
             android:layout_height="wrap_content"
             android:padding="25dp">
 
-            <TextView
-                android:background="@color/viden_yellow"
+            <ImageView
+                android:src="@drawable/python_curso_img"
                 android:layout_width="300dp"
                 android:layout_height="170dp"
-                android:text="IMAGEM INDISPONIVEL"
-                android:textAlignment="center"
-                android:textSize="30sp"
-                android:textColor="@color/black"
-                android:textStyle="bold">
-            </TextView>
+
+                >
+
+            </ImageView>
 
         </LinearLayout>
 
@@ -82,7 +80,7 @@
                     <TextView
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:text="Título Curso"
+                        android:text="Python para iniciantes"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="25sp">
@@ -100,8 +98,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Descrição curso Descrição curso Descrição curso Descrição curso Descrição curso Descrição curso Descrição curso Descrição curso"
                     android:textColor="@color/black"
+                    android:text="O único curso de Python realmente completo. Automações, Desenvolvimento e Ciência de Dados."
                     android:textStyle="normal"
                     android:textSize="18dp">
                 </TextView>

@@ -139,6 +139,26 @@
                 android:orientation="vertical"
                 android:paddingTop="5dp">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+                    </CheckBox>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Concordo com os termos de uso da Viden"
+                        android:textColor="@color/viden_blue"
+                        android:textSize="16dp"
+                        android:onClick="irTermos">
+
+                    </TextView>
+
+                </LinearLayout>
+
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

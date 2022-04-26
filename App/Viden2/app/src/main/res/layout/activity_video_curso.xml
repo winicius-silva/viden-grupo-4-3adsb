@@ -51,16 +51,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:background="@color/viden_yellow"
+            <ImageView
+                android:src="@drawable/python_video1"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:text="IMAGEM INDISPONIVEL"
-                android:textAlignment="center"
-                android:textSize="30sp"
-                android:textColor="@color/black"
-                android:textStyle="bold">
-            </TextView>
+                android:layout_height="220dp">
+
+            </ImageView>
+
+
 
         </LinearLayout>
 
@@ -73,12 +71,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingLeft="25dp">
+                android:padding="15dp">
 
                     <TextView
-                        android:layout_width="140dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Título Video"
+                        android:text="Aula 1: Contexto"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="25sp">
@@ -87,7 +85,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Descrição vídeo Descrição vídeo Descrição vídeo Descrição vídeo Descrição vídeo Descrição vídeo Descrição vídeo Descrição vídeo Descrição vídeo Descrição vídeo Descrição vídeo Descrição vídeo Descrição vídeo Descrição vídeo Descrição vídeo"
+                    android:text="Você está pensando em ser um Programador e não sabe por onde começar? Pois nessa aula vamos te dar todas as informações e mostrar o caminho a seguir."
                     android:textColor="@color/black"
                     android:textStyle="normal"
                     android:textSize="18dp">

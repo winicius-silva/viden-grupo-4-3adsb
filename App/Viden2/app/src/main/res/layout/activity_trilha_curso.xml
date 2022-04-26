@@ -81,16 +81,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:orientation="horizontal">
-                    <TextView
-                        android:background="@color/viden_yellow"
+
+                    <ImageView
+                        android:src="@drawable/python_video1"
                         android:layout_width="180dp"
-                        android:layout_height="match_parent"
-                        android:text="IMAGEM INDISPONIVEL"
-                        android:textAlignment="center"
-                        android:textSize="30sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold">
-                    </TextView>
+                        android:layout_height="match_parent">
+                    </ImageView>
 
                     <LinearLayout
                         android:layout_width="170dp"
@@ -102,7 +98,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="25dp"
-                            android:text="Título vídeo"
+                            android:text="Aula 1: Contexto"
                             android:textColor="@color/black"
                             android:textStyle="bold"
                             android:textSize="18sp">
@@ -111,7 +107,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="90dp"
-                            android:text="Descrição vídeo Descrição vídeo Descrição vídeo Descrição vídeo"
+                            android:text="Você está pensando em ser um Programador e não sabe por onde começar? Pois nessa aula vamos te dar todas as informações e mostrar o caminho a seguir."
                             android:textColor="@color/black"
                             android:textStyle="normal"
                             android:textSize="16sp">
@@ -130,16 +126,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:orientation="horizontal">
-                    <TextView
-                        android:background="@color/viden_yellow"
+                    <ImageView
+                        android:src="@drawable/python_video2"
                         android:layout_width="180dp"
-                        android:layout_height="match_parent"
-                        android:text="IMAGEM INDISPONIVEL"
-                        android:textAlignment="center"
-                        android:textSize="30sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold">
-                    </TextView>
+                        android:layout_height="match_parent">
+                    </ImageView>
 
                     <LinearLayout
                         android:layout_width="170dp"
@@ -151,7 +142,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="25dp"
-                            android:text="Título vídeo"
+                            android:text="Aula 2: O que é"
                             android:textColor="@color/black"
                             android:textStyle="bold"
                             android:textSize="18sp">
@@ -160,7 +151,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="90dp"
-                            android:text="Descrição vídeo Descrição vídeo Descrição vídeo Descrição vídeo"
+                            android:text="De onde vem o Python? Por que esse nome? Quais são as grandes empresas mundiais que usam Python em seus softwares? Essas e muitas outras perguntas serão respondidas nessa aula."
                             android:textColor="@color/black"
                             android:textStyle="normal"
                             android:textSize="16sp">
@@ -178,16 +169,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:orientation="horizontal">
-                    <TextView
-                        android:background="@color/viden_yellow"
+                    <ImageView
+                        android:src="@drawable/python_video3"
                         android:layout_width="180dp"
-                        android:layout_height="match_parent"
-                        android:text="IMAGEM INDISPONIVEL"
-                        android:textAlignment="center"
-                        android:textSize="30sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold">
-                    </TextView>
+                        android:layout_height="match_parent">
+                    </ImageView>
 
                     <LinearLayout
                         android:layout_width="170dp"
@@ -199,7 +185,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="25dp"
-                            android:text="Título vídeo"
+                            android:text="Aula 3: Funciona.."
                             android:textColor="@color/black"
                             android:textStyle="bold"
                             android:textSize="18sp">
@@ -208,7 +194,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="90dp"
-                            android:text="Descrição vídeo Descrição vídeo Descrição vídeo Descrição vídeo"
+                            android:text="Entenda como funciona um Interpretador e veja como o Python funciona. Depois aprenda como instalar o Python 3.0 e o IDLE em seu computador com Windows, Linux ou Mac OS."
                             android:textColor="@color/black"
                             android:textStyle="normal"
                             android:textSize="16sp">

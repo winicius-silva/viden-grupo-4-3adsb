@@ -69,20 +69,17 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="170dp"
                 android:orientation="horizontal"
                 android:onClick="irMeusCursosCurso">
-                <TextView
-                    android:background="@color/viden_yellow"
+
+                <ImageView
+                    android:src="@drawable/python_curso_img"
                     android:layout_width="180dp"
                     android:layout_height="match_parent"
-                    android:text="IMAGEM INDISPONIVEL"
-                    android:textAlignment="center"
-                    android:textSize="30sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold">
+                    >
 
-                </TextView>
+                </ImageView>
 
                 <LinearLayout
                     android:layout_width="170dp"
@@ -93,20 +90,21 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:text="Título curso"
+                        android:layout_height="45dp"
+                        android:text="Python para iniciantes"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="18sp">
+
                     </TextView>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="90dp"
-                        android:text="Descrição curso Descrição curso Descrição curso Descrição curso"
+                        android:text="O único curso de Python realmente completo. Automações, Desenvolvimento e Ciência de Dados."
                         android:textColor="@color/black"
                         android:textStyle="normal"
-                        android:textSize="16sp">
+                        android:textSize="14sp">
                     </TextView>
                     
                     <ProgressBar

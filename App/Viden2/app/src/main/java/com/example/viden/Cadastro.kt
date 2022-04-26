@@ -95,7 +95,7 @@ class Cadastro : AppCompatActivity() {
         } else if(etConfirmePassword.text.isNullOrEmpty()){
             etConfirmePassword.error = "Preencha esse campo!"
             return false
-        } else if(!etPassword.equals(etConfirmePassword)){
+        } else if(!etPassword.text.toString().equals(etConfirmePassword.text.toString())){
             etConfirmePassword.error = "Senha não estão corretar"
             return false
         } else if(etEmail.text.isNullOrEmpty()){

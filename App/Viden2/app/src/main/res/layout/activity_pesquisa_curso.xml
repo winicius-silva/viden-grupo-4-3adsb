@@ -65,7 +65,7 @@
             <ImageView
                 android:layout_width="35dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/yellow_loupe"></ImageView>
+                android:src="@drawable/yellow_loupe"/>
 
         </LinearLayout>
 
@@ -153,7 +153,7 @@
                 android:text="Recompensa:"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textStyle="bold"></TextView>
+                android:textStyle="bold"/>
 
             <TextView
                 android:paddingLeft="5dp"
@@ -162,13 +162,13 @@
                 android:text="25"
                 android:textColor="@color/viden_yellow"
                 android:textSize="20sp"
-                android:textStyle="bold"></TextView>
+                android:textStyle="bold"/>
 
             <ImageView
                 android:paddingLeft="3dp"
                 android:layout_width="20sp"
                 android:layout_height="match_parent"
-                android:src="@drawable/viden_coins_icon"></ImageView>
+                android:src="@drawable/viden_coins_icon"/>
 
         </LinearLayout>
 
@@ -180,14 +180,14 @@
             android:orientation="horizontal"
             android:gravity="center"
             >
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Viden©"
                 android:textSize="35sp"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                ></TextView>
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -195,46 +195,15 @@
                 android:text="/>"
                 android:textSize="35sp"
                 android:textColor="@color/viden_yellow"
-                android:textStyle="bold"
-                ></TextView>
+                android:textStyle="bold" />
 
         </LinearLayout>
 
-        <LinearLayout
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/containerFragmentMenu"
             android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:background="@color/viden_blue"
-            android:gravity="center">
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="45dp"
-                android:src="@drawable/white_star"
-                android:onClick="irMeusCursos">
-            </ImageView>
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="45dp"
-                android:src="@drawable/white_search"
-                android:onClick="irPesquisa">
-            </ImageView>
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="45dp"
-                android:src="@drawable/white_trophy"
-                android:onClick="irRanking">
-            </ImageView>
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="45dp"
-                android:src="@drawable/white_user"
-                android:onClick="irMinhaConta">
-            </ImageView>
-        </LinearLayout>
-
+            android:layout_height="match_parent">
+        </androidx.fragment.app.FragmentContainerView>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -145,41 +145,11 @@
                 ></TextView>
         </LinearLayout>
 
-        <LinearLayout
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/containerFragmentMenu"
             android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:background="@color/viden_blue"
-            android:gravity="center">
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="45dp"
-                android:src="@drawable/white_star"
-                android:onClick="irMeusCursos">
-            </ImageView>
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="45dp"
-                android:src="@drawable/white_search"
-                android:onClick="irPesquisa">
-            </ImageView>
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="45dp"
-                android:src="@drawable/white_trophy"
-                android:onClick="irRanking">
-            </ImageView>
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="45dp"
-                android:src="@drawable/white_user"
-                android:onClick="irMinhaConta">
-            </ImageView>
-        </LinearLayout>
-
+            android:layout_height="match_parent">
+        </androidx.fragment.app.FragmentContainerView>
 
     </LinearLayout>
 

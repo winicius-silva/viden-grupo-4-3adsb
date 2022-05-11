@@ -1,5 +1,6 @@
 package com.example.viden
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -33,6 +34,12 @@ class LoginSenha : AppCompatActivity() {
             object: Callback<Usuario>{
                 override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
                     if(response.isSuccessful){
+                        val editor = getSharedPreferences(
+                            "ID",
+                            Context.MODE_PRIVATE
+                        ).edit()
+                        editor.putInt("id", response.body()?.idUsuario!!)
+                        editor.apply()
                         startActivity(Intent(baseContext, MeusCursos::class.java))
                     } else {
                         Toast.makeText(baseContext, "Usuario ou senha invalidos!"

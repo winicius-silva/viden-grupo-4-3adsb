@@ -10,7 +10,7 @@ import retrofit2.http.Path
 interface UsuarioService {
 
     @GET("/usuarios/{id_usuario}")
-    fun getUsuario(@Path("id_usuario") id_usuario: Integer): Call<Usuario>
+    fun getUsuario(@Path("id_usuario") id_usuario: Int): Call<Usuario>
 
     @GET("/usuarios/login/{email}/{senha}")
     fun login(@Path("email") email: String,

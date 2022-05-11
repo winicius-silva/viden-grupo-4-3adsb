@@ -61,67 +61,33 @@
             </TextView>
         </LinearLayout>
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="523dp"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:layout_height="match_parent">
 
             <LinearLayout
+                android:id="@+id/ll_cursos_container"
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:orientation="horizontal"
-                android:onClick="irMeusCursosCurso">
-
-                <ImageView
-                    android:src="@drawable/python_curso_img"
-                    android:layout_width="180dp"
-                    android:layout_height="match_parent"
-                    >
-
-                </ImageView>
-
-                <LinearLayout
-                    android:layout_width="170dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/viden_grey"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:text="Python para iniciantes"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:textSize="18sp">
-
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="90dp"
-                        android:text="O único curso de Python realmente completo. Automações, Desenvolvimento e Ciência de Dados."
-                        android:textColor="@color/black"
-                        android:textStyle="normal"
-                        android:textSize="14sp">
-                    </TextView>
-                    
-                    <ProgressBar
-                        android:layout_width="140dp"
-                        android:layout_height="25dp"
-                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                        android:progress="100"></ProgressBar>
-                </LinearLayout>
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
             </LinearLayout>
 
-        </LinearLayout>
+        </ScrollView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cursoRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:divider="@null"
+            android:dividerHeight="0dp"/>
 
        <androidx.fragment.app.FragmentContainerView
            android:id="@+id/containerFragmentMenu"
            android:layout_width="match_parent"
            android:layout_height="match_parent">
        </androidx.fragment.app.FragmentContainerView>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

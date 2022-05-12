@@ -8,10 +8,12 @@ import android.view.View
 import android.widget.*
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
+import androidx.fragment.app.commitNow
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.viden.adapters.CursoAdapter
+import com.example.viden.databinding.ActivityMeusCursosBinding
 import com.example.viden.fragment.Menu
 import com.example.viden.models.Curso
 import com.example.viden.models.UsuarioCurso
@@ -29,27 +31,27 @@ class MeusCursos : AppCompatActivity() {
     private lateinit var etId: EditText
     private lateinit var llContainer: LinearLayout
     private lateinit var recyclerView: RecyclerView
-//    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMeusCursosBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_meus_cursos)
         supportFragmentManager.commit {
             setReorderingAllowed(true)
             add<Menu>(R.id.containerFragmentMenu)
         }
-//        binding = ActivityMainBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
+        supportFragmentManager.executePendingTransactions()
+        binding = ActivityMeusCursosBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         startUI()
     }
 
     private fun startUI() {
 //        llContainer = binding.llFilmesContainer
 //        etId = binding.etId
-        recyclerView = findViewById(R.id.cursoRecyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(baseContext)
-        recyclerView.itemAnimator = DefaultItemAnimator()
-        recyclerView.setHasFixedSize(true)
+//        recyclerView = findViewById(R.id.cursoRecyclerView)
+//        recyclerView.layoutManager = LinearLayoutManager(baseContext)
+//        recyclerView.itemAnimator = DefaultItemAnimator()
+//        recyclerView.setHasFixedSize(true)
     }
 
     fun cursosRecentes(){
@@ -86,26 +88,5 @@ class MeusCursos : AppCompatActivity() {
                 Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
             }
         })
-    }
-
-    fun irMeusCursos(view: View){
-        startActivity(Intent(baseContext, MeusCursos::class.java))
-    }
-
-    fun irPesquisa(view: View){
-        startActivity(Intent(baseContext, Pesquisa::class.java))
-    }
-
-    fun irRanking(view: View){
-        Toast.makeText(baseContext, "Tela em produção, tente novamente mais tarde!",
-            Toast.LENGTH_SHORT).show()
-    }
-
-    fun irMinhaConta(view: View){
-        startActivity(Intent(baseContext, MinhaConta::class.java))
-    }
-
-    fun irMeusCursosCurso(view: View){
-        startActivity(Intent(baseContext, MeusCursosCurso::class.java))
     }
 }

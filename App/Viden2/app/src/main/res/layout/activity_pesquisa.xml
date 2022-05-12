@@ -61,7 +61,7 @@
             <ImageView
                 android:layout_width="35dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/yellow_loupe"></ImageView>
+                android:src="@drawable/yellow_loupe"/>
         </LinearLayout>
 
         <LinearLayout

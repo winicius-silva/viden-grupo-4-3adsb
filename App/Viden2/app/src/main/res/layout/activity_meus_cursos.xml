@@ -6,88 +6,91 @@
     android:layout_height="match_parent"
     tools:context=".MeusCursos">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/primeiro_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:paddingBottom="20dp"
-            android:paddingTop="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
             android:background="@color/viden_blue"
-            >
+            android:orientation="horizontal"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp">
 
             <TextView
-                android:layout_marginLeft="70dp"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
                 android:text="Meus Cursos"
                 android:textAlignment="center"
-                android:textSize="30sp"
                 android:textColor="@color/white"
-                android:textStyle="normal"/>
+                android:textSize="30sp"
+                android:textStyle="normal" />
 
             <TextView
                 android:layout_width="80dp"
-                android:gravity="center"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="☰"
-                android:textSize="30sp"
                 android:textColor="@color/white"
-                android:textStyle="normal"/>
+                android:textSize="30sp"
+                android:textStyle="normal" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:paddingTop="25dp"
+            android:id="@+id/segundo_container"
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:layout_below="@id/primeiro_container"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:gravity="center">
+            android:paddingTop="25dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Últimos acessados"
-                android:textAlignment="center"
-                android:textSize="30sp"
                 android:textColor="@color/black"
-                android:textStyle="bold">
-            </TextView>
+                android:textSize="30sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+<!--        <FrameLayout-->
+<!--            android:layout_width=""-->
+<!--            android:layout_height="">-->
 
-            <LinearLayout
-                android:id="@+id/ll_cursos_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-            </LinearLayout>
+<!--            <TextView-->
+<!--                android:layout_width=""-->
+<!--                android:layout_height="" />-->
 
-        </ScrollView>
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:background="@color/loading_backdrop"-->
+<!--                android:gravity="center"-->
+<!--                android:visibility="gone"-->
+<!--                android:layout_height="match_parent">-->
+<!--                <ProgressBar-->
+<!--                    android:layout_width=""-->
+<!--                    android:layout_height="" />-->
+<!--            </LinearLayout>-->
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/cursoRecyclerView"
+
+<!--        </FrameLayout>-->
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/containerFragmentMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:divider="@null"
-            android:dividerHeight="0dp"/>
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom" />
 
-       <androidx.fragment.app.FragmentContainerView
-           android:id="@+id/containerFragmentMenu"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent">
-       </androidx.fragment.app.FragmentContainerView>
-
-    </LinearLayout>
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

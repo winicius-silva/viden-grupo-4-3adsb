@@ -5,17 +5,17 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.LinearLayout
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
+import com.example.viden.databinding.ActivityMeusDadosBinding
 import com.example.viden.fragment.Menu
 import com.example.viden.models.Empresa
+import com.example.viden.models.Pontuacao
 import com.example.viden.models.Usuario
 import com.example.viden.rest.Rest
-import com.example.viden.services.CursoService
 import com.example.viden.services.EmpresaService
+import com.example.viden.services.PontuacaoService
 import com.example.viden.services.UsuarioService
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,46 +25,40 @@ class MeusDados : AppCompatActivity() {
 
     private val retrofitUsuario = Rest.getInstance().create(UsuarioService::class.java)
     private val retrofitEmpresa = Rest.getInstance().create(EmpresaService::class.java)
-    private lateinit var tvNome: TextView
-    private lateinit var tvEmpresa: TextView
-    private lateinit var tvCPF: TextView
-    private lateinit var tvEmail: TextView
-    private lateinit var tvTelefone: TextView
-    private lateinit var tvCoins: TextView
+    private val retrofitPontuacao = Rest.getInstance().create(PontuacaoService::class.java)
+    private lateinit var binding: ActivityMeusDadosBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_meus_dados)
+        binding = ActivityMeusDadosBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         supportFragmentManager.commit {
             setReorderingAllowed(true)
             add<Menu>(R.id.containerFragmentMenu)
         }
-        tvNome = findViewById(R.id.tv_nome)
-        tvEmpresa = findViewById(R.id.tv_empresa)
-        tvCPF = findViewById(R.id.tv_cpf)
-        tvEmail = findViewById(R.id.tv_email)
-        tvTelefone = findViewById(R.id.tv_telefone)
-        tvCoins = findViewById(R.id.tv_coins)
+        getDados()
     }
 
-    fun getDados(){
+
+    fun getDados() {
         val prefs = getSharedPreferences("ID", Context.MODE_PRIVATE)
-        val id = prefs?.getInt("id", 0)
-        retrofitUsuario.getUsuario(id!!).enqueue(object: Callback<Usuario>{
+        val id = prefs.getInt("id", 0)
+        retrofitUsuario.getUsuario(id).enqueue(object : Callback<Usuario> {
+//            binding.prograbasodkasdoka = View.VISIBLE
             override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
-                if(response.isSuccessful){
-                    tvNome.text = response.body()?.nomeUsuario
-                    tvCPF.text = response.body()?.cpf
-                    tvEmail.text = response.body()?.email
-                    tvTelefone.text = response.body()?.celular
+                if (response.isSuccessful) {
+                    binding.tvNome.text = response.body()?.nomeUsuario
+                    binding.tvCpf.text = response.body()?.cpf
+                    binding.tvEmail.text = response.body()?.email
+                    binding.tvTelefone.text = response.body()?.celular
                     retrofitEmpresa.getEmpresaById(response.body()?.fkEmpresa!!)
-                        .enqueue(object: Callback<Empresa>{
+                        .enqueue(object : Callback<Empresa> {
                             override fun onResponse(
                                 call: Call<Empresa>,
                                 responseEmpresa: Response<Empresa>
                             ) {
-                                if(responseEmpresa.isSuccessful){
-                                    tvEmpresa.text = responseEmpresa.body()?.nome
+                                if (responseEmpresa.isSuccessful) {
+                                    binding.tvEmpresa.text = responseEmpresa.body()?.nome
                                 }
                             }
 
@@ -72,6 +66,23 @@ class MeusDados : AppCompatActivity() {
                                 Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
                             }
 
+                        })
+                    retrofitPontuacao.getPontosTotalPorUsuario(id!!)
+                        .enqueue(object : Callback<Pontuacao> {
+                            override fun onResponse(
+                                call: Call<Pontuacao>,
+                                responsePontuacao: Response<Pontuacao>
+                            ) {
+//                                biding.progresbass = VIEW.GONE
+                                if (responsePontuacao.isSuccessful) {
+                                    binding.tvCoins.text =
+                                        responsePontuacao.body()?.pontos.toString()
+                                }
+                            }
+
+                            override fun onFailure(call: Call<Pontuacao>, t: Throwable) {
+                                Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
+                            }
                         })
                 }
             }
@@ -84,19 +95,6 @@ class MeusDados : AppCompatActivity() {
 
     fun irMinhaConta(view: View){
         startActivity(Intent(baseContext, MinhaConta::class.java))
-    }
-
-    fun irMeusCursos(view: View){
-        startActivity(Intent(baseContext, MeusCursos::class.java))
-    }
-
-    fun irPesquisa(view: View){
-        startActivity(Intent(baseContext, Pesquisa::class.java))
-    }
-
-    fun irRanking(view: View){
-        Toast.makeText(baseContext, "Tela em produção, tente novamente mais tarde!",
-            Toast.LENGTH_SHORT).show()
     }
 
 }

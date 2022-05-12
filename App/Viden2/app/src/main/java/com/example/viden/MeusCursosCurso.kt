@@ -31,16 +31,4 @@ class MeusCursosCurso : AppCompatActivity() {
         startActivity(Intent(baseContext, TrilhaCurso::class.java))
     }
 
-    fun irPesquisa(view: View){
-        startActivity(Intent(baseContext, Pesquisa::class.java))
-    }
-
-    fun irRanking(view: View){
-        Toast.makeText(baseContext, "Tela em produção, tente novamente mais tarde!",
-            Toast.LENGTH_SHORT).show()
-    }
-
-    fun irMinhaConta(view: View){
-        startActivity(Intent(baseContext, MinhaConta::class.java))
-    }
 }

@@ -14,31 +14,31 @@
         android:gravity="center">
 
         <ImageView
+            android:id="@+id/img_meus_cursos"
             android:layout_width="100dp"
             android:layout_height="45dp"
-            android:src="@drawable/white_star"
-            android:onClick="irMeusCursos">
+            android:src="@drawable/white_star">
         </ImageView>
 
         <ImageView
+            android:id="@+id/img_pesquisa"
             android:layout_width="100dp"
             android:layout_height="45dp"
-            android:src="@drawable/white_search"
-            android:onClick="irPesquisa">
+            android:src="@drawable/white_search">
         </ImageView>
 
         <ImageView
+            android:id="@+id/img_ranking"
             android:layout_width="100dp"
             android:layout_height="45dp"
-            android:src="@drawable/white_trophy"
-            android:onClick="irRanking">
+            android:src="@drawable/white_trophy">
         </ImageView>
 
         <ImageView
+            android:id="@+id/img_perfil"
             android:layout_width="100dp"
             android:layout_height="45dp"
-            android:src="@drawable/white_user"
-            android:onClick="irMinhaConta">
+            android:src="@drawable/white_user">
         </ImageView>
     </LinearLayout>
 

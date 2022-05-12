@@ -49,9 +49,6 @@
             android:name=".MinhaConta"
             android:exported="true" />
         <activity
-            android:name=".MainActivity2"
-            android:exported="true" />
-        <activity
             android:name=".LoginSenha"
             android:exported="true" />
         <activity

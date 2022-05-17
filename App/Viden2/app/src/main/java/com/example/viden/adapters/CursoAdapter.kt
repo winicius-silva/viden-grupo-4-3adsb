@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -27,6 +28,9 @@ class CursoAdapter (
         val view = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.curso_adapter, parent, false)
+        view.findViewById<LinearLayout>(R.id.ll_curso).setOnClickListener {
+            irMeusCursosCurso(view)
+        }
         return CursosViewHolder(view)
     }
 
@@ -46,6 +50,10 @@ class CursoAdapter (
         holder.itemView.setOnClickListener {
             onClick(curso)
         }
+    }
+
+    fun irMeusCursosCurso(view: View){
+
     }
 
 }

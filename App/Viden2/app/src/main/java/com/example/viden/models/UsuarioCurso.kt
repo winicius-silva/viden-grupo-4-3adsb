@@ -7,6 +7,6 @@ data class UsuarioCurso (
     var fkUsuario: Int,
     var fkCurso: Int,
     var finalizado: Int,
-    var date: LocalDate,
+    var date: String,
     var progresso: Double
 )

@@ -28,7 +28,6 @@ class MeusCursos : AppCompatActivity() {
 
     private val retrofitUsuarioCurso = Rest.getInstance().create(UsuarioCursoService::class.java)
     private val retrofitCurso = Rest.getInstance().create(CursoService::class.java)
-    private lateinit var etId: EditText
     private lateinit var llContainer: LinearLayout
     private lateinit var recyclerView: RecyclerView
     private lateinit var binding: ActivityMeusCursosBinding
@@ -43,36 +42,36 @@ class MeusCursos : AppCompatActivity() {
         binding = ActivityMeusCursosBinding.inflate(layoutInflater)
         setContentView(binding.root)
         startUI()
+        cursosRecentes()
     }
 
     private fun startUI() {
-//        llContainer = binding.llFilmesContainer
-//        etId = binding.etId
-//        recyclerView = findViewById(R.id.cursoRecyclerView)
-//        recyclerView.layoutManager = LinearLayoutManager(baseContext)
-//        recyclerView.itemAnimator = DefaultItemAnimator()
-//        recyclerView.setHasFixedSize(true)
+        llContainer = binding.llContainerCurso
+        recyclerView = findViewById(R.id.cursosRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(baseContext)
+        recyclerView.itemAnimator = DefaultItemAnimator()
+        recyclerView.setHasFixedSize(true)
     }
 
     fun cursosRecentes(){
         val prefs = getSharedPreferences("ID", Context.MODE_PRIVATE)
         val id = prefs?.getInt("id", 0)
+        val listCurso = mutableListOf<Curso>()
+        llContainer.removeAllViews()
         retrofitUsuarioCurso.getMyCurso(id!!).enqueue(object : Callback<List<UsuarioCurso>> {
-            override fun onResponse(call: Call<List<UsuarioCurso>>, responseUsuarioCurso: Response<List<UsuarioCurso>>) {
+            override fun onResponse(call: Call<List<UsuarioCurso>>,
+                                    responseUsuarioCurso: Response<List<UsuarioCurso>>) {
                 if(responseUsuarioCurso.isSuccessful){
-                    responseUsuarioCurso.body()?.forEach{ usuarioCurso ->
-                        retrofitCurso.getOneCurso(usuarioCurso.fkCurso)
-                            .enqueue(object : Callback<Curso>{
+                    if(!responseUsuarioCurso.body().isNullOrEmpty()){
+                        responseUsuarioCurso.body()?.forEach{ usuarioCurso ->
+                            retrofitCurso.getOneCurso(usuarioCurso.fkCurso).enqueue(object : Callback<Curso>{
                                 override fun onResponse(call: Call<Curso>, responseCurso: Response<Curso>) {
                                     if(responseCurso.isSuccessful){
                                         if(responseCurso.body() != null){
-                                            llContainer.removeAllViews()
-                                            val tvCurso = TextView(baseContext)
-                                            tvCurso.text = responseCurso.body()?.nomeCurso
-                                            llContainer.addView(tvCurso)
-                                        } else {
-                                            Toast.makeText(baseContext, responseCurso.message(), Toast.LENGTH_LONG).show()
+                                            listCurso.add(responseCurso.body()!!)
                                         }
+                                    } else {
+                                        Toast.makeText(baseContext, responseCurso.message(), Toast.LENGTH_LONG).show()
                                     }
                                 }
 
@@ -80,7 +79,17 @@ class MeusCursos : AppCompatActivity() {
                                     Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
                                 }
                             })
+                        }
+                    } else {
+                        Toast.makeText(baseContext, "Não temos cursos para voce!", Toast.LENGTH_LONG).show()
                     }
+
+                    recyclerView.adapter = CursoAdapter(
+                        listCurso
+                    ) {
+                        val curso = it
+                    }
+
                 }
             }
 

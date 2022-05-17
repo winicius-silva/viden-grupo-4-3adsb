@@ -6,10 +6,12 @@
     android:padding="8dp">
 
     <LinearLayout
+        android:id="@+id/ll_curso"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:padding="4dp">
+        android:padding="4dp"
+        android:onClick="irMeusCursosCurso">
 
         <ImageView
             android:id="@+id/tvCursoImage"

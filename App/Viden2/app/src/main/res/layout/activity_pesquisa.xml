@@ -51,7 +51,7 @@
             android:gravity="center">
 
             <EditText
-                android:id="@+id/et_nome"
+                android:id="@+id/et_pesquisa"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:hint="Pesquise sobre os cursos disponíveis:"
@@ -61,7 +61,8 @@
             <ImageView
                 android:layout_width="35dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/yellow_loupe"/>
+                android:src="@drawable/yellow_loupe"
+                android:onClick="pesquisar"/>
         </LinearLayout>
 
         <LinearLayout
@@ -70,48 +71,24 @@
             android:orientation="vertical"
             android:padding="30dp">
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="145dp"
-                android:orientation="horizontal"
-                android:onClick="irPesquisaCurso">
-
-                <ImageView
-                    android:src="@drawable/python_curso_img"
-                    android:layout_width="180dp"
-                    android:layout_height="match_parent"
-                    >
-
-                </ImageView>
+                android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_width="170dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/viden_grey"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+                    android:id="@+id/ll_container_pesquisa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </ScrollView>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:text="Python para iniciantes"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:textSize="18sp">
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="O único curso de Python realmente completo. Automações..."
-                        android:textColor="@color/black"
-                        android:textStyle="normal"
-                        android:textSize="16sp">
-                    </TextView>
-                </LinearLayout>
-            </LinearLayout>
-
-
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/pesquisaRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:divider="@null"
+                android:dividerHeight="0dp" />
         </LinearLayout>
 
         <androidx.fragment.app.FragmentContainerView

@@ -1,5 +1,6 @@
 package com.example.viden.adapters
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.viden.LoginSenha
+import com.example.viden.MeusCursosCurso
 import com.example.viden.R
 import com.example.viden.models.Curso
 
@@ -29,7 +32,7 @@ class CursoAdapter (
             .from(parent.context)
             .inflate(R.layout.curso_adapter, parent, false)
         view.findViewById<LinearLayout>(R.id.ll_curso).setOnClickListener {
-            irMeusCursosCurso(view)
+            irCurso(view)
         }
         return CursosViewHolder(view)
     }
@@ -52,7 +55,7 @@ class CursoAdapter (
         }
     }
 
-    fun irMeusCursosCurso(view: View){
+    fun irCurso(view: View){
 
     }
 

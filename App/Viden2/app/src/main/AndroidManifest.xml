@@ -31,9 +31,6 @@
             android:name=".MeusCursos"
             android:exported="true" />
         <activity
-            android:name=".PesquisaCurso"
-            android:exported="true" />
-        <activity
             android:name=".Pesquisa"
             android:exported="true" />
         <activity

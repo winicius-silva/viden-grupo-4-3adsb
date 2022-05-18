@@ -9,8 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,7 +39,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="☰"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="30sp"
                 android:textStyle="normal" />
@@ -53,14 +52,10 @@
             android:padding="25dp">
 
             <ImageView
+                android:id="@+id/iv_imagem_curso"
                 android:src="@drawable/python_curso_img"
                 android:layout_width="300dp"
-                android:layout_height="170dp"
-
-                >
-
-            </ImageView>
-
+                android:layout_height="170dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -78,31 +73,33 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
+                        android:id="@+id/tv_titulo"
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:text="Python para iniciantes"
+                        android:text="."
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="25sp">
                     </TextView>
 
                     <ProgressBar
+                        android:id="@+id/pb_progresso"
                         android:paddingLeft="10dp"
                         android:layout_gravity="center"
                         android:layout_width="100dp"
                         android:layout_height="25dp"
                         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                        android:progress="100"></ProgressBar>
+                        android:progress="0"/>
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/tv_descricao"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="@color/black"
-                    android:text="O único curso de Python realmente completo. Automações, Desenvolvimento e Ciência de Dados."
+                    android:text="."
                     android:textStyle="normal"
-                    android:textSize="18dp">
-                </TextView>
+                    android:textSize="18dp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -117,9 +114,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:backgroundTint="@color/viden_yellow"
-                    android:text="Continuar"
-                    android:textAllCaps="false"
-                    android:onClick="irVideoCurso"/>
+                    android:text="Ver curso"
+                    android:textAllCaps="false"/>
 
                 <Button
                     android:layout_width="100dp"
@@ -128,8 +124,7 @@
                     android:layout_marginTop="16dp"
                     android:backgroundTint="@color/viden_yellow"
                     android:text="Ver trilha completa"
-                    android:textAllCaps="false"
-                    android:onClick="irTrilhaCurso"/>
+                    android:textAllCaps="false"/>
 
             </LinearLayout>
 
@@ -147,22 +142,23 @@
                 android:text="Recompensa:"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textStyle="bold"></TextView>
+                android:textStyle="bold"/>
 
             <TextView
+                android:id="@+id/tv_pontos"
                 android:paddingLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="25"
+                android:text="0"
                 android:textColor="@color/viden_yellow"
                 android:textSize="20sp"
-                android:textStyle="bold"></TextView>
+                android:textStyle="bold"/>
 
             <ImageView
                 android:paddingLeft="3dp"
                 android:layout_width="20sp"
                 android:layout_height="match_parent"
-                android:src="@drawable/viden_coins_icon"></ImageView>
+                android:src="@drawable/viden_coins_icon"/>
 
         </LinearLayout>
 
@@ -172,16 +168,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center"
-            >
+            android:gravity="center">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Viden©"
                 android:textSize="35sp"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                ></TextView>
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -189,8 +183,7 @@
                 android:text="/>"
                 android:textSize="35sp"
                 android:textColor="@color/viden_yellow"
-                android:textStyle="bold"
-                ></TextView>
+                android:textStyle="bold"/>
 
         </LinearLayout>
 

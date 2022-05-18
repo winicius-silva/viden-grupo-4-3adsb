@@ -19,4 +19,8 @@ interface UsuarioCursoService{
     fun patchCursosFinalizados(@Path("progresso") progresso: Double,
                                @Path("fkCurso") fkCurso: Int,
                                @Path("fkUsuario") fkUsuario: Int): Call<Void>
+
+    @GET("/usuarios_cursos/progresso/{fkCurso}/{fkUsuario}")
+    fun getProgressoByUsuarioByCurso(@Path("fkCurso") fkCurso: Int,
+                                     @Path("fkUsuario") fkUsuario: Int): Call<Double>
 }

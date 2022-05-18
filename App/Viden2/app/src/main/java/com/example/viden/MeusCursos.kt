@@ -8,11 +8,9 @@ import android.view.View
 import android.widget.*
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
-import androidx.fragment.app.commitNow
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.viden.adapters.CursoAdapter
 import com.example.viden.databinding.ActivityMeusCursosBinding
 import com.example.viden.fragment.Menu
 import com.example.viden.models.Curso
@@ -56,7 +54,6 @@ class MeusCursos : AppCompatActivity() {
     fun cursosRecentes(){
         val prefs = getSharedPreferences("ID", Context.MODE_PRIVATE)
         val id = prefs?.getInt("id", 0)
-        val listCurso = mutableListOf<Curso>()
         llContainer.removeAllViews()
         retrofitUsuarioCurso.getMyCurso(id!!).enqueue(object : Callback<List<UsuarioCurso>> {
             override fun onResponse(call: Call<List<UsuarioCurso>>,
@@ -64,32 +61,32 @@ class MeusCursos : AppCompatActivity() {
                 if(responseUsuarioCurso.isSuccessful){
                     if(!responseUsuarioCurso.body().isNullOrEmpty()){
                         responseUsuarioCurso.body()?.forEach{ usuarioCurso ->
-                            retrofitCurso.getOneCurso(usuarioCurso.fkCurso).enqueue(object : Callback<Curso>{
-                                override fun onResponse(call: Call<Curso>, responseCurso: Response<Curso>) {
-                                    if(responseCurso.isSuccessful){
-                                        if(responseCurso.body() != null){
-                                            listCurso.add(responseCurso.body()!!)
+                            if(usuarioCurso == null){
+                                Toast.makeText(baseContext, "Não temos cursos para voce!", Toast.LENGTH_LONG).show()
+                            } else {
+                                retrofitCurso.getOneCurso(usuarioCurso.fkCurso).enqueue(object : Callback<Curso>{
+                                    override fun onResponse(call: Call<Curso>, responseCurso: Response<Curso>) {
+                                        if(responseCurso.isSuccessful){
+                                            if(responseCurso.body() != null){
+                                                val textView = TextView(baseContext)
+                                                textView.text = responseCurso.body()?.nomeCurso
+                                                llContainer.addView(textView)
+                                            }
+                                        } else {
+                                            Toast.makeText(baseContext, responseCurso.message(), Toast.LENGTH_LONG).show()
                                         }
-                                    } else {
-                                        Toast.makeText(baseContext, responseCurso.message(), Toast.LENGTH_LONG).show()
                                     }
-                                }
 
-                                override fun onFailure(call: Call<Curso>, t: Throwable) {
-                                    Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
-                                }
-                            })
-                        }
+                                    override fun onFailure(call: Call<Curso>, t: Throwable) {
+                                        Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
+                                    }
+                                })
+                            }
+                            }
+
                     } else {
                         Toast.makeText(baseContext, "Não temos cursos para voce!", Toast.LENGTH_LONG).show()
                     }
-
-                    recyclerView.adapter = CursoAdapter(
-                        listCurso
-                    ) {
-                        val curso = it
-                    }
-
                 }
             }
 

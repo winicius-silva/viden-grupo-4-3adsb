@@ -92,4 +92,14 @@ public class UsuarioCursoController {
         }
         return ResponseEntity.status(404).build();
     }
+
+    @GetMapping("/progresso/{fkCurso}/{fkUsuario}")
+    public ResponseEntity getProgressoByUsuarioByCurso(@PathVariable Integer fkCurso,
+                                                       @PathVariable Integer fkUsuario){
+        if(repository.existsByFkCursoAndFkUsuario(fkCurso, fkUsuario)){
+            Double finalizado = repository.findByFkCursoAndFkUsuario(fkCurso, fkUsuario).getProgresso();
+            return ResponseEntity.status(200).body(finalizado);
+        }
+        return ResponseEntity.status(404).build();
+    }
 }

@@ -9,6 +9,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.viden.adapters.CursoLinearAdapter
 import com.example.viden.databinding.ActivityPesquisaBinding
 import com.example.viden.fragment.Menu
 import com.example.viden.models.Curso
@@ -22,7 +26,7 @@ class Pesquisa : AppCompatActivity() {
 
     private val retrofitCurso = Rest.getInstance().create(CursoService::class.java)
     private lateinit var binding: ActivityPesquisaBinding
-    private lateinit var llContainer: LinearLayout
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,13 +38,19 @@ class Pesquisa : AppCompatActivity() {
         supportFragmentManager.executePendingTransactions()
         binding = ActivityPesquisaBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        llContainer = binding.llContainerPesquisa
+        startUI()
+    }
+
+    private fun startUI() {
+        recyclerView = findViewById(R.id.recycler_view)
+        recyclerView.layoutManager = LinearLayoutManager(baseContext)
+        recyclerView.itemAnimator = DefaultItemAnimator()
+        recyclerView.setHasFixedSize(true)
     }
 
     fun pesquisar(view: View){
         var nomePesquisado = ""
         nomePesquisado = binding.etPesquisa.text.toString()
-        llContainer.removeAllViews()
         retrofitCurso.getCursosSearch(nomePesquisado).enqueue(
             object: Callback<List<Curso>>{
                 override fun onResponse(call: Call<List<Curso>>, response: Response<List<Curso>>) {
@@ -50,9 +60,7 @@ class Pesquisa : AppCompatActivity() {
                                 if(result == null){
                                     Toast.makeText(baseContext, "Não encontramos cursos!", Toast.LENGTH_LONG).show()
                                 } else {
-                                    val textView = TextView(baseContext)
-                                    textView.text = result.nomeCurso
-                                    llContainer.addView(textView)
+                                    setDataToRecyclerView(response.body()!!)
                                 }
                             }
                         } else {
@@ -66,5 +74,14 @@ class Pesquisa : AppCompatActivity() {
                 }
             }
         )
+    }
+
+    private fun setDataToRecyclerView(cursoList: List<Curso>) {
+        recyclerView.isNestedScrollingEnabled = true
+        recyclerView.adapter = CursoLinearAdapter(cursoList) { curso ->
+            val intent = Intent(baseContext, MeusCursosCurso::class.java)
+            intent.putExtra("cursoClicado", curso.idCurso.toString())
+            startActivity(intent)
+        }
     }
 }

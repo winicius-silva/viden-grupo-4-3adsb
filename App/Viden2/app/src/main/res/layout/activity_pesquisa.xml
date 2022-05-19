@@ -65,31 +65,23 @@
                 android:onClick="pesquisar"/>
         </LinearLayout>
 
-        <LinearLayout
+        <ScrollView
+        android:id="@+id/terceiro_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/segundo_container"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="523dp"
-            android:orientation="vertical"
-            android:padding="30dp">
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:id="@+id/ll_container_pesquisa"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-            </ScrollView>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/pesquisaRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:divider="@null"
-                android:dividerHeight="0dp" />
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:spanCount="2"
+            tools:listitem="@layout/curso_adapter"/>
+    </ScrollView>
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/containerFragmentMenu"

@@ -3,18 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:elevation="8dp"
-    android:padding="8dp">
+    android:padding="8dp"
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/ll_curso"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:padding="4dp"
-        android:onClick="irCurso">
+        android:padding="4dp">
 
         <ImageView
-            android:id="@+id/tvCursoImage"
+            android:id="@+id/tv_curso_image"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -28,20 +28,23 @@
             android:padding="4dp">
 
             <TextView
-                android:id="@+id/tvCursoTitle"
+                android:id="@+id/tv_curso_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
                 android:text="Titulo do Curso"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/tvCursoDescription"
+                android:id="@+id/tv_curso_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:text="Descrição do curso" />
+                android:text="Descrição do curso"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
         </LinearLayout>
     </LinearLayout>
 

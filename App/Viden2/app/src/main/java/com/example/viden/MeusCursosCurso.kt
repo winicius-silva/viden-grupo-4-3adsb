@@ -20,10 +20,10 @@ import retrofit2.Response
 
 class MeusCursosCurso : AppCompatActivity() {
 
-    private var cursoClicado: Int = 0
     private val retrofitCurso = Rest.getInstance().create(CursoService::class.java)
     private val retrofitUsuarioCurso = Rest.getInstance().create(UsuarioCursoService::class.java)
     private lateinit var binding: ActivityMeusCursosCursoBinding
+    private lateinit var cursoClicado: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +32,7 @@ class MeusCursosCurso : AppCompatActivity() {
             setReorderingAllowed(true)
             add<Menu>(R.id.containerFragmentMenu)
         }
-        cursoClicado = intent.getStringExtra("cursoClicado")?.toInt() ?: 0
+        cursoClicado = intent.getStringExtra("cursoClicado").toString()
         supportFragmentManager.executePendingTransactions()
         binding = ActivityMeusCursosCursoBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -46,7 +46,7 @@ class MeusCursosCurso : AppCompatActivity() {
     fun gerarDadosCurso(){
         val prefs = getSharedPreferences("ID", Context.MODE_PRIVATE)
         val id = prefs?.getInt("id", 0)
-        retrofitCurso.getOneCurso(cursoClicado).enqueue(object: Callback<Curso>{
+        retrofitCurso.getOneCurso(cursoClicado.toInt()).enqueue(object: Callback<Curso>{
             override fun onResponse(call: Call<Curso>, response: Response<Curso>) {
                 if(response.isSuccessful){
                     binding.tvTitulo.text = response.body()?.nomeCurso.toString()
@@ -60,7 +60,7 @@ class MeusCursosCurso : AppCompatActivity() {
             }
         })
 
-        retrofitUsuarioCurso.getProgressoByUsuarioByCurso(cursoClicado, id!!).enqueue(object: Callback<Double>{
+        retrofitUsuarioCurso.getProgressoByUsuarioByCurso(cursoClicado.toInt(), id!!).enqueue(object: Callback<Double>{
             override fun onResponse(call: Call<Double>, response: Response<Double>) {
                 if(response.isSuccessful){
                     val valor = response.body() ?: 0

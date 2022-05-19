@@ -61,7 +61,7 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <LinearLayout
+        <ScrollView
             android:id="@+id/terceiro_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -69,48 +69,15 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:id="@+id/ll_container_curso"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-            </ScrollView>
-
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/cursosRecyclerView"
+                android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:divider="@null"
-                android:dividerHeight="0dp" />
-
-        </LinearLayout>
-        
-<!--        <FrameLayout-->
-<!--            android:layout_width=""-->
-<!--            android:layout_height="">-->
-
-<!--            <TextView-->
-<!--                android:layout_width=""-->
-<!--                android:layout_height="" />-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:background="@color/loading_backdrop"-->
-<!--                android:gravity="center"-->
-<!--                android:visibility="gone"-->
-<!--                android:layout_height="match_parent">-->
-<!--                <ProgressBar-->
-<!--                    android:layout_width=""-->
-<!--                    android:layout_height="" />-->
-<!--            </LinearLayout>-->
-
-
-<!--        </FrameLayout>-->
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                app:spanCount="2"
+                tools:listitem="@layout/curso_adapter"/>
+        </ScrollView>
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/containerFragmentMenu"

@@ -1,5 +1,6 @@
 package com.example.viden
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,7 +26,6 @@ import retrofit2.Response
 class TrilhaCurso : AppCompatActivity() {
 
     private val retrofitVideo = Rest.getInstance().create(VideoService::class.java)
-    private lateinit var cursoClicado: String
     private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +36,6 @@ class TrilhaCurso : AppCompatActivity() {
             add<Menu>(R.id.containerFragmentMenu)
         }
         startUI()
-        cursoClicado = intent.getStringExtra("cursoClicado").toString()
         gerarVideos()
     }
 
@@ -48,7 +47,9 @@ class TrilhaCurso : AppCompatActivity() {
     }
 
     fun gerarVideos(){
-        retrofitVideo.getVideosByCurso(cursoClicado.toInt()).enqueue(object: Callback<List<Video>> {
+        val prefs = getSharedPreferences("USER", Context.MODE_PRIVATE)
+        val cursoClicado = prefs?.getInt("cursoClicado", 0)
+        retrofitVideo.getVideosByCurso(cursoClicado!!).enqueue(object: Callback<List<Video>> {
             override fun onResponse(call: Call<List<Video>>, response: Response<List<Video>>) {
                 if(response.isSuccessful){
                     if(response.body() != null){
@@ -69,8 +70,6 @@ class TrilhaCurso : AppCompatActivity() {
 
     fun voltarParaCurso(view: View){
         startActivity(Intent(baseContext, MeusCursosCurso::class.java))
-        intent.putExtra("cursoClicado", cursoClicado)
-        startActivity(intent)
     }
 
     fun irConcluirCurso(view: View){
@@ -81,12 +80,12 @@ class TrilhaCurso : AppCompatActivity() {
         recyclerView.isNestedScrollingEnabled = true
         recyclerView.adapter = VideoLinearAdapter(videoList) { video ->
             val intent = Intent(baseContext, VideoCurso::class.java)
-            intent.putExtra("videoClicado", video.idVideoCurso.toString())
-            intent.putExtra("tituloVideo", video.titulo)
-            intent.putExtra("descricaoVideo", video.descricaoVideo)
-            intent.putExtra("linkVideo", video.link)
-            intent.putExtra("indiceVideo", video.indice)
-            intent.putExtra("cursoClicado", cursoClicado)
+            val editor = getSharedPreferences(
+                "USER",
+                Context.MODE_PRIVATE
+            ).edit()
+            editor.putInt("indiceVideo", video.indice)
+            editor.apply()
             startActivity(intent)
         }
     }

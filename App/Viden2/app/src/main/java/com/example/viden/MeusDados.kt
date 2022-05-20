@@ -41,7 +41,7 @@ class MeusDados : AppCompatActivity() {
 
 
     fun getDados() {
-        val prefs = getSharedPreferences("ID", Context.MODE_PRIVATE)
+        val prefs = getSharedPreferences("USER", Context.MODE_PRIVATE)
         val id = prefs.getInt("id", 0)
         retrofitUsuario.getUsuario(id).enqueue(object : Callback<Usuario> {
 //            binding.prograbasodkasdoka = View.VISIBLE

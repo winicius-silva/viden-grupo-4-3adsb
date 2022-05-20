@@ -35,7 +35,7 @@ class LoginSenha : AppCompatActivity() {
                 override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
                     if(response.isSuccessful){
                         val editor = getSharedPreferences(
-                            "ID",
+                            "USER",
                             Context.MODE_PRIVATE
                         ).edit()
                         editor.putInt("id", response.body()?.idUsuario!!)

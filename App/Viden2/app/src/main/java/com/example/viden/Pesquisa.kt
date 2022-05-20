@@ -1,5 +1,6 @@
 package com.example.viden
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -80,7 +81,12 @@ class Pesquisa : AppCompatActivity() {
         recyclerView.isNestedScrollingEnabled = true
         recyclerView.adapter = CursoLinearAdapter(cursoList) { curso ->
             val intent = Intent(baseContext, MeusCursosCurso::class.java)
-            intent.putExtra("cursoClicado", curso.idCurso.toString())
+            val editor = getSharedPreferences(
+                "USER",
+                Context.MODE_PRIVATE
+            ).edit()
+            editor.putInt("cursoClicado", curso.idCurso)
+            editor.apply()
             startActivity(intent)
         }
     }

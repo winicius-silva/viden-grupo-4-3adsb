@@ -6,11 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import com.example.viden.databinding.ActivityMeusCursosCursoBinding
 import com.example.viden.fragment.Menu
 import com.example.viden.models.Curso
+import com.example.viden.models.UsuarioCurso
 import com.example.viden.models.Video
 import com.example.viden.rest.Rest
 import com.example.viden.services.CursoService
@@ -24,9 +26,7 @@ class MeusCursosCurso : AppCompatActivity() {
 
     private val retrofitCurso = Rest.getInstance().create(CursoService::class.java)
     private val retrofitUsuarioCurso = Rest.getInstance().create(UsuarioCursoService::class.java)
-    private val retrofitVideo= Rest.getInstance().create(VideoService::class.java)
     private lateinit var binding: ActivityMeusCursosCursoBinding
-    private lateinit var cursoClicado: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +35,6 @@ class MeusCursosCurso : AppCompatActivity() {
             setReorderingAllowed(true)
             add<Menu>(R.id.containerFragmentMenu)
         }
-        cursoClicado = intent.getStringExtra("cursoClicado").toString()
         supportFragmentManager.executePendingTransactions()
         binding = ActivityMeusCursosCursoBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -47,14 +46,21 @@ class MeusCursosCurso : AppCompatActivity() {
     }
 
     fun gerarDadosCurso(){
-        val prefs = getSharedPreferences("ID", Context.MODE_PRIVATE)
+        val prefs = getSharedPreferences("USER", Context.MODE_PRIVATE)
         val id = prefs?.getInt("id", 0)
-        retrofitCurso.getOneCurso(cursoClicado.toInt()).enqueue(object: Callback<Curso>{
+        val cursoClicado = prefs?.getInt("cursoClicado", 0)
+        retrofitCurso.getOneCurso(cursoClicado!!).enqueue(object: Callback<Curso>{
             override fun onResponse(call: Call<Curso>, response: Response<Curso>) {
                 if(response.isSuccessful){
                     binding.tvTitulo.text = response.body()?.nomeCurso.toString()
                     binding.tvDescricao.text = response.body()?.descricao.toString()
                     binding.tvPontos.text = response.body()?.qtdPontos.toString()
+                    val imagem = when(response.body()?.categoria) {
+                        "BACK-END" -> AppCompatResources.getDrawable(baseContext, R.drawable.backend)
+                        "FRONT-END" -> AppCompatResources.getDrawable(baseContext, R.drawable.ic_launcher_background)
+                        else -> AppCompatResources.getDrawable(baseContext, R.drawable.ic_launcher_background)
+                    }
+                    binding.ivImagemCurso.setImageDrawable(imagem)
                 }
             }
 
@@ -63,7 +69,7 @@ class MeusCursosCurso : AppCompatActivity() {
             }
         })
 
-        retrofitUsuarioCurso.getProgressoByUsuarioByCurso(cursoClicado.toInt(), id!!).enqueue(object: Callback<Double>{
+        retrofitUsuarioCurso.getProgressoByUsuarioByCurso(cursoClicado, id!!).enqueue(object: Callback<Double>{
             override fun onResponse(call: Call<Double>, response: Response<Double>) {
                 if(response.isSuccessful){
                     val valor = response.body() ?: 0
@@ -79,31 +85,39 @@ class MeusCursosCurso : AppCompatActivity() {
 
     fun verTrilha(view: View){
         val intent = Intent(baseContext, TrilhaCurso::class.java)
-        intent.putExtra("cursoClicado", cursoClicado)
         startActivity(intent)
     }
 
 
     fun iniciarCurso(view: View){
-        retrofitVideo.getIndiceVideoByCurso(1, cursoClicado.toInt()).enqueue(object: Callback<Video>{
-            override fun onResponse(call: Call<Video>, response: Response<Video>) {
+        val prefs = getSharedPreferences("USER", Context.MODE_PRIVATE)
+        val cursoClicado = prefs?.getInt("cursoClicado", 0)
+        val id = prefs?.getInt("id", 0)
+        val newUsuarioCurso = UsuarioCurso(
+            idUsuarioCurso = null,
+            fkCurso = cursoClicado!!,
+            fkUsuario = id!!,
+            finalizado = 0,
+            date = null,
+            progresso = 0.0
+        )
+        retrofitUsuarioCurso.postRecentCurso(newUsuarioCurso).enqueue(object: Callback<Void>{
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if(response.isSuccessful){
-                    if(response.body() != null){
-                        val intent = Intent(baseContext, VideoCurso::class.java)
-                        intent.putExtra("videoClicado", response.body()!!.idVideoCurso.toString())
-                        intent.putExtra("tituloVideo", response.body()!!.titulo)
-                        intent.putExtra("descricaoVideo", response.body()!!.descricaoVideo)
-                        intent.putExtra("linkVideo", response.body()!!.link)
-                        intent.putExtra("indiceVideo", response.body()!!.indice)
-                        intent.putExtra("cursoClicado", cursoClicado)
-                        startActivity(intent)
-                    } else {
-                        Toast.makeText(baseContext, "Este curso nao tem video!", Toast.LENGTH_LONG).show()
-                    }
+                    val editor = getSharedPreferences(
+                        "USER",
+                        Context.MODE_PRIVATE
+                    ).edit()
+                    editor.putInt("indiceVideo", 1)
+                    editor.apply()
+                    val intent = Intent(baseContext, VideoCurso::class.java)
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(baseContext, "Algo deu errado :(", Toast.LENGTH_LONG).show()
                 }
             }
 
-            override fun onFailure(call: Call<Video>, t: Throwable) {
+            override fun onFailure(call: Call<Void>, t: Throwable) {
                 Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
             }
         })

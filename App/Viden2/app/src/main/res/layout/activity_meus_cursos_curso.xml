@@ -53,7 +53,7 @@
 
             <ImageView
                 android:id="@+id/iv_imagem_curso"
-                android:src="@drawable/python_curso_img"
+                android:src="@drawable/ic_launcher_background"
                 android:layout_width="300dp"
                 android:layout_height="170dp"/>
         </LinearLayout>

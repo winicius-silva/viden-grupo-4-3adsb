@@ -3,6 +3,7 @@ package com.example.viden.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -18,19 +19,17 @@ class CursoLinearAdapter (
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(curso: Curso, onCursoClickListener: (Curso) -> Unit){
+            val imagem = when(curso.categoria) {
+                "BACK-END" -> R.drawable.backend
+                "FRONT-END" -> R.drawable.ic_launcher_background
+                else -> R.drawable.ic_launcher_background
+            }
             Glide.with(itemView.context)
-                .load(R.drawable.python_curso_img)
+                .load(imagem)
                 .apply(RequestOptions())
                 .into(itemView.findViewById(R.id.tv_curso_image))
-
             itemView.findViewById<TextView>(R.id.tv_curso_title).text = curso.nomeCurso
             itemView.findViewById<TextView>(R.id.tv_curso_description).text = curso.descricao
-
-//            when(curso.categoria) {
-//                "macho" -> itemView.findViewById<ImageView>(R.id.iv_gender).setImageResource(R.drawable.ic_card_male)
-//                "femea" -> itemView.findViewById<ImageView>(R.id.iv_gender).setImageResource(R.drawable.ic_card_female)
-//            }
-
             itemView.setOnClickListener {
                 onCursoClickListener(curso)
             }

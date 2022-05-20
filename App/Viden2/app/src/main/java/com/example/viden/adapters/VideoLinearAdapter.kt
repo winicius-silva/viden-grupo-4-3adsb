@@ -19,7 +19,7 @@ class VideoLinearAdapter(
 
         fun bind(video: Video, onVideoClickListener: (Video) -> Unit){
             Glide.with(itemView.context)
-                .load(R.drawable.img_youtube)
+                .load(R.drawable.backend)
                 .apply(RequestOptions())
                 .into(itemView.findViewById(R.id.iv_video_image))
 

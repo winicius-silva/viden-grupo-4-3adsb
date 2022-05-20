@@ -116,13 +116,13 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_botao_finalizar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
                 android:visibility="invisible">
                 <Button
-                    android:id="@+id/bt_finalizar"
                     android:layout_width="100dp"
                     android:textSize="13dp"
                     android:layout_height="wrap_content"

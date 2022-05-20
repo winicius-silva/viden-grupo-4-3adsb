@@ -23,7 +23,6 @@ public class UsuarioCurso {
     @Max(1)
     private Integer finalizado;
 
-    @NotNull
     private LocalDate date;
 
     @NotNull

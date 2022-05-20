@@ -51,7 +51,7 @@ class MeusCursos : AppCompatActivity() {
     }
 
     fun cursosRecentes(){
-        val prefs = getSharedPreferences("ID", Context.MODE_PRIVATE)
+        val prefs = getSharedPreferences("USER", Context.MODE_PRIVATE)
         val id = prefs?.getInt("id", 0)
         retrofitUsuarioCurso.getMyCurso(id!!).enqueue(object : Callback<List<UsuarioCurso>> {
             override fun onResponse(call: Call<List<UsuarioCurso>>, responseUsuarioCurso: Response<List<UsuarioCurso>>) {
@@ -95,7 +95,12 @@ class MeusCursos : AppCompatActivity() {
         recyclerView.isNestedScrollingEnabled = true
         recyclerView.adapter = CursoLinearAdapter(cursoList) { curso ->
             val intent = Intent(baseContext, MeusCursosCurso::class.java)
-            intent.putExtra("cursoClicado", curso.idCurso.toString())
+            val editor = getSharedPreferences(
+                "USER",
+                Context.MODE_PRIVATE
+            ).edit()
+            editor.putInt("cursoClicado", curso.idCurso)
+            editor.apply()
             startActivity(intent)
         }
     }

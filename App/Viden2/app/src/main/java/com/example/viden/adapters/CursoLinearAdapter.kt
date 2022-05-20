@@ -46,8 +46,8 @@ class CursoLinearAdapter (
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val animal = cursos[position]
-        holder.bind(animal, onClick)
+        val curso = cursos[position]
+        holder.bind(curso, onClick)
     }
 
 }

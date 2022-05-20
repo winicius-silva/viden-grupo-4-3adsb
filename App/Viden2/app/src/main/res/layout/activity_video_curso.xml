@@ -40,7 +40,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="☰"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="30sp"
                 android:textStyle="normal" />
@@ -50,16 +50,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
             <ImageView
-                android:src="@drawable/python_video1"
+                android:src="@drawable/img_youtube"
                 android:layout_width="match_parent"
-                android:layout_height="220dp">
-
-            </ImageView>
-
-
-
+                android:layout_height="220dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -74,18 +68,20 @@
                 android:padding="15dp">
 
                     <TextView
+                        android:id="@+id/tv_titulo_video"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Aula 1: Contexto"
+                        android:text=""
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="25sp">
                     </TextView>
 
                 <TextView
+                    android:id="@+id/tv_descricao_video"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Você está pensando em ser um Programador e não sabe por onde começar? Pois nessa aula vamos te dar todas as informações e mostrar o caminho a seguir."
+                    android:text=""
                     android:textColor="@color/black"
                     android:textStyle="normal"
                     android:textSize="18dp">
@@ -104,7 +100,8 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/viden_yellow"
                     android:text="Próximo"
-                    android:textAllCaps="false" />
+                    android:textAllCaps="false"
+                    android:onClick="passarVideo"/>
 
                 <Button
                     android:layout_marginLeft="30dp"
@@ -118,6 +115,22 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:visibility="invisible">
+                <Button
+                    android:id="@+id/bt_finalizar"
+                    android:layout_width="100dp"
+                    android:textSize="13dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/red"
+                    android:text="Finalizar Curso"
+                    android:textAllCaps="false"
+                    android:onClick="finalizarCurso"/>
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout

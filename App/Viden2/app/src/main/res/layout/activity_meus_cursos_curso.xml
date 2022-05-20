@@ -114,8 +114,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:backgroundTint="@color/viden_yellow"
-                    android:text="Ver curso"
-                    android:textAllCaps="false"/>
+                    android:text="Iniciar"
+                    android:textAllCaps="false"
+                    android:onClick="iniciarCurso"/>
 
                 <Button
                     android:layout_width="100dp"
@@ -124,7 +125,8 @@
                     android:layout_marginTop="16dp"
                     android:backgroundTint="@color/viden_yellow"
                     android:text="Ver trilha completa"
-                    android:textAllCaps="false"/>
+                    android:textAllCaps="false"
+                    android:onClick="verTrilha"/>
 
             </LinearLayout>
 

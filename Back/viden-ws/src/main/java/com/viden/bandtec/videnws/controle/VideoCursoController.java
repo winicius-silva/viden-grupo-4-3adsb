@@ -39,5 +39,19 @@ public class VideoCursoController {
         return ResponseEntity.status(201).build();
     }
 
+    @GetMapping("/{indice}/{fkCurso}")
+    public ResponseEntity getIndiceVideoByCurso(@PathVariable Integer indice,
+                                               @PathVariable Integer fkCurso){
+        List<VideoCurso> videos = repository.findAll();
+        VideoCurso retorno;
+        for (VideoCurso video : videos) {
+            if(video.getFkCurso().equals(fkCurso)){
+                if(video.getIndice().equals(indice)){
+                    return ResponseEntity.status(200).body(video);
+                }
+            }
+        }
+        return ResponseEntity.status(204).build();
+    }
 
 }

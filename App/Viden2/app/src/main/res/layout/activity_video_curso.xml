@@ -50,11 +50,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <ImageView
-                android:src="@drawable/img_youtube"
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"/>
+                android:layout_height="220dp"
+                app:autoPlay="false"/>
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -5,13 +5,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
-import com.example.viden.databinding.ActivityMeusCursosCursoBinding
 import com.example.viden.databinding.ActivityVideoCursoBinding
 import com.example.viden.fragment.Menu
 import com.example.viden.models.Video
@@ -20,6 +18,9 @@ import com.example.viden.services.VideoService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 
 class VideoCurso : AppCompatActivity() {
 
@@ -48,6 +49,15 @@ class VideoCurso : AppCompatActivity() {
                     if(response.isSuccessful){
                         binding.tvTituloVideo.text = response.body()!!.titulo
                         binding.tvDescricaoVideo.text = response.body()!!.descricaoVideo
+                        val youTubePlayerView = findViewById<YouTubePlayerView>(R.id.youtube_player_view)
+                        lifecycle.addObserver(youTubePlayerView)
+                        youTubePlayerView.addYouTubePlayerListener(object :
+                            AbstractYouTubePlayerListener() {
+                            override fun onReady(youTubePlayer: YouTubePlayer) {
+                                val videoId = response.body()!!.link
+                                youTubePlayer.loadVideo(videoId, 0f)
+                            }
+                        })
                     } else {
                         Toast.makeText(baseContext, "Erro ao carregar", Toast.LENGTH_LONG).show()
                     }

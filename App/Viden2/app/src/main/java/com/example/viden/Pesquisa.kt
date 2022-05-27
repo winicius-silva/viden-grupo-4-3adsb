@@ -52,6 +52,7 @@ class Pesquisa : AppCompatActivity() {
     fun pesquisar(view: View){
         var nomePesquisado = ""
         nomePesquisado = binding.etPesquisa.text.toString()
+        recyclerView.removeAllViews()
         retrofitCurso.getCursosSearch(nomePesquisado).enqueue(
             object: Callback<List<Curso>>{
                 override fun onResponse(call: Call<List<Curso>>, response: Response<List<Curso>>) {
@@ -60,12 +61,14 @@ class Pesquisa : AppCompatActivity() {
                             response.body()?.forEach { result ->
                                 if(result == null){
                                     Toast.makeText(baseContext, "Não encontramos cursos!", Toast.LENGTH_LONG).show()
+                                    startActivity(Intent(baseContext, Pesquisa::class.java))
                                 } else {
                                     setDataToRecyclerView(response.body()!!)
                                 }
                             }
                         } else {
                             Toast.makeText(baseContext, "Não encontramos cursos!", Toast.LENGTH_LONG).show()
+                            startActivity(Intent(baseContext, Pesquisa::class.java))
                         }
                     }
                 }
@@ -89,5 +92,49 @@ class Pesquisa : AppCompatActivity() {
             editor.apply()
             startActivity(intent)
         }
+    }
+
+    fun getBackEnd(view: View){
+        getCategoria("BACK-END")
+    }
+
+    fun getFrontEnd(view: View){
+        getCategoria("FRONT-END")
+    }
+
+    fun getDevOps(view: View){
+        getCategoria("DEV0PS")
+    }
+
+    fun getUiUx(view: View){
+        getCategoria("UIUX")
+    }
+
+    private fun getCategoria(categoria: String){
+        retrofitCurso.getCursoCategoria(categoria).enqueue(
+            object: Callback<List<Curso>>{
+                override fun onResponse(call: Call<List<Curso>>, response: Response<List<Curso>>) {
+                    if(response.isSuccessful){
+                        if(!response.body().isNullOrEmpty()){
+                            response.body()?.forEach { result ->
+                                if(result == null){
+                                    Toast.makeText(baseContext, "Não encontramos cursos!", Toast.LENGTH_LONG).show()
+                                    startActivity(Intent(baseContext, Pesquisa::class.java))
+                                } else {
+                                    setDataToRecyclerView(response.body()!!)
+                                }
+                            }
+                        } else {
+                            Toast.makeText(baseContext, "Não encontramos cursos!", Toast.LENGTH_LONG).show()
+                            startActivity(Intent(baseContext, Pesquisa::class.java))
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<List<Curso>>, t: Throwable) {
+                    Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
+                }
+            }
+        )
     }
 }

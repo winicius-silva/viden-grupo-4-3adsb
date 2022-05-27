@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
@@ -53,6 +54,9 @@ class MeusCursos : AppCompatActivity() {
     fun cursosRecentes(){
         val prefs = getSharedPreferences("USER", Context.MODE_PRIVATE)
         val id = prefs?.getInt("id", 0)
+        binding.tvTituloTela.text = "Últimos acessados"
+        listCurso.clear()
+        recyclerView.removeAllViews()
         retrofitUsuarioCurso.getMyCurso(id!!).enqueue(object : Callback<List<UsuarioCurso>> {
             override fun onResponse(call: Call<List<UsuarioCurso>>, responseUsuarioCurso: Response<List<UsuarioCurso>>) {
                 if(responseUsuarioCurso.isSuccessful){
@@ -90,6 +94,55 @@ class MeusCursos : AppCompatActivity() {
             }
         })
     }
+
+    fun mudarVisao(view:View){
+        if(binding.tvTituloTela.text.equals("Finalizados")){
+            cursosRecentes()
+        } else {
+            binding.tvTituloTela.text = "Finalizados"
+            recyclerView.removeAllViews()
+            listCurso.clear()
+            val prefs = getSharedPreferences("USER", Context.MODE_PRIVATE)
+            val id = prefs?.getInt("id", 0)
+            retrofitUsuarioCurso.getCursoFinalizados(id!!).enqueue(object : Callback<List<UsuarioCurso>> {
+                override fun onResponse(call: Call<List<UsuarioCurso>>, responseUsuarioCurso: Response<List<UsuarioCurso>>) {
+                    if(responseUsuarioCurso.isSuccessful){
+                        if(!responseUsuarioCurso.body().isNullOrEmpty()){
+                            responseUsuarioCurso.body()!!.forEach{ usuarioCurso ->
+                                if(usuarioCurso == null){
+                                    Toast.makeText(baseContext, "Não temos cursos para voce!", Toast.LENGTH_LONG).show()
+                                } else {
+                                    retrofitCurso.getOneCurso(usuarioCurso.fkCurso).enqueue(object : Callback<Curso>{
+                                        override fun onResponse(call: Call<Curso>, responseCurso: Response<Curso>) {
+                                            if(responseCurso.isSuccessful){
+                                                if(responseCurso.body() != null){
+                                                    listCurso.add(responseCurso.body()!!)
+                                                    setDataToRecyclerView(listCurso)
+                                                }
+                                            } else {
+                                                Toast.makeText(baseContext, responseCurso.message(), Toast.LENGTH_LONG).show()
+                                            }
+                                        }
+
+                                        override fun onFailure(call: Call<Curso>, t: Throwable) {
+                                            Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
+                                        }
+                                    })
+                                }
+                            }
+                        } else {
+                            Toast.makeText(baseContext, "Não temos cursos para voce!", Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<List<UsuarioCurso>>, t: Throwable) {
+                    Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
+                }
+            })
+        }
+    }
+
 
     private fun setDataToRecyclerView(cursoList: List<Curso>) {
         recyclerView.isNestedScrollingEnabled = true

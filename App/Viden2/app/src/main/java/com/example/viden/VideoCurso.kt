@@ -74,8 +74,8 @@ class VideoCurso : AppCompatActivity() {
         val prefs = getSharedPreferences("USER", Context.MODE_PRIVATE)
         val cursoClicado = prefs?.getInt("cursoClicado", 0)
         val indiceVideo = prefs?.getInt("indiceVideo", 0)
-        val teste = indiceVideo!! + 1
-        retrofitVideo.getIndiceVideoByCurso(teste, cursoClicado!!).enqueue(
+        val indice = indiceVideo!! + 1
+        retrofitVideo.getIndiceVideoByCurso(indice, cursoClicado!!).enqueue(
             object: Callback<Video>{
                 override fun onResponse(call: Call<Video>, response: Response<Video>) {
                     if(response.isSuccessful){
@@ -89,10 +89,7 @@ class VideoCurso : AppCompatActivity() {
                             editor.apply()
                             startActivity(intent)
                         } else {
-                            val botaoFinalizar: LinearLayout = findViewById(R.id.ll_botao_finalizar)
-                            botaoFinalizar.isVisible = true
-                            Toast.makeText(baseContext, "Parabens, esse é o ultimo video do seu curso!",
-                                Toast.LENGTH_LONG).show()
+                            startActivity(Intent(baseContext, ConcluirCurso::class.java))
                         }
                     } else {
                         Toast.makeText(baseContext, "Erro ao chamar este video",
@@ -114,10 +111,5 @@ class VideoCurso : AppCompatActivity() {
 
     fun irTrilhaCurso(view: View){
         startActivity(Intent(baseContext, TrilhaCurso::class.java))
-    }
-
-    fun finalizarCurso(view: View){
-        Toast.makeText(baseContext, "Obrigado por assistir esse curso", Toast.LENGTH_LONG).show()
-        startActivity(Intent(baseContext, MeusCursos::class.java))
     }
 }

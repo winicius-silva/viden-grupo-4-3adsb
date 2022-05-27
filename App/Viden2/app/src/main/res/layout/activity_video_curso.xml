@@ -116,23 +116,6 @@
                     android:onClick="irTrilhaCurso"/>
 
             </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_botao_finalizar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:visibility="invisible">
-                <Button
-                    android:layout_width="100dp"
-                    android:textSize="13dp"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/red"
-                    android:text="Finalizar Curso"
-                    android:textAllCaps="false"
-                    android:onClick="finalizarCurso"/>
-            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout

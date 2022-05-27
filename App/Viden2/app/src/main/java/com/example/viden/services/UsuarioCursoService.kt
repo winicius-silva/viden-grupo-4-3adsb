@@ -15,7 +15,7 @@ interface UsuarioCursoService{
     @GET("/usuarios_cursos/cursos-finalizados/{fkUsuario}")
     fun getCursoFinalizados(@Path("fkUsuario")fkUsuario: Int): Call<List<UsuarioCurso>>
 
-    @PATCH("/usuarios_cursos/progresso/{progresso}/{fkCurso}/{fkUsuario")
+    @PATCH("/usuarios_cursos/progresso/{progresso}/{fkCurso}/{fkUsuario}")
     fun patchCursosFinalizados(@Path("progresso") progresso: Double,
                                @Path("fkCurso") fkCurso: Int,
                                @Path("fkUsuario") fkUsuario: Int): Call<Void>

@@ -36,10 +36,11 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="☰"
+                android:text="#"
                 android:textColor="@color/white"
                 android:textSize="30sp"
-                android:textStyle="normal" />
+                android:textStyle="normal"
+                android:onClick="mudarVisao"/>
 
         </LinearLayout>
 
@@ -53,9 +54,10 @@
             android:paddingTop="25dp">
 
             <TextView
+                android:id="@+id/tv_titulo_tela"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Últimos acessados"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -85,8 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
-            android:layout_gravity="bottom" />
-
+            android:layout_gravity="bottom"/>
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

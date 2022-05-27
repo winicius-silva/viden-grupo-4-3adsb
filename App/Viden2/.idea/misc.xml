@@ -16,7 +16,7 @@
         <entry key="app/src/main/res/drawable/img_menu_1_background.xml" value="0.2" />
         <entry key="app/src/main/res/drawable/img_menu_1_foreground.xml" value="0.2" />
         <entry key="app/src/main/res/drawable/img_youtube.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/activity_cadastro.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_cadastro.xml" value="0.21" />
         <entry key="app/src/main/res/layout/activity_concluir_curso.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/activity_curso_fragment.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.19322916666666667" />
@@ -27,7 +27,7 @@
         <entry key="app/src/main/res/layout/activity_meus_cursos_curso.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/activity_meus_dados.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_minha_conta.xml" value="0.19322916666666667" />
-        <entry key="app/src/main/res/layout/activity_pesquisa.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/activity_pesquisa.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_pesquisa_curso.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/activity_redes_sociais.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/activity_sobre_nos.xml" value="0.19322916666666667" />

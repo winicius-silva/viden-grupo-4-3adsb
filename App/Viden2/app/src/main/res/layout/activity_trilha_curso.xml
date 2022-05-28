@@ -6,87 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".TrilhaCurso">
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-86dp">
-
-        <LinearLayout
+        android:orientation="vertical">
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="-86dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/viden_blue"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/img_voltar"
-                    android:onClick="voltarParaCurso"/>
-
-                <TextView
-                    android:layout_width="200dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Meus Cursos"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="30sp"
-                    android:textStyle="normal" />
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    android:background="@color/viden_blue"
                     android:gravity="center"
-                    android:text=""
-                    android:textColor="@color/white"
-                    android:textSize="30sp"
-                    android:textStyle="normal" />
+                    android:orientation="horizontal"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp">
 
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/img_voltar"
+                        android:onClick="voltarParaCurso"/>
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="Trilha do Curso"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="29sp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="30sp"
+                        android:textStyle="normal" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/title"
+                    app:spanCount="2"
+                    tools:listitem="@layout/video_adapter"/>
             </LinearLayout>
+        </ScrollView>
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/containerFragmentMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"/>
+    </RelativeLayout>
 
-            <LinearLayout
-                android:paddingTop="25dp"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:orientation="horizontal"
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="Trilha do curso"
-                    android:textAlignment="center"
-                    android:textSize="30sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold">
-                </TextView>
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@id/title"
-                app:spanCount="2"
-                tools:listitem="@layout/video_adapter"/>
-
-
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/containerFragmentMenu"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </androidx.fragment.app.FragmentContainerView>
-        </LinearLayout>
-    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,102 +6,102 @@
     android:layout_height="match_parent"
     tools:context=".SobreNos">
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-86dp">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
-
-        <LinearLayout
+        android:orientation="vertical">
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/viden_blue"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp">
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="-86dp">
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="30dp"
-                android:src="@drawable/img_voltar"
-                android:onClick="irMinhaConta"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:text="Sobre Nós"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="30sp"
-                android:textStyle="normal" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/viden_blue"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp">
 
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="30sp"
-                android:textStyle="normal" />
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/img_voltar"
+                        android:onClick="irMinhaConta"/>
 
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="Sobre Nós"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="30sp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="30sp"
+                        android:textStyle="normal" />
+
+                </LinearLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:padding="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/sobre_nos"
-                android:textStyle="italic"
-                android:textAlignment="center"
-                android:textSize="18.5dp"
-                android:textColor="@color/black"></TextView>
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:padding="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sobre_nos"
+                        android:textStyle="italic"
+                        android:textAlignment="center"
+                        android:textSize="18.5dp"
+                        android:textColor="@color/black"/>
+                </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:paddingBottom="12.5dp"
-            android:paddingTop="12.5dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Viden©"
-                android:textSize="35sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                ></TextView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:paddingBottom="12.5dp"
+                    android:paddingTop="12.5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Viden©"
+                        android:textSize="35sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="/>"
-                android:textSize="35sp"
-                android:textColor="@color/viden_yellow"
-                android:textStyle="bold"
-                ></TextView>
-        </LinearLayout>
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/containerFragmentMenu"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </androidx.fragment.app.FragmentContainerView>
-
-    </LinearLayout>
-
-    </ScrollView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="/>"
+                        android:textSize="35sp"
+                        android:textColor="@color/viden_yellow"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/containerFragmentMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="bottom"/>
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

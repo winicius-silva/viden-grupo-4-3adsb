@@ -57,7 +57,9 @@ class MeusCursosCurso : AppCompatActivity() {
                     binding.tvPontos.text = response.body()?.qtdPontos.toString()
                     val imagem = when(response.body()?.categoria) {
                         "BACK-END" -> AppCompatResources.getDrawable(baseContext, R.drawable.backend)
-                        "FRONT-END" -> AppCompatResources.getDrawable(baseContext, R.drawable.ic_launcher_background)
+                        "FRONT-END" -> AppCompatResources.getDrawable(baseContext, R.drawable.frontend)
+                        "DEV-OPS" -> AppCompatResources.getDrawable(baseContext, R.drawable.devops)
+                        "UI-UX" -> AppCompatResources.getDrawable(baseContext, R.drawable.uiux)
                         else -> AppCompatResources.getDrawable(baseContext, R.drawable.ic_launcher_background)
                     }
                     binding.ivImagemCurso.setImageDrawable(imagem)

@@ -78,7 +78,7 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintTop_toBottomOf="@id/title"
                 app:spanCount="2"
-                tools:listitem="@layout/curso_adapter" />
+                tools:listitem="@layout/curso_adapter"/>
         </ScrollView>
 
         <androidx.fragment.app.FragmentContainerView

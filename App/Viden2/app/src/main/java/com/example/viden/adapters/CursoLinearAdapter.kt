@@ -21,7 +21,9 @@ class CursoLinearAdapter (
         fun bind(curso: Curso, onCursoClickListener: (Curso) -> Unit){
             val imagem = when(curso.categoria) {
                 "BACK-END" -> R.drawable.backend
-                "FRONT-END" -> R.drawable.ic_launcher_background
+                "FRONT-END" -> R.drawable.frontend
+                "DEV-OPS" -> R.drawable.devops
+                "UI-UX" -> R.drawable.uiux
                 else -> R.drawable.ic_launcher_background
             }
             Glide.with(itemView.context)
@@ -30,6 +32,8 @@ class CursoLinearAdapter (
                 .into(itemView.findViewById(R.id.tv_curso_image))
             itemView.findViewById<TextView>(R.id.tv_curso_title).text = curso.nomeCurso
             itemView.findViewById<TextView>(R.id.tv_curso_description).text = curso.descricao
+            itemView.findViewById<TextView>(R.id.tv_sub_categoria).text = curso.subCategoria
+            itemView.findViewById<TextView>(R.id.tv_recompensa).text = curso.qtdPontos.toString()
             itemView.setOnClickListener {
                 onCursoClickListener(curso)
             }

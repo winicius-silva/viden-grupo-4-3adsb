@@ -44,7 +44,6 @@ class MeusDados : AppCompatActivity() {
         val prefs = getSharedPreferences("USER", Context.MODE_PRIVATE)
         val id = prefs.getInt("id", 0)
         retrofitUsuario.getUsuario(id).enqueue(object : Callback<Usuario> {
-//            binding.prograbasodkasdoka = View.VISIBLE
             override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
                 if (response.isSuccessful) {
                     binding.tvNome.text = response.body()?.nomeUsuario
@@ -73,7 +72,6 @@ class MeusDados : AppCompatActivity() {
                                 call: Call<Pontuacao>,
                                 responsePontuacao: Response<Pontuacao>
                             ) {
-//                                biding.progresbass = VIEW.GONE
                                 if (responsePontuacao.isSuccessful) {
                                     binding.tvCoins.text =
                                         responsePontuacao.body()?.pontos.toString()

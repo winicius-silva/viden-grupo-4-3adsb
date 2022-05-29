@@ -11,7 +11,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val prefs = getSharedPreferences("USER", Context.MODE_PRIVATE)
-        if (prefs != null) {
+        val id = prefs.getInt("id", 0)
+        if (id != 0) {
             startActivity(Intent(baseContext, MeusCursos::class.java))
         }
     }

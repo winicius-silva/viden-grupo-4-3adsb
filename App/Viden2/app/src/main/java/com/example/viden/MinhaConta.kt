@@ -1,5 +1,6 @@
 package com.example.viden
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -29,5 +30,15 @@ class MinhaConta : AppCompatActivity() {
 
     fun irRedesSociais(view: View){
         startActivity(Intent(baseContext, RedesSociais::class.java))
+    }
+
+    fun sair(view: View){
+        val editor = getSharedPreferences(
+            "USER",
+            Context.MODE_PRIVATE
+        ).edit()
+        editor.putInt("id", 0)
+        editor.apply()
+        startActivity(Intent(baseContext, MainActivity::class.java))
     }
 }

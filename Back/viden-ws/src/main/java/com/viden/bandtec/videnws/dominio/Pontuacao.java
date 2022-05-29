@@ -26,6 +26,16 @@ public class Pontuacao {
 
     private Integer fkCurso;
 
+
+    public Pontuacao(Double pontos, Integer fkUsuario) {
+        this.pontos = pontos;
+        this.fkUsuario = fkUsuario;
+    }
+
+    public Pontuacao() {
+
+    }
+
     public Integer getIdPontosUsuario() {
         return idPontosUsuario;
     }

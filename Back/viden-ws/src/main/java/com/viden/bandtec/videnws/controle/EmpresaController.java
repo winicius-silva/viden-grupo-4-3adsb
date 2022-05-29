@@ -1,7 +1,6 @@
 package com.viden.bandtec.videnws.controle;
 
 import com.viden.bandtec.videnws.dominio.Empresa;
-import com.viden.bandtec.videnws.dominio.Usuario;
 import com.viden.bandtec.videnws.repositorio.EmpresaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -39,6 +39,7 @@ class LoginSenha : AppCompatActivity() {
                             Context.MODE_PRIVATE
                         ).edit()
                         editor.putInt("id", response.body()?.idUsuario!!)
+                        editor.putInt("fkEmpresa", response.body()?.fkEmpresa!!)
                         editor.apply()
                         startActivity(Intent(baseContext, MeusCursos::class.java))
                     } else {

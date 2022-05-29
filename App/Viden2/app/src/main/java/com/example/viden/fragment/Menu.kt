@@ -6,10 +6,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.viden.MeusCursos
-import com.example.viden.MinhaConta
-import com.example.viden.Pesquisa
-import com.example.viden.R
+import com.example.viden.*
 import com.example.viden.databinding.MenuLayoutBinding
 
 class Menu: Fragment(R.layout.menu_layout) {
@@ -39,8 +36,7 @@ class Menu: Fragment(R.layout.menu_layout) {
     }
 
     fun irRanking(){
-        Toast.makeText(this.context, "Tela em produção, tente novamente mais tarde!",
-            Toast.LENGTH_SHORT).show()
+        startActivity(Intent(this.context, Ranking::class.java))
     }
 
     fun irMinhaConta(){

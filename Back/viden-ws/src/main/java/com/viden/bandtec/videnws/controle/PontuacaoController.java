@@ -58,4 +58,19 @@ public class PontuacaoController {
        novaPontuacao.setPontos(total);
        return ResponseEntity.status(200).body(novaPontuacao);
     }
+
+    @GetMapping("/total_usuarios/{usuarios}")
+    public ResponseEntity getTotalByUsuarios(@PathVariable ArrayList<Integer> usuarios){
+        List<Pontuacao> result = new ArrayList<>();
+        for(Integer fkUsuario: usuarios) {
+            Double total = 0.0;
+            List<Pontuacao> pontos = repository.findAllByFkUsuario(fkUsuario);
+            for (Pontuacao ponto : pontos) {
+                total += ponto.getPontos();
+            }
+            Pontuacao novaPontuacao = new Pontuacao(total, fkUsuario);
+            result.add(novaPontuacao);
+        }
+        return ResponseEntity.status(200).body(result);
+    }
 }

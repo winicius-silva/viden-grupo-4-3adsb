@@ -77,6 +77,43 @@ class ConcluirCurso : AppCompatActivity() {
         val prefs = getSharedPreferences("USER", Context.MODE_PRIVATE)
         val cursoClicado = prefs?.getInt("cursoClicado", 0)
         val id = prefs?.getInt("id", 0)
+        var visto = false
+        retrofitUsuarioCurso.getMyCurso(id!!).enqueue(
+            object: Callback<List<UsuarioCurso>>{
+                override fun onResponse(
+                    call: Call<List<UsuarioCurso>>,
+                    response: Response<List<UsuarioCurso>>
+                ) {
+                    if(response.isSuccessful){
+                        response.body()?.forEach { curso ->
+                            if(curso == null){
+                                visto = false
+                            } else {
+                                if(curso.fkCurso == cursoClicado){
+                                    visto = true
+                                }
+                            }
+                        }
+                        if(visto){
+                            verifyFinished()
+                        } else {
+                            Toast.makeText(baseContext, "Este curso nao foi iniciado!", Toast.LENGTH_LONG).show()
+                        }
+                    }
+                }
+
+                    override fun onFailure(call: Call<List<UsuarioCurso>>, t: Throwable) {
+                        Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
+                    }
+                }
+                )
+    }
+
+
+    fun verifyFinished(){
+        val prefs = getSharedPreferences("USER", Context.MODE_PRIVATE)
+        val cursoClicado = prefs?.getInt("cursoClicado", 0)
+        val id = prefs?.getInt("id", 0)
         var finished = false
         retrofitUsuarioCurso.getCursoFinalizados(id!!).enqueue(
             object: Callback<List<UsuarioCurso>>{
@@ -97,6 +134,9 @@ class ConcluirCurso : AppCompatActivity() {
                                 }
                             }
                         }
+                        if(!finished){
+                            somarPontos()
+                        }
                     } else {
                         Toast.makeText(baseContext, "Algo deu errado :(", Toast.LENGTH_LONG).show()
                     }
@@ -107,9 +147,6 @@ class ConcluirCurso : AppCompatActivity() {
                 }
             }
         )
-        if(!finished){
-            somarPontos()
-        }
     }
 
     private fun somarPontos(){

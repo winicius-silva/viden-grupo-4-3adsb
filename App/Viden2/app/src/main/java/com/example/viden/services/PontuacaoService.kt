@@ -18,4 +18,7 @@ interface PontuacaoService {
     @GET("/pontuacoes/total/{fkUsuario}")
     fun getPontosTotalPorUsuario(@Path("fkUsuario")fkUsuario: Int): Call<Pontuacao>
 
+    @GET("/pontuacoes/total_usuarios/{usuarios}")
+    fun getTotalByUsuarios(@Path("usuarios") usuarios: String): Call<List<Pontuacao>>
+
 }

@@ -63,4 +63,14 @@ public class UsuarioController {
         return ResponseEntity.status(200).body(usuario);
     }
 
+
+    @GetMapping("/empresa/{fkEmpresa}")
+    public ResponseEntity getUsuarioByEmpresa(@PathVariable Integer fkEmpresa){
+        List<Usuario> usuarios = repository.findByFkEmpresa(fkEmpresa);
+        if (usuarios.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        }
+        return ResponseEntity.status(200).body(usuarios);
+    }
+
 }

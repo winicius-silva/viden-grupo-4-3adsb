@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Viden">
         <activity
+            android:name=".Ranking"
+            android:exported="true" />
+        <activity
             android:name=".TermosDeUso"
             android:exported="true" />
         <activity

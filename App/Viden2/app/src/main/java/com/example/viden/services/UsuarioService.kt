@@ -18,4 +18,10 @@ interface UsuarioService {
 
     @POST("/usuarios")
     fun cadastrar(@Body novoUsuario: Usuario): Call<Void>
+
+    @GET("/usuarios/empresa/{fkEmpresa}")
+    fun getUsuariosByEmpresa(@Path("fkEmpresa") fkEmpresa: Int): Call<List<Usuario>>
+
+    @GET("/usuarios")
+    fun getAllUsuarios(): Call<List<Usuario>>
 }

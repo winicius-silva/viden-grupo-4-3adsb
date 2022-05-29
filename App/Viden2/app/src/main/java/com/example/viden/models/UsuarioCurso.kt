@@ -1,7 +1,5 @@
 package com.example.viden.models
 
-import java.time.LocalDate
-
 data class UsuarioCurso (
     var idUsuarioCurso: Int?,
     var fkUsuario: Int,

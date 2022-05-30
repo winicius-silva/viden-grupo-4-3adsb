@@ -1,7 +1,7 @@
 import { useContext, createContext, useState, useCallback, useEffect } from 'react'
 
 import api from '../api'
-import cursosJSON from '../assets/json_dash.json'
+import cursosJSON from 'src/assets/json_dash.json'
 
 const CursoContext = createContext({})
 

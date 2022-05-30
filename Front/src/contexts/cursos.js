@@ -1,9 +1,46 @@
 import { useContext, createContext, useState, useCallback, useEffect } from 'react'
 
 import api from '../api'
-import cursosJSON from 'src/assets/json_dash.json'
+// import cursosJSON from 'src/assets/json_dash.json'
 
 const CursoContext = createContext({})
+
+const cursosJSON = [
+    {
+        "id": "geral",
+        "title": "GERAL",
+        "content": "Encontre uma vasta Variedade de cursos, desde Cursos de Gestão a cursos de Mobile, explore, aprenda e coloque em prática.",
+        "categoria": "GERAL"
+    },
+
+    {
+        "id": "back_end",
+        "title": "BACK-END",
+        "content": "Programe nas principais linguagens e plataformas. Explore plataformas como Python, Node.JS, PHP, Java, e .NET a fundo, além de muito conteúdo em outras linguagens como GoLang, Clojure, C/C++, VB ou Cobol.  Saiba como começar com Programação.  Conheça mais da Escola de Programação ou navegue nessa página para ver todos nossos cursos e formações.",
+        "categoria": "BACK-END"
+    },
+
+    {
+        "id": "front_end",
+        "title": "FRONT-END",
+        "content": "Desenvolva experiências web incríveis com HTML, CSS e JavaScript, além de se aprofundar nos principais frameworks do mercado, como React, Angular e domine JavaScript a fundo.",
+        "categoria": "FRONT-END"
+    },
+
+    {
+        "id": "nuvem",
+        "title": "NUVEM & CLOUD",
+        "content": "Aprenda Amazon AWS, Microsoft Azure e Google Cloud de forma prática e sem complicações com os cursos que vão te possibilitar a escalar seus sistemas na nuvem. Saiba como começar com AWS.",
+        "categoria": "NUVEM"
+    },
+
+    {
+        "id": "ux_design",
+        "title": "UX-DESIGN",
+        "content": "O universo de UX & Design é gigante. Crie diferentes layouts para plataformas digitais.Construa e expanda o seu conhecimento nas principais tendências do mercado.",
+        "categoria": "UX-DESIGN"
+    }
+]
 
 export function CursosProvider(props) {
     const [categoriaCursoSelecionado, setCategoriaCursoSelecionado] = useState('back_end')

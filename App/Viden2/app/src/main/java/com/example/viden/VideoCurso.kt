@@ -56,7 +56,6 @@ class VideoCurso : AppCompatActivity() {
                             override fun onReady(youTubePlayer: YouTubePlayer) {
                                 val videoId = response.body()!!.link
                                 youTubePlayer.loadVideo(videoId, 0f)
-                                youTubePlayer.pause()
                             }
                         })
                     } else {

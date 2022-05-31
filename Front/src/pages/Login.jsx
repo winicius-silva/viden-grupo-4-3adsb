@@ -21,7 +21,7 @@ function Login() {
 
         console.log('values %s %s', email, senha)
 
-        axios.get(`http://localhost:8080/usuarios/login/${email}/${senha}`, {
+        axios.get(`http://174.129.43.180:8080/usuarios/login/${email}/${senha}`, {
             headers: {"Access-Control-Allow-Origin": "*", "crossorigin": true },
         }).then(response => {
             localStorage.setItem('id_usuario', response.data.idUsuario);

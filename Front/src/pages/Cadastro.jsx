@@ -50,7 +50,7 @@ function Cadastro() {
 
             console.log('values %s, %s, %s, %s, %s,',nome, cpf, telefone, email, senha)
 
-            axios.post(`http://localhost:8080/usuarios/`, {
+            axios.post(`http://174.129.43.180:8080/usuarios/`, {
                 headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true },
                 "nomeUsuario": nome,
                 "cpf": cpf,

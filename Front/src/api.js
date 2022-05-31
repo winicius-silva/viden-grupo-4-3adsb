@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL : "http://localhost:8080/",
+    baseURL : "http://174.129.43.180:8080/",
     headers: { "Access-Control-Allow-Origin": "*", "crossorigin": true }
 });
 

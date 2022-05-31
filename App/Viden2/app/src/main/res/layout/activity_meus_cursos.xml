@@ -11,6 +11,11 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/containerFragmentLoading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
         <LinearLayout
             android:id="@+id/primeiro_container"
             android:layout_width="match_parent"

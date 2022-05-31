@@ -11,6 +11,11 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/containerFragmentLoading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -65,7 +70,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -81,7 +86,7 @@
                         android:text=""
                         android:textColor="@color/black"
                         android:textSize="25sp"
-                        android:textStyle="bold"></TextView>
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/tv_descricao_video"
@@ -89,13 +94,15 @@
                         android:layout_height="match_parent"
                         android:text=""
                         android:textColor="@color/black"
+                        android:layout_margin="30dp"
                         android:textSize="20dp"
-                        android:textStyle="normal"></TextView>
+                        android:textStyle="normal" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="90dp"
+                    android:layout_marginTop="40dp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -126,10 +133,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:paddingTop="28dp"
-                android:paddingBottom="48dp">
+                android:paddingBottom="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"

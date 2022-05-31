@@ -10,7 +10,9 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
+import com.example.viden.databinding.ActivityTrilhaCursoBinding
 import com.example.viden.databinding.ActivityVideoCursoBinding
+import com.example.viden.fragment.Loading
 import com.example.viden.fragment.Menu
 import com.example.viden.models.Video
 import com.example.viden.rest.Rest
@@ -34,6 +36,10 @@ class VideoCurso : AppCompatActivity() {
             setReorderingAllowed(true)
             add<Menu>(R.id.containerFragmentMenu)
         }
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            add<Loading>(R.id.containerFragmentLoading)
+        }
         binding = ActivityVideoCursoBinding.inflate(layoutInflater)
         setContentView(binding.root)
         gerarVideo()
@@ -50,6 +56,7 @@ class VideoCurso : AppCompatActivity() {
                         binding.tvTituloVideo.text = response.body()!!.titulo
                         binding.tvDescricaoVideo.text = response.body()!!.descricaoVideo
                         val youTubePlayerView = findViewById<YouTubePlayerView>(R.id.youtube_player_view)
+                        binding.containerFragmentLoading.isVisible = false
                         lifecycle.addObserver(youTubePlayerView)
                         youTubePlayerView.addYouTubePlayerListener(object :
                             AbstractYouTubePlayerListener() {
@@ -64,6 +71,7 @@ class VideoCurso : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<Video>, t: Throwable) {
+                    binding.containerFragmentLoading.isVisible = false
                     Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
                 }
             }

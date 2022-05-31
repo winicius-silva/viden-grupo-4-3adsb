@@ -7,9 +7,16 @@
     tools:context=".Pesquisa">
 
     <RelativeLayout
+        android:id="@+id/rl_father"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/containerFragmentLoading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -50,6 +57,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:orientation="horizontal"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:gravity="center">
 
                 <EditText

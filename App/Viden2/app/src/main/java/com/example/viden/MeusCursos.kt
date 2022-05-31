@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.core.view.isVisible
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.viden.adapters.CursoLinearAdapter
 import com.example.viden.databinding.ActivityMeusCursosBinding
+import com.example.viden.fragment.Loading
 import com.example.viden.fragment.Menu
 import com.example.viden.models.Curso
 import com.example.viden.models.UsuarioCurso
@@ -36,6 +38,11 @@ class MeusCursos : AppCompatActivity() {
         supportFragmentManager.commit {
             setReorderingAllowed(true)
             add<Menu>(R.id.containerFragmentMenu)
+        }
+        supportFragmentManager.executePendingTransactions()
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            add<Loading>(R.id.containerFragmentLoading)
         }
         supportFragmentManager.executePendingTransactions()
         binding = ActivityMeusCursosBinding.inflate(layoutInflater)
@@ -63,6 +70,7 @@ class MeusCursos : AppCompatActivity() {
                     if(!responseUsuarioCurso.body().isNullOrEmpty()){
                         responseUsuarioCurso.body()!!.forEach{ usuarioCurso ->
                             if(usuarioCurso == null){
+                                binding.containerFragmentLoading.isVisible = false
                                 Toast.makeText(baseContext, "Não temos cursos para voce!", Toast.LENGTH_LONG).show()
                             } else {
                                 retrofitCurso.getOneCurso(usuarioCurso.fkCurso).enqueue(object : Callback<Curso>{
@@ -71,19 +79,24 @@ class MeusCursos : AppCompatActivity() {
                                             if(responseCurso.body() != null){
                                                 listCurso.add(responseCurso.body()!!)
                                                 setDataToRecyclerView(listCurso)
+                                                binding.containerFragmentLoading.isVisible = false
                                             }
+                                            binding.containerFragmentLoading.isVisible = false
                                         } else {
+                                            binding.containerFragmentLoading.isVisible = false
                                             Toast.makeText(baseContext, responseCurso.message(), Toast.LENGTH_LONG).show()
                                         }
                                     }
 
                                     override fun onFailure(call: Call<Curso>, t: Throwable) {
+                                        binding.containerFragmentLoading.isVisible = false
                                         Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
                                     }
                                 })
                             }
                             }
                     } else {
+                        binding.containerFragmentLoading.isVisible = false
                         Toast.makeText(baseContext, "Não temos cursos para voce!", Toast.LENGTH_LONG).show()
                     }
                 }
@@ -96,6 +109,7 @@ class MeusCursos : AppCompatActivity() {
     }
 
     fun mudarVisao(view:View){
+        binding.containerFragmentLoading.isVisible = true
         if(binding.tvTituloTela.text.equals("Finalizados")){
             cursosRecentes()
         } else {
@@ -110,6 +124,7 @@ class MeusCursos : AppCompatActivity() {
                         if(!responseUsuarioCurso.body().isNullOrEmpty()){
                             responseUsuarioCurso.body()!!.forEach{ usuarioCurso ->
                                 if(usuarioCurso == null){
+                                    binding.containerFragmentLoading.isVisible = false
                                     Toast.makeText(baseContext, "Não temos cursos para voce!", Toast.LENGTH_LONG).show()
                                 } else {
                                     retrofitCurso.getOneCurso(usuarioCurso.fkCurso).enqueue(object : Callback<Curso>{
@@ -118,25 +133,30 @@ class MeusCursos : AppCompatActivity() {
                                                 if(responseCurso.body() != null){
                                                     listCurso.add(responseCurso.body()!!)
                                                     setDataToRecyclerView(listCurso)
+                                                    binding.containerFragmentLoading.isVisible = false
                                                 }
                                             } else {
+                                                binding.containerFragmentLoading.isVisible = false
                                                 Toast.makeText(baseContext, responseCurso.message(), Toast.LENGTH_LONG).show()
                                             }
                                         }
 
                                         override fun onFailure(call: Call<Curso>, t: Throwable) {
+                                            binding.containerFragmentLoading.isVisible = false
                                             Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
                                         }
                                     })
                                 }
                             }
                         } else {
+                            binding.containerFragmentLoading.isVisible = false
                             Toast.makeText(baseContext, "Não temos cursos para voce!", Toast.LENGTH_LONG).show()
                         }
                     }
                 }
 
                 override fun onFailure(call: Call<List<UsuarioCurso>>, t: Throwable) {
+                    binding.containerFragmentLoading.isVisible = false
                     Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
                 }
             })

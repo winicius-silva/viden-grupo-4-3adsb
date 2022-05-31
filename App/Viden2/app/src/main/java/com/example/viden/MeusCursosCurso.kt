@@ -7,9 +7,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.isVisible
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import com.example.viden.databinding.ActivityMeusCursosCursoBinding
+import com.example.viden.fragment.Loading
 import com.example.viden.fragment.Menu
 import com.example.viden.models.Curso
 import com.example.viden.models.UsuarioCurso
@@ -34,6 +36,11 @@ class MeusCursosCurso : AppCompatActivity() {
         supportFragmentManager.commit {
             setReorderingAllowed(true)
             add<Menu>(R.id.containerFragmentMenu)
+        }
+        supportFragmentManager.executePendingTransactions()
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            add<Loading>(R.id.containerFragmentLoading)
         }
         supportFragmentManager.executePendingTransactions()
         binding = ActivityMeusCursosCursoBinding.inflate(layoutInflater)
@@ -63,10 +70,12 @@ class MeusCursosCurso : AppCompatActivity() {
                         else -> AppCompatResources.getDrawable(baseContext, R.drawable.ic_launcher_background)
                     }
                     binding.ivImagemCurso.setImageDrawable(imagem)
+                    binding.containerFragmentLoading.isVisible = false
                 }
             }
 
             override fun onFailure(call: Call<Curso>, t: Throwable) {
+                binding.containerFragmentLoading.isVisible = false
                 Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
             }
         })

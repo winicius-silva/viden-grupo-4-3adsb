@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import com.example.viden.databinding.ActivityRankingBinding
+import com.example.viden.fragment.Loading
 import com.example.viden.fragment.Menu
 import com.example.viden.models.Empresa
 import com.example.viden.models.Pontuacao
@@ -33,6 +35,11 @@ class Ranking : AppCompatActivity() {
         supportFragmentManager.commit {
             setReorderingAllowed(true)
             add<Menu>(R.id.containerFragmentMenu)
+        }
+        supportFragmentManager.executePendingTransactions()
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            add<Loading>(R.id.containerFragmentLoading)
         }
         supportFragmentManager.executePendingTransactions()
         binding = ActivityRankingBinding.inflate(layoutInflater)
@@ -208,13 +215,16 @@ class Ranking : AppCompatActivity() {
                                 binding.tvVidenPontos5.text = list[4].pontos.toString()
                                 getNome(list[4].fkUsuario, binding.tvVidenNome5)
                             }
+                            binding.containerFragmentLoading.isVisible = false
                         }
                     } else {
+                        binding.containerFragmentLoading.isVisible = false
                         Toast.makeText(baseContext, "Algo deu errado :(", Toast.LENGTH_LONG).show()
                     }
                 }
 
                 override fun onFailure(call: Call<List<Pontuacao>>, t: Throwable) {
+                    binding.containerFragmentLoading.isVisible = false
                     Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
                 }
             }

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -13,6 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.viden.adapters.CursoLinearAdapter
 import com.example.viden.adapters.VideoLinearAdapter
+import com.example.viden.databinding.ActivityMeusDadosBinding
+import com.example.viden.databinding.ActivityTrilhaCursoBinding
+import com.example.viden.fragment.Loading
 import com.example.viden.fragment.Menu
 import com.example.viden.models.Curso
 import com.example.viden.models.Video
@@ -27,6 +31,7 @@ class TrilhaCurso : AppCompatActivity() {
 
     private val retrofitVideo = Rest.getInstance().create(VideoService::class.java)
     private lateinit var recyclerView: RecyclerView
+    private lateinit var binding: ActivityTrilhaCursoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +40,13 @@ class TrilhaCurso : AppCompatActivity() {
             setReorderingAllowed(true)
             add<Menu>(R.id.containerFragmentMenu)
         }
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            add<Loading>(R.id.containerFragmentLoading)
+        }
+        binding = ActivityTrilhaCursoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        supportFragmentManager.executePendingTransactions()
         startUI()
         gerarVideos()
     }
@@ -54,7 +66,9 @@ class TrilhaCurso : AppCompatActivity() {
                 if(response.isSuccessful){
                     if(response.body() != null){
                         setDataToRecyclerView(response.body()!!)
+                        binding.containerFragmentLoading.isVisible = false
                     } else {
+                        binding.containerFragmentLoading.isVisible = false
                         Toast.makeText(baseContext, "Não encontramos videos para este curso",
                             Toast.LENGTH_LONG).show()
                     }
@@ -62,6 +76,7 @@ class TrilhaCurso : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<List<Video>>, t: Throwable) {
+                binding.containerFragmentLoading.isVisible = false
                 Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
             }
 

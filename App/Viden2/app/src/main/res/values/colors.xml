@@ -15,4 +15,5 @@
     <color name="ouro">#CAA424</color>
     <color name="prata">#707070</color>
     <color name="bronze">#681D07</color>
+    <color name="loading">#5C808080</color>
 </resources>

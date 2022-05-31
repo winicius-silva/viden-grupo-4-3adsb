@@ -23,4 +23,6 @@ Nós temos como objetivo, centralizar as informações sobre os cursos de tecnol
 
         Alunos e instrutores devem ter, pelo menos, 18 anos de idade para criar uma conta na Viden e usar os Serviços. Se você ainda não tiver 18 anos de idade, mas já tiver a idade mínima para o consentimento de uso de serviços on-line no país onde mora (por exemplo, 13 anos nos EUA ou 16 na Irlanda), você não poderá criar uma conta, mas sugerimos pedir para seu pai, sua mãe ou outro responsável abrir uma conta e ajudar você a acessar conteúdo apropriado. Caso ainda não tenha alcançado a idade de consentimento para o uso de serviços on-line, você não poderá criar uma conta da Viden. Se descobrirmos que você criou uma conta que infrinja essas regras, encerraremos essa conta.
     </string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

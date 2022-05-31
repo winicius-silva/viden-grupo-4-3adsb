@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.viden.adapters.CursoLinearAdapter
 import com.example.viden.databinding.ActivityPesquisaBinding
+import com.example.viden.fragment.Loading
 import com.example.viden.fragment.Menu
 import com.example.viden.models.Curso
 import com.example.viden.rest.Rest
@@ -37,8 +39,14 @@ class Pesquisa : AppCompatActivity() {
             add<Menu>(R.id.containerFragmentMenu)
         }
         supportFragmentManager.executePendingTransactions()
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            add<Loading>(R.id.containerFragmentLoading)
+        }
+        supportFragmentManager.executePendingTransactions()
         binding = ActivityPesquisaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.containerFragmentLoading.isVisible = false
         startUI()
     }
 
@@ -50,9 +58,10 @@ class Pesquisa : AppCompatActivity() {
     }
 
     fun pesquisar(view: View){
+        binding.recyclerView.removeAllViewsInLayout()
+        binding.containerFragmentLoading.isVisible = true
         var nomePesquisado = ""
         nomePesquisado = binding.etPesquisa.text.toString()
-        recyclerView.removeAllViews()
         retrofitCurso.getCursosSearch(nomePesquisado).enqueue(
             object: Callback<List<Curso>>{
                 override fun onResponse(call: Call<List<Curso>>, response: Response<List<Curso>>) {
@@ -60,13 +69,16 @@ class Pesquisa : AppCompatActivity() {
                         if(!response.body().isNullOrEmpty()){
                             response.body()?.forEach { result ->
                                 if(result == null){
+                                    binding.containerFragmentLoading.isVisible = false
                                     Toast.makeText(baseContext, "Não encontramos cursos!", Toast.LENGTH_LONG).show()
                                     startActivity(Intent(baseContext, Pesquisa::class.java))
                                 } else {
                                     setDataToRecyclerView(response.body()!!)
+                                    binding.containerFragmentLoading.isVisible = false
                                 }
                             }
                         } else {
+                            binding.containerFragmentLoading.isVisible = false
                             Toast.makeText(baseContext, "Não encontramos cursos!", Toast.LENGTH_LONG).show()
                             startActivity(Intent(baseContext, Pesquisa::class.java))
                         }
@@ -74,6 +86,7 @@ class Pesquisa : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<List<Curso>>, t: Throwable) {
+                    binding.containerFragmentLoading.isVisible = false
                     Toast.makeText(baseContext, t.message, Toast.LENGTH_LONG).show()
                 }
             }
@@ -111,6 +124,8 @@ class Pesquisa : AppCompatActivity() {
     }
 
     private fun getCategoria(categoria: String){
+        binding.recyclerView.removeAllViewsInLayout()
+        binding.containerFragmentLoading.isVisible = true
         retrofitCurso.getCursoCategoria(categoria).enqueue(
             object: Callback<List<Curso>>{
                 override fun onResponse(call: Call<List<Curso>>, response: Response<List<Curso>>) {
@@ -118,13 +133,16 @@ class Pesquisa : AppCompatActivity() {
                         if(!response.body().isNullOrEmpty()){
                             response.body()?.forEach { result ->
                                 if(result == null){
+                                    binding.containerFragmentLoading.isVisible = false
                                     Toast.makeText(baseContext, "Não encontramos cursos!", Toast.LENGTH_LONG).show()
                                     startActivity(Intent(baseContext, Pesquisa::class.java))
                                 } else {
                                     setDataToRecyclerView(response.body()!!)
+                                    binding.containerFragmentLoading.isVisible = false
                                 }
                             }
                         } else {
+                            binding.containerFragmentLoading.isVisible = false
                             Toast.makeText(baseContext, "Não encontramos cursos!", Toast.LENGTH_LONG).show()
                             startActivity(Intent(baseContext, Pesquisa::class.java))
                         }

@@ -103,11 +103,11 @@ class Pesquisa : AppCompatActivity() {
     }
 
     fun getDevOps(view: View){
-        getCategoria("DEV0PS")
+        getCategoria("DEV-OPS")
     }
 
     fun getUiUx(view: View){
-        getCategoria("UIUX")
+        getCategoria("UI-UX")
     }
 
     private fun getCategoria(categoria: String){

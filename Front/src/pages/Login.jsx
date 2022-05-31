@@ -20,6 +20,7 @@ function Login() {
         e.preventDefault();
 
         console.log('values %s %s', email, senha)
+        
 
         axios.get(`http://174.129.43.180:8080/usuarios/login/${email}/${senha}`, {
             headers: {"Access-Control-Allow-Origin": "*", "crossorigin": true },

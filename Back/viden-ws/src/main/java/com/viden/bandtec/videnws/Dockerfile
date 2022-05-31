@@ -1,7 +1,6 @@
-FROM openjdk:8-jdk-alpine
-RUN addgroup -S spring && adduser -S spring -G spring
-USER spring:spring
-ARG JAR_FILE=./*.jar
-COPY ./manifest.txt ./viden-ws.jar
-COPY ./viden-ws.jar ./viden-ws.jar
-ENTRYPOINT ["java","-jar","viden-ws.jar"]
+FROM alpine:latest
+ADD  viden-ws-0.0.1-SNAPSHOT.jar viden-ws-0.0.1-SNAPSHOT.jar
+RUN apk --update add openjdk8-jre
+COPY viden-ws-0.0.1-SNAPSHOT.jar /usr/share/home
+CMD java -jar /opt/iotruck/iotruck.jar --spring.profiles.active=local
+ENTRYPOINT ["java","-jar","viden-ws-0.0.1-SNAPSHOT.jar"]
